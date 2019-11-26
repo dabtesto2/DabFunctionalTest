@@ -11,9 +11,10 @@ def step_impl(context, device_profile):
     del android_device_obj
 
 
-@given(u'Add APN "{apn_n}" "{apn}" "{user}" "{passwd}" "{mmsc}" "{mmsc_prxy}" "{mms_port}" "{proxy}" "{port}" to device profile')
-def step_impl_add_apn_with_proxy(context,apn_n, apn, user, passwd, mmsc, mmsc_prxy, mms_port, proxy, port):
-    android_device_obj = AndroidDevice("NDS")
+@given(u'Add APN "{apn_n}" "{apn}" "{user}" "{passwd}" "{mmsc}" "{mmsc_prxy}" "{mms_port}" "{proxy}" "{port}" "{'
+       u'd_profile}" profile')
+def step_impl_add_apn_with_proxy(context,apn_n, apn, user, passwd, mmsc, mmsc_prxy, mms_port, proxy, port, d_profile):
+    android_device_obj = AndroidDevice(d_profile)
     android_device_obj.open_apn_page()
     android_device_obj.add_apn(apn_n, apn, user, passwd, mmsc, mmsc_prxy, mms_port, proxy, port)
     del android_device_obj
