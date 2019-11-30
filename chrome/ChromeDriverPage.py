@@ -59,8 +59,11 @@ class ChromeDriverPage:
 
     def click_links_from_page(self, no_links):
         while no_links > 0:
-            self.driver.get(self.html_links.pop(randint(0, (len(self.html_links) - 1))))
-            no_links -= 1
+            try:
+                self.driver.get(self.html_links.pop(randint(0, (len(self.html_links) - 1))))
+                no_links -= 1
+            except Exception as error:
+                print("Selenium exception during click_links_from_page " + str(error))
 
     def check_document_ready_state(self, title):
         try:
