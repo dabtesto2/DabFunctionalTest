@@ -9,7 +9,7 @@ import time
 def step_impl(context, device_profile, apn_name, seconds):
     context.device_profile = device_profile
     android_device_obj = AndroidDevice(device_profile)
-    android_device_obj.dismiss_message_box()
+    android_device_obj.dismiss_message_box_if_any()
     android_device_obj.select_apn(apn_name)
     android_device_obj.set_android_wait(int(seconds))
     android_device_obj.get_android_device_screen_shot()
@@ -20,7 +20,7 @@ def step_impl(context, device_profile, apn_name, seconds):
 @when(u'Network connection status is "{status}" collect device information')
 def step_impl(context, status):
     android_device_obj = AndroidDevice(context.device_profile)
-    android_device_obj.dismiss_message_box()
+    android_device_obj.dismiss_message_box_if_any()
     context.device_id = android_device_obj.get_android_device_id()
     android_device_obj.open_android_device_status_page("About phone")
     android_device_obj.set_android_wait(2)

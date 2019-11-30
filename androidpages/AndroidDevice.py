@@ -128,7 +128,7 @@ class AndroidDevice(BasePage):
         except Exception as error:
             print("Selenium exception during open_android_device_status_page " + str(error))
 
-    def dismiss_message_box(self):
+    def dismiss_message_box_if_any(self):
         try:
             self.click_message_box(MessageBox.dismiss_alert)
         except TimeoutException:

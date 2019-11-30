@@ -7,9 +7,12 @@ from selenium.common.exceptions import InvalidSessionIdException, TimeoutExcepti
 from selenium.webdriver.support.wait import WebDriverWait
 
 from androidpages.AppiumClientLocal import AppiumClientLocal
+from selenium.webdriver.support import expected_conditions as ec
+
+from androidpages.Locators import MessageBox
 
 
-class ChromeDriverPage:
+class ChromeDriverPage():
     def __init__(self, device_profile, timeout=10):
         self.chrome_driver_timeout = timeout
         self.html_links = []
@@ -71,3 +74,12 @@ class ChromeDriverPage:
                 lambda driver: self.driver.execute_script('return document.readyState') == 'complete')
         except TimeoutException:
             raise ValueError(f' {title} Web Page did not load in {self.chrome_driver_timeout} seconds')
+
+    def dismiss_message_box_if_any(self):
+        try:
+            wait = WebDriverWait(self.driver, (self.chrome_driver_timeout / self.chrome_driver_timeout))
+            by_locator = MessageBox.dismiss_alert
+            element = wait.until(ec.element_to_be_clickable((by_locator[0], by_locator[1])))
+            element.click()
+        except TimeoutException:
+            pass
