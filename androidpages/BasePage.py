@@ -1,17 +1,17 @@
 import os
-
 from selenium.common.exceptions import InvalidSessionIdException
+from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
-
 from androidpages.AndroidDevicePool import AndroidDevicePool
 from androidpages.AndroidInternals import AndroidNetworkConnection
 from androidpages.AndroidInternals import AndroidKeys
 from selenium.webdriver.remote import command
-
 from androidpages.AppiumClientLocal import AppiumClientLocal
 from appium import webdriver
 import time
+from urllib3.exceptions import NewConnectionError, MaxRetryError
+import allure_behave
 
 
 class BasePage(object):
@@ -20,7 +20,7 @@ class BasePage(object):
     """
 
     # this function is called every time a new object of the base class is created.
-    def __init__(self, device_profile, timeout=30):
+    def __init__(self, device_profile, timeout=5):
         android = AndroidDevicePool(device_profile)
         client = AppiumClientLocal()
         self.device_id = android.get_android_device_id()
@@ -28,8 +28,14 @@ class BasePage(object):
                             deviceOrientation=android.orientation, deviceName=android.platform,
                             udid=self.device_id, appActivity=android.starupactivity,
                             appPackage=android.startuppackage)
-        self.driver = webdriver.Remote(client.get_remote_url(), desired_caps)
-        self.driver.implicitly_wait(timeout)
+        try:
+            self.driver = webdriver.Remote(client.get_remote_url(), desired_caps)
+            self.driver.implicitly_wait(timeout / timeout)
+        except NewConnectionError as e:
+            print("Remote appium web driver Connection Error ")
+        except MaxRetryError as e:
+            print("Remote appium web driver Connection error ")
+
         self.test_working_directory = '%s/' % os.getcwd()
         self.element_timeout = timeout
         self.result_directory = '%s/screenshot/' % os.getcwd()
@@ -41,6 +47,8 @@ class BasePage(object):
                 self.driver.quit()
         except InvalidSessionIdException:
             pass
+        except ValueError:
+            print("Driver session not exist")
 
     # this function performs click on web element whose locator is passed to it.
     def find_element_and_click(self, by_locator):
@@ -83,3 +91,8 @@ class BasePage(object):
 
     def set_android_wait(self, seconds):
         time.sleep(seconds)
+
+    def click_message_box(self, by_locator):
+        wait = WebDriverWait(self.driver, (self.element_timeout / self.element_timeout))
+        element = wait.until(ec.element_to_be_clickable((by_locator[0], by_locator[1])))
+        element.click()

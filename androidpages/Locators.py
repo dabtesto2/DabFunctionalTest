@@ -32,6 +32,10 @@ class MobileNetworks:
     AccesPointNames = (MobileBy.XPATH, "//android.widget.TextView[@text='Access Point Names']")
 
 
+class MessageBox:
+    dismiss_alert = (MobileBy.XPATH, "//android.widget.Button[@text='OK']")
+
+
 class AccessPointNames:
     """
         Locators for AccessPointNames Page
