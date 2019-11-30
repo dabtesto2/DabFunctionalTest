@@ -9,6 +9,7 @@ import time
 def step_impl(context, device_profile, apn_name, seconds):
     context.device_profile = device_profile
     android_device_obj = AndroidDevice(device_profile)
+    android_device_obj.dismiss_message_box()
     android_device_obj.select_apn(apn_name)
     android_device_obj.set_android_wait(int(seconds))
     android_device_obj.get_android_device_screen_shot()
@@ -19,10 +20,12 @@ def step_impl(context, device_profile, apn_name, seconds):
 @when(u'Network connection status is "{status}" collect device information')
 def step_impl(context, status):
     android_device_obj = AndroidDevice(context.device_profile)
+    android_device_obj.dismiss_message_box()
     context.device_id = android_device_obj.get_android_device_id()
     android_device_obj.open_android_device_status_page("About phone")
     android_device_obj.set_android_wait(2)
     network_conn = android_device_obj.get_network_connection()
-    assert_that(network_conn, equal_to_ignoring_whitespace(status), raises(ValueError, network_conn))
+    assert_that(network_conn, equal_to_ignoring_whitespace(status),
+                raises(ValueError, "No User plane for this session Mobile returned status = " + network_conn))
     android_device_obj.get_android_device_screen_shot()
     del android_device_obj
