@@ -24,7 +24,7 @@ class ChromeDriverPage:
         client = AppiumClientLocal()
         desired_caps = dict(automationName=client.name, platformName=self.platform, browserName=self.browser,
                             udid=self.device_id, deviceName=self.platform, chromedriverExecutable=self.chromedriverpath
-                             )
+                            )
         self.driver = webdriver.Remote(client.get_remote_url(), desired_caps)
         self.driver.implicitly_wait(self.chrome_driver_timeout)
 
@@ -62,11 +62,9 @@ class ChromeDriverPage:
             self.driver.get(self.html_links.pop(randint(0, (len(self.html_links) - 1))))
             no_links -= 1
 
-    def check_document_ready_state(self,title):
+    def check_document_ready_state(self, title):
         try:
             WebDriverWait(self.driver, self.chrome_driver_timeout).until(
                 lambda driver: self.driver.execute_script('return document.readyState') == 'complete')
         except TimeoutException:
             raise ValueError(f' {title} Web Page did not load in {self.chrome_driver_timeout} seconds')
-
-
