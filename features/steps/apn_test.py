@@ -5,7 +5,7 @@ from androidpages.AndroidDevice import AndroidDevice
 @given(u'Reset all APN for device with "{device_profile}" profile to factory settings')
 def step_impl(context, device_profile):
     android_device_obj = AndroidDevice(device_profile)
-    android_device_obj.dismiss_message_box()
+    android_device_obj.dismiss_message_box_if_any()
     android_device_obj.open_apn_page()
     android_device_obj.reset_all_apn()
     android_device_obj.get_android_device_screen_shot()
@@ -16,7 +16,7 @@ def step_impl(context, device_profile):
        u'd_profile}" profile')
 def step_impl_add_apn_with_proxy(context,apn_n, apn, user, passwd, mmsc, mmsc_prxy, mms_port, proxy, port, d_profile):
     android_device_obj = AndroidDevice(d_profile)
-    android_device_obj.dismiss_message_box()
+    android_device_obj.dismiss_message_box_if_any()
     android_device_obj.open_apn_page()
     android_device_obj.add_apn(apn_n, apn, user, passwd, mmsc, mmsc_prxy, mms_port, proxy, port)
     del android_device_obj
