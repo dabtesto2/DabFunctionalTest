@@ -45,7 +45,7 @@ class AndroidTestPluginApp:
         return self.execute_adb_shell(self.get_imei)
 
     def get_device_info(self):
-        return self.driver.execute_script("mobile:deviceinfo")
+        return self.driver.execute_script("mobile:deviceInfo")
 
     def dismiss_alert(self):
         self.driver.execute_script("mobile:dismissAlert")
