@@ -1,8 +1,51 @@
-android_plugin_app_package = "com.dab.dabtesto2"
-android_plugin_app_activity = "com.dab.dabtesto2/.MainActivity"
-broad_cast_activity = " am broadcast -a "
-start_app = " shell am start -n "
-stop_app = " shell am  force-stop "
+start_app = {
+    'command': 'am',
+    'args': ['start -n', 'com.dab.dabtesto2/.MainActivity'],
+    'includeStderr': True,
+    'timeout': 5000
+}
+
+stop_app = {
+    'command': 'am',
+    'args': ['force-stop', 'com.dab.dabtesto2'],
+    'includeStderr': True,
+    'timeout': 5000
+}
+
+network_type = {
+    'command': 'am',
+    'args': ['broadcast -a', 'com.dab.dabtesto2.GET_DATA_NETWORK_TYPE'],
+    'includeStderr': True,
+    'timeout': 5000
+}
+
+data_activity = {
+    'command': 'am',
+    'args': ['broadcast -a', 'com.dab.dabtesto2.GET_DATA_ACTIVITY'],
+    'includeStderr': True,
+    'timeout': 5000
+}
+
+data_state = {
+    'command': 'am',
+    'args': ['broadcast -a', 'com.dab.dabtesto2.GET_DATA_STATE'],
+    'includeStderr': True,
+    'timeout': 5000
+}
+
+imei = {
+    'command': 'am',
+    'args': ['broadcast -a', 'com.dab.dabtesto2.GET_IMEI'],
+    'includeStderr': True,
+    'timeout': 5000
+}
+
+msisdn = {
+    'command': 'am',
+    'args': ['broadcast -a', 'com.dab.dabtesto2.GET_MSISDN'],
+    'includeStderr': True,
+    'timeout': 5000
+}
 
 
 class AndroidTestPluginApp:
@@ -10,39 +53,31 @@ class AndroidTestPluginApp:
     def __init__(self, driver, device_uid):
         self.driver = driver
         self.device_uid = device_uid
-        self.start_android_plugin_app()
-        self.get_data_activity = broad_cast_activity + android_plugin_app_package + ".GET_DATA_ACTIVITY"
-        self.get_data_state = broad_cast_activity + android_plugin_app_package + ".GET_DATA_STATE"
-        self.get_data_network_type = broad_cast_activity + android_plugin_app_package + ".GET_DATA_NETWORK_TYPE"
-        self.get_msisdn = broad_cast_activity + android_plugin_app_package + ".GET_MSISDN"
-        self.get_imei = broad_cast_activity + android_plugin_app_package + ".GET_IMEI"
 
     def __del__(self):
         self.stop_android_plugin_app()
 
-    def execute_adb_shell(self, arg):
-        self.driver.execute_script("mobile:shell", arg)
-
     def stop_android_plugin_app(self):
-        self.execute_adb_shell(stop_app + android_plugin_app_package)
+        self.driver.execute_script("mobile:shell", stop_app)
 
     def start_android_plugin_app(self):
-        self.execute_adb_shell(start_app + android_plugin_app_activity)
+        self.driver.execute_script("mobile:shell", start_app)
+        self.change_plugin_app_permission()
 
     def get_data_activity(self):
-        return self.execute_adb_shell(self.get_data_activity)
+        return self.driver.execute_script("mobile:shell", data_activity)
 
     def get_data_state(self):
-        return self.execute_adb_shell(self.get_data_state)
+        return self.driver.execute_script("mobile:shell", data_state)
 
     def get_data_network_type(self):
-        return self.execute_adb_shell(self.get_data_network_type)
+        return self.driver.execute_script("mobile:shell", network_type)
 
     def get_msisdn(self):
-        return self.execute_adb_shell(self.get_msisdn)
+        return self.driver.execute_script("mobile:shell", msisdn)
 
     def get_imei(self):
-        return self.execute_adb_shell(self.get_imei)
+        return self.driver.execute_script("mobile:shell", imei)
 
     def get_device_info(self):
         return self.driver.execute_script("mobile:deviceInfo")
