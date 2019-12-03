@@ -27,5 +27,14 @@ def step_impl(context, status):
     network_conn = android_device_obj.get_network_connection()
     assert_that(network_conn, equal_to_ignoring_whitespace(status),
                 raises(ValueError, "No User plane for this session Mobile returned status = " + network_conn))
+    print(android_device_obj.get_device_info())
     android_device_obj.get_android_device_screen_shot()
     del android_device_obj
+
+
+@Then(u'Data can be downloaded for "{device_profile}" and network type is "{network_type}"')
+def step_impl(context, device_profile, network_type):
+    android_device_obj = AndroidDevice(device_profile)
+    android_device_obj.dismiss_message_box_if_any()
+    assert_that(network_type, contains_string(network_type),
+                raises(ValueError, "Network type mismatch = " + network_type))
