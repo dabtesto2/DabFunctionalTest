@@ -25,6 +25,8 @@ class BasePage(AndroidTestPluginApp):
         android = AndroidDevicePool(device_profile)
         client = AppiumClientLocal()
         self.device_id = android.get_android_device_id()
+        self.imsi = android.get_android_device_imsi()
+        self.msisdn = android.get_android_device_msisdn()
         desired_caps = dict(automationName=client.name, platformName=android.platform, fastReset=android.fastReset,
                             deviceOrientation=android.orientation, deviceName=android.platform,
                             udid=self.device_id, appActivity=android.starupactivity,
