@@ -32,9 +32,25 @@ def step_impl(context, status):
     del android_device_obj
 
 
-@Then(u'Data can be downloaded for "{device_profile}" and network type is "{network_type}"')
+@then(u'Data can be downloaded for "{device_profile}" subscriber with network type "{network_type}"')
 def step_impl(context, device_profile, network_type):
     android_device_obj = AndroidDevice(device_profile)
     android_device_obj.dismiss_message_box_if_any()
-    assert_that(network_type, contains_string(network_type),
-                raises(ValueError, "Network type mismatch = " + network_type))
+    android_device_obj.start_android_plugin_app()
+    assert_that(android_device_obj.get_data_network_type(), contains_string(network_type), "Network type not matched")
+    print("Network Type assigned for the device  "+android_device_obj.get_data_network_type())
+    assert_that(android_device_obj.get_data_activity(), contains_string("DATA_ACTIVITY_INOUT"),
+                "No User plane D/L for subscriber")
+    print("Data Activity  " + android_device_obj.get_data_activity())
+    assert_that("Data Connection State  "+android_device_obj.get_data_state(), contains_string("DATA_CONNECTED"),
+                "No Data session")
+    print(android_device_obj.get_data_state())
+    assert_that(android_device_obj.get_msisdn(),
+                not_(android_device_obj.get_android_msisdn()), "MSISDN mismatch")
+    print("MSISDN  " + android_device_obj.get_msisdn())
+    assert_that(android_device_obj.get_imsi(),
+                contains_string(android_device_obj.get_android_imsi()), "IMSI mismatch")
+    print("IMSI  "+ android_device_obj.get_imsi())
+    print(android_device_obj.get_device_ip())
+    android_device_obj.stop_android_plugin_app()
+    del android_device_obj
