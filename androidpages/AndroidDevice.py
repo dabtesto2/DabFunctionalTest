@@ -117,6 +117,12 @@ class AndroidDevice(BasePage):
     def get_android_device_id(self):
         return self.device_id
 
+    def get_android_imsi(self):
+        return self.imsi
+
+    def get_android_msisdn(self):
+        return self.msisdn
+
     def open_android_device_status_page(self, name):
         try:
             # scroll to the element
