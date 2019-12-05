@@ -1,3 +1,5 @@
+import re
+
 start_app = {
     'command': 'am',
     'args': ['start -n', 'com.dab.dabtesto2/.MainActivity'],
@@ -5,6 +7,12 @@ start_app = {
     'timeout': 5000
 }
 
+ping = {
+    'command': 'ping',
+    'args': ['-c 3',  '8.8.8.8'],
+    'includeStderr': False,
+    'timeout': 5000
+}
 stop_app = {
     'command': 'am',
     'args': ['force-stop', 'com.dab.dabtesto2'],
@@ -26,6 +34,13 @@ data_activity = {
     'timeout': 5000
 }
 
+device_ip = {
+    'command': 'ip',
+    'args': ['address'],
+    'includeStderr': True,
+    'timeout': 5000
+}
+
 data_state = {
     'command': 'am',
     'args': ['broadcast -a', 'com.dab.dabtesto2.GET_DATA_STATE'],
@@ -33,7 +48,7 @@ data_state = {
     'timeout': 5000
 }
 
-imei = {
+imsi = {
     'command': 'am',
     'args': ['broadcast -a', 'com.dab.dabtesto2.GET_IMEI'],
     'includeStderr': True,
@@ -65,19 +80,38 @@ class AndroidTestPluginApp:
         self.change_plugin_app_permission()
 
     def get_data_activity(self):
-        return self.driver.execute_script("mobile:shell", data_activity)
+        value = self.driver.execute_script("mobile:shell", ping)
+        data = self.driver.execute_script("mobile:shell", data_activity)
+        value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
+        return value[0]
 
     def get_data_state(self):
-        return self.driver.execute_script("mobile:shell", data_state)
+        data = self.driver.execute_script("mobile:shell", data_state)
+        value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
+        return value[0]
 
     def get_data_network_type(self):
-        return self.driver.execute_script("mobile:shell", network_type)
+        data = self.driver.execute_script("mobile:shell", network_type)
+        value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
+        return value[0]
 
     def get_msisdn(self):
-        return self.driver.execute_script("mobile:shell", msisdn)
+        data = self.driver.execute_script("mobile:shell", msisdn)
+        value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
+        return value[0]
 
-    def get_imei(self):
-        return self.driver.execute_script("mobile:shell", imei)
+    def get_imsi(self):
+        data = self.driver.execute_script("mobile:shell", imsi)
+        value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
+        return value[0]
+
+    def get_device_ip(self):
+        output = self.driver.execute_script("mobile:shell", device_ip)
+        value = re.sub(r"[\n\t\s]*", "", output['stdout'])
+        ip_list = re.findall(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\/\d{1,3}", value)
+        for item in ip_list:
+            if not re.match(r"(^127.0.0.1)", item):
+                return item
 
     def get_device_info(self):
         return self.driver.execute_script("mobile:deviceInfo")
