@@ -63,6 +63,7 @@ class ChromeDriverPage():
     def click_links_from_page(self, no_links):
         while no_links > 0:
             try:
+                self.dismiss_message_box_if_any()
                 self.driver.get(self.html_links.pop(randint(0, (len(self.html_links) - 1))))
                 no_links -= 1
             except Exception as error:
