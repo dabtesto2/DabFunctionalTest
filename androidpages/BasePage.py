@@ -96,7 +96,7 @@ class BasePage(AndroidTestPluginApp):
             element = wait.until(ec.visibility_of_element_located((by_locator[0], by_locator[1])))
             return element
         except Exception as error:
-            print("Selenium exception in wait_for_element_to_be_visible_ec " + str(error))
+            print("Selenium exception in wait_for_element_to_be_visible_ec " + str(error.args))
 
     def wait_for_element_to_be_clickable(self, by_locator):
         try:
