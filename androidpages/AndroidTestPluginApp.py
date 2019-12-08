@@ -7,12 +7,6 @@ start_app = {
     'timeout': 5000
 }
 
-ping = {
-    'command': 'ping',
-    'args': ['-c 3',  '8.8.8.8'],
-    'includeStderr': False,
-    'timeout': 5000
-}
 stop_app = {
     'command': 'am',
     'args': ['force-stop', 'com.dab.dabo2'],
@@ -73,57 +67,92 @@ class AndroidTestPluginApp:
         self.stop_android_plugin_app()
 
     def stop_android_plugin_app(self):
-        self.driver.execute_script("mobile:shell", stop_app)
+        try:
+            self.driver.execute_script("mobile:shell", stop_app)
+        except Exception as error:
+            print("Exception occurred at stop_android_plugin_app " + str(error))
 
     def start_android_plugin_app(self):
-        self.driver.execute_script("mobile:shell", start_app)
-        self.change_plugin_app_permission()
+        try:
+            self.driver.execute_script("mobile:shell", start_app)
+            self.change_plugin_app_permission()
+        except Exception as error:
+            print("Exception occurred at start_android_plugin_app " + str(error))
 
     def get_data_activity(self):
-        value = self.driver.execute_script("mobile:shell", ping)
-        data = self.driver.execute_script("mobile:shell", data_activity)
-        value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
-        return value[0]
+        try:
+            data = self.driver.execute_script("mobile:shell", data_activity)
+            value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
+            return value[0]
+        except Exception as error:
+            print("Exception occurred at get_data_activity " + str(error))
 
     def get_data_state(self):
-        data = self.driver.execute_script("mobile:shell", data_state)
-        value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
-        return value[0]
+        try:
+            data = self.driver.execute_script("mobile:shell", data_state)
+            value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
+            return value[0]
+        except Exception as error:
+            print("Exception occurred at get_data_state " + str(error))
 
     def get_data_network_type(self):
-        data = self.driver.execute_script("mobile:shell", network_type)
-        value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
-        return value[0]
+        try:
+            data = self.driver.execute_script("mobile:shell", network_type)
+            value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
+            return value[0]
+        except Exception as error:
+            print("Exception occurred at get_data_network_type " + str(error))
 
     def get_msisdn(self):
-        data = self.driver.execute_script("mobile:shell", msisdn)
-        value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
-        return value[0]
+        try:
+            data = self.driver.execute_script("mobile:shell", msisdn)
+            value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
+            return value[0]
+        except Exception as error:
+            print("Exception occurred at get_msisdn " + str(error))
 
     def get_imsi(self):
-        data = self.driver.execute_script("mobile:shell", imsi)
-        value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
-        return value[0]
+        try:
+            data = self.driver.execute_script("mobile:shell", imsi)
+            value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
+            return value[0]
+        except Exception as error:
+            print("Exception occurred at get_imsi " + str(error))
 
     def get_device_ip(self):
-        output = self.driver.execute_script("mobile:shell", device_ip)
-        value = re.sub(r"[\n\t\s]*", "", output['stdout'])
-        ip_list = re.findall(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\/\d{1,3}", value)
-        for item in ip_list:
-            if not re.match(r"(^127.0.0.1)", item):
-                return item
+        try:
+            output = self.driver.execute_script("mobile:shell", device_ip)
+            value = re.sub(r"[\n\t\s]*", "", output['stdout'])
+            ip_list = re.findall(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\/\d{1,3}", value)
+            for item in ip_list:
+                if not re.match(r"(^127.0.0.1)", item):
+                    return item
+        except Exception as error:
+            print("Exception occurred at get_device_ip " + str(error))
 
     def get_device_info(self):
-        return self.driver.execute_script("mobile:deviceInfo")
+        try:
+            return self.driver.execute_script("mobile:deviceInfo")
+        except Exception as error:
+            print("Exception occurred at get_device_info " + str(error))
 
     def dismiss_alert(self):
-        self.driver.execute_script("mobile:dismissAlert")
+        try:
+            self.driver.execute_script("mobile:dismissAlert")
+        except Exception as error:
+            print("Exception occurred at dismiss_alert " + str(error))
 
     def accept_alert(self):
-        self.driver.execute_script("mobile:acceptAlert")
+        try:
+            self.driver.execute_script("mobile:acceptAlert")
+        except Exception as error:
+            print("Exception occurred at accept_alert " + str(error))
 
     def change_plugin_app_permission(self):
-        android_permission = {"action": "grant", "appPackage": "com.dab.dabo2", "permissions":
+        try:
+            android_permission = {"action": "grant", "appPackage": "com.dab.dabo2", "permissions":
             ["android.permission.READ_PHONE_STATE", "android.permission.ACCESS_COARSE_LOCATION",
              "android.permission.ACCESS_FINE_LOCATION", "android.permission.READ_CALL_LOG"]}
-        self.driver.execute_script("mobile:changePermissions", android_permission)
+            self.driver.execute_script("mobile:changePermissions", android_permission)
+        except Exception as error:
+            print("Exception occurred at accept_alert " + str(error))
