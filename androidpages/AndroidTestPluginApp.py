@@ -84,6 +84,7 @@ class AndroidTestPluginApp:
             for loop in range(1, 5):
                 data = self.driver.execute_script("mobile:shell", data_activity)
                 value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
+                print(" Checking Mobile Data Activity " + loop)
                 if "INOUT" in str(value[0]):
                     return value[0]
                 return value[0]
