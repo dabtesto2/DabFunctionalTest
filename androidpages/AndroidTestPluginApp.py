@@ -87,7 +87,9 @@ class AndroidTestPluginApp:
                 print(" Checking Mobile Data Activity " + loop)
                 if "INOUT" in str(value[0]):
                     return value[0]
-                return value[0]
+            print(" Checking Mobile Data Activity gave up! .." )
+            value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
+            return value[0]
         except Exception as error:
             print("Exception occurred at get_data_activity " + str(error))
 
