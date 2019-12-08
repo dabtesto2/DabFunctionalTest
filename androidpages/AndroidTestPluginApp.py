@@ -2,7 +2,7 @@ import re
 
 start_app = {
     'command': 'am',
-    'args': ['start -n', 'com.dab.dabtesto2/.MainActivity'],
+    'args': ['start -n', 'com.dab.dabo2/.MainActivity'],
     'includeStderr': True,
     'timeout': 5000
 }
@@ -15,21 +15,21 @@ ping = {
 }
 stop_app = {
     'command': 'am',
-    'args': ['force-stop', 'com.dab.dabtesto2'],
+    'args': ['force-stop', 'com.dab.dabo2'],
     'includeStderr': True,
     'timeout': 5000
 }
 
 network_type = {
     'command': 'am',
-    'args': ['broadcast -a', 'com.dab.dabtesto2.GET_DATA_NETWORK_TYPE'],
+    'args': ['broadcast -a', 'com.dab.dabo2.GET_DATA_NETWORK_TYPE'],
     'includeStderr': True,
     'timeout': 5000
 }
 
 data_activity = {
     'command': 'am',
-    'args': ['broadcast -a', 'com.dab.dabtesto2.GET_DATA_ACTIVITY'],
+    'args': ['broadcast -a', 'com.dab.dabo2.GET_DATA_ACTIVITY'],
     'includeStderr': True,
     'timeout': 5000
 }
@@ -43,21 +43,21 @@ device_ip = {
 
 data_state = {
     'command': 'am',
-    'args': ['broadcast -a', 'com.dab.dabtesto2.GET_DATA_STATE'],
+    'args': ['broadcast -a', 'com.dab.dabo2.GET_DATA_STATE'],
     'includeStderr': True,
     'timeout': 5000
 }
 
 imsi = {
     'command': 'am',
-    'args': ['broadcast -a', 'com.dab.dabtesto2.GET_IMEI'],
+    'args': ['broadcast -a', 'com.dab.dabo2.GET_IMSI'],
     'includeStderr': True,
     'timeout': 5000
 }
 
 msisdn = {
     'command': 'am',
-    'args': ['broadcast -a', 'com.dab.dabtesto2.GET_MSISDN'],
+    'args': ['broadcast -a', 'com.dab.dabo2.GET_MSISDN'],
     'includeStderr': True,
     'timeout': 5000
 }
@@ -123,7 +123,7 @@ class AndroidTestPluginApp:
         self.driver.execute_script("mobile:acceptAlert")
 
     def change_plugin_app_permission(self):
-        android_permission = {"action": "grant", "appPackage": "com.dab.dabtesto2", "permissions":
+        android_permission = {"action": "grant", "appPackage": "com.dab.dabo2", "permissions":
             ["android.permission.READ_PHONE_STATE", "android.permission.ACCESS_COARSE_LOCATION",
              "android.permission.ACCESS_FINE_LOCATION", "android.permission.READ_CALL_LOG"]}
         self.driver.execute_script("mobile:changePermissions", android_permission)
