@@ -83,7 +83,7 @@ class AndroidTestPluginApp:
         try:
             data = self.driver.execute_script("mobile:shell", data_activity)
             value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
-            if "INOUT" in value:
+            if "INOUT" in value[0]:
                 return value[0]
             else:
                 pow("Checking Data Connectivity again. ")
