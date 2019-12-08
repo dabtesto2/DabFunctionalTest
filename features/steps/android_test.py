@@ -39,12 +39,12 @@ def step_impl(context, device_profile, network_type):
     android_device_obj.start_android_plugin_app()
     assert_that(android_device_obj.get_data_network_type(), contains_string(network_type), "Network type not matched")
     print("Network Type assigned for the device  "+android_device_obj.get_data_network_type())
-    print("Data Activity  " + android_device_obj.get_data_activity())
-    assert_that(android_device_obj.get_data_activity(), contains_string("DATA_ACTIVITY_INOUT"),
-                "No User plane D/L for subscriber")
     print("Data Connection State  " + android_device_obj.get_data_state())
     assert_that(android_device_obj.get_data_state(), contains_string("DATA_CONNECTED"),
                 "No Data session")
+    print("Data Activity  " + android_device_obj.get_data_activity())
+    assert_that(android_device_obj.get_data_activity(), contains_string("DATA_ACTIVITY_INOUT"),
+                "No User plane D/L for subscriber")
     assert_that(android_device_obj.get_msisdn(),
                 not_(android_device_obj.get_android_msisdn()), "MSISDN mismatch")
     print("MSISDN  " + android_device_obj.get_msisdn())
