@@ -81,9 +81,12 @@ class AndroidTestPluginApp:
 
     def get_data_activity(self):
         try:
-            data = self.driver.execute_script("mobile:shell", data_activity)
-            value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
-            return value[0]
+            for loop in range(1, 5):
+                data = self.driver.execute_script("mobile:shell", data_activity)
+                value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
+                if "INOUT" in str(value[0]):
+                    return value[0]
+                return value[0]
         except Exception as error:
             print("Exception occurred at get_data_activity " + str(error))
 
