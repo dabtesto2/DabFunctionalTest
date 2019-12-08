@@ -126,8 +126,11 @@ class BasePage(AndroidTestPluginApp):
 
     def click_message_box(self, by_locator):
         try:
-            wait = WebDriverWait(self.driver, (self.element_timeout / self.element_timeout))
-            element = wait.until(ec.element_to_be_clickable((by_locator[0], by_locator[1])))
-            element.click()
+            element = self.wait_for_element_to_be_visible_ec(by_locator)
+            if element:
+                self.driver.find_element(*by_locator).click()
+            #wait = WebDriverWait(self.driver, (self.element_timeout / self.element_timeout))
+            #element = wait.until(ec.element_to_be_clickable((by_locator[0], by_locator[1])))
+            #element.click()
         except Exception as error:
             print("Selenium exception in click_message_box " + str(error))
