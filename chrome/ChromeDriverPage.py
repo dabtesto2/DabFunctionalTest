@@ -39,35 +39,56 @@ class ChromeDriverPage():
             pass
 
     def save_chrome_web_page_screenshot(self):
-        self.driver.save_screenshot(self.result_directory + self.screen_page_name + str(time.time_ns()) + ".png")
+        try:
+            self.driver.save_screenshot(self.result_directory + self.screen_page_name + str(time.time_ns()) + ".png")
+        except Exception as error:
+            print("Chromedriver exception at save_chrome_web_page_screenshot " + str(error))
 
     def get_web_page_using_chrome_browser(self, url):
-        self.driver.get(url)
+        try:
+            self.driver.get(url)
+        except Exception as error:
+            print("Chromedriver exception at get_web_page_using_chrome_browser " + str(error))
 
     def get_web_page_title(self):
-        title = self.driver.title
-        return title.lower()
+        try:
+            title = self.driver.title
+            return title.lower()
+        except Exception as error:
+            print("Chromedriver exception at get_web_page_title " + str(error))
 
     def get_web_page_source(self):
-        page_source = self.driver.page_source
-        return page_source.lower()
+        try:
+            page_source = self.driver.page_source
+            return page_source.lower()
+        except Exception as error:
+            print("Chromedriver exception at get_web_page_source " + str(error))
 
     def set_chrome_wait(self, seconds):
-        time.sleep(seconds)
+        try:
+            time.sleep(seconds)
+        except Exception as error:
+            print("Chromedriver exception at set_chrome_wait " + str(error))
 
     def get_links_from_page(self):
-        elements = self.driver.find_elements_by_xpath("//a[@href]")
-        for items in elements:
-            self.html_links.append(items.get_attribute("href"))
+        try:
+            elements = self.driver.find_elements_by_xpath("//a[@href]")
+            for items in elements:
+                self.html_links.append(items.get_attribute("href"))
+        except Exception as error:
+            print("Chromedriver exception at get_links_from_page " + str(error))
 
     def click_links_from_page(self, no_links):
-        while no_links > 0:
-            try:
-                self.dismiss_message_box_if_any()
-                self.driver.get(self.html_links.pop(randint(0, (len(self.html_links) - 1))))
-                no_links -= 1
-            except Exception as error:
-                print("Selenium exception during click_links_from_page " + str(error))
+        try:
+            while no_links > 0:
+                try:
+                    self.dismiss_message_box_if_any()
+                    self.driver.get(self.html_links.pop(randint(0, (len(self.html_links) - 1))))
+                    no_links -= 1
+                except Exception as error:
+                     print("Chromedriver exception during click_links_from_page " + str(error))
+        except Exception as error:
+            print("Chromedriver exception at click_links_from_page " + str(error))
 
     def check_document_ready_state(self, title):
         try:
