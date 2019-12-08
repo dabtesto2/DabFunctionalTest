@@ -77,8 +77,8 @@ class BasePage(AndroidTestPluginApp):
     def scroll_with_uiselector_contains_text(self, search_string):
         try:
             scroll_string = "new UiScrollable(new UiSelector().scrollable(true)." \
-                        "instance(0)).scrollIntoView( new UiSelector()." \
-                        "text(\"" + search_string + "\"));"
+                            "instance(0)).scrollIntoView( new UiSelector()." \
+                            "text(\"" + search_string + "\"));"
             self.driver.find_element_by_android_uiautomator(scroll_string)
         except Exception as error:
             print("Selenium exception in scroll_with_uiselector_contains_text " + str(error))
@@ -129,8 +129,8 @@ class BasePage(AndroidTestPluginApp):
             element = self.wait_for_element_to_be_visible_ec(by_locator)
             if element:
                 self.driver.find_element(*by_locator).click()
-            #wait = WebDriverWait(self.driver, (self.element_timeout / self.element_timeout))
-            #element = wait.until(ec.element_to_be_clickable((by_locator[0], by_locator[1])))
-            #element.click()
+            # wait = WebDriverWait(self.driver, (self.element_timeout / self.element_timeout))
+            # element = wait.until(ec.element_to_be_clickable((by_locator[0], by_locator[1])))
+            # element.click()
         except Exception as error:
-            print("Selenium exception in click_message_box " + str(error))
+            print("Selenium exception in click_message_box " + str(error.args))
