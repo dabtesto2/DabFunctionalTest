@@ -18,7 +18,6 @@ class BasePage(AndroidTestPluginApp):
     """
     This class is the parent class for Android Device class and use selenium web driver class
     """
-
     # this function is called every time a new object of the base class is created.
     def __init__(self, device_profile, timeout=5):
 
@@ -96,7 +95,7 @@ class BasePage(AndroidTestPluginApp):
             element = wait.until(ec.visibility_of_element_located((by_locator[0], by_locator[1])))
             return element
         except Exception as error:
-            print("Selenium exception in wait_for_element_to_be_visible_ec " + str(error.args))
+            print("Selenium exception in wait_for_element_to_be_visible_ec " + str(error))
 
     def wait_for_element_to_be_clickable(self, by_locator):
         try:
@@ -126,11 +125,8 @@ class BasePage(AndroidTestPluginApp):
 
     def click_message_box(self, by_locator):
         try:
-            element = self.wait_for_element_to_be_visible_ec(by_locator)
+            element = self.wait_for_element_to_be_clickable(by_locator)
             if element:
                 self.driver.find_element(*by_locator).click()
-            # wait = WebDriverWait(self.driver, (self.element_timeout / self.element_timeout))
-            # element = wait.until(ec.element_to_be_clickable((by_locator[0], by_locator[1])))
-            # element.click()
         except Exception as error:
-            print("Selenium exception in click_message_box " + str(error.args))
+            print("Selenium exception in click_message_box " + str(error))
