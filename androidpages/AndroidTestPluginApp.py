@@ -88,6 +88,9 @@ class AndroidTestPluginApp:
                 if "INOUT" in value[0]:
                     return value[0]
                 time.sleep(1)
+            data = self.driver.execute_script("mobile:shell", data_activity)
+            value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
+            return value[0]
         except Exception as error:
             print("Exception occurred at get_data_activity " + str(error))
 
