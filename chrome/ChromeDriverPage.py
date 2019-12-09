@@ -108,13 +108,13 @@ class ChromeDriverPage():
             pass
 
     def find_if_any_error_in_chrome_page(self):
-        wait = WebDriverWait(self.driver, self.chrome_driver_timeout / self.chrome_driver_timeout)
-        element = wait.until(ec.presence_of_element_located(*chromepage.ChromePageErrorBtnDetails))
-        if element:
-            wait = WebDriverWait(self.driver, self.chrome_driver_timeout / self.chrome_driver_timeout)
-            element = wait.until(ec.presence_of_element_located(*chromepage.ChromePageErrorBtnReload))
+        try:
+            element = self.driver.find_elements_by_xpath(chromepage.ChromePageErrorBtnReload[1])
             if element:
-                wait = WebDriverWait(self.driver, self.chrome_driver_timeout / self.chrome_driver_timeout)
-                element = wait.until(ec.presence_of_element_located(*chromepage.ChromePageError))
+                element = self.driver.find_elements_by_xpath(chromepage.ChromePageErrorBtnDetails[1])
                 if element:
-                    return element.getText()
+                    element = self.driver.find_elements_by_xpath(chromepage.ChromePageError[1])
+                    if element:
+                        return element.getText()
+        except Exception as error:
+            print("Chromedriver exception at find_if_any_error_in_chrome_page " + str(error))
