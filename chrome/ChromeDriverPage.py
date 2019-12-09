@@ -107,7 +107,7 @@ class ChromeDriverPage():
         except TimeoutException:
             pass
 
-    def find_error_in_chrome_page(self):
+    def find_if_any_error_in_chrome_page(self):
         wait = WebDriverWait(self.driver, self.chrome_driver_timeout / self.chrome_driver_timeout)
         element = wait.until(ec.presence_of_element_located(*chromepage.ChromePageErrorBtnDetails))
         if element:
