@@ -109,19 +109,20 @@ class ChromeDriverPage():
         except TimeoutException:
             pass
 
-    def check_for_errors_in_chrome_page(self):
+    def check_for_reload_button_in_chrome_page(self):
         try:
             element = self.driver.find_elements_by_xpath(chromepage.ChromePageErrorBtnReload[1])
             if element:
-                element = self.driver.find_elements_by_xpath(chromepage.ChromePageErrorBtnDetails[1])
-                if element:
-                    element = self.driver.find_elements_by_xpath(chromepage.ChromePageError[1])
-                    if element:
-                        return "ChromePageError"
+                return True
         except Exception as error:
-            print("Chromedriver exception at find_if_any_error_in_chrome_page " + str(error))
+            print("Chromedriver exception at check_for_reload_button_in_chrome_page " + str(error))
 
-    def find_errors_in_chrome_page(self):
-        if "ChromePageError" in self.check_for_errors_in_chrome_page():
-            return self.driver.page_source
+    def check_for_details_button_in_chrome_page(self):
+        try:
+            element = self.driver.find_elements_by_xpath(chromepage.ChromePageErrorBtnDetails[1])
+            if element:
+                return True
+        except Exception as error:
+            print("Chromedriver exception at check_for_details_button_in_chrome_page " + str(error))
+
 
