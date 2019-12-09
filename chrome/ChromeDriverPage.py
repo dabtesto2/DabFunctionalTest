@@ -109,7 +109,7 @@ class ChromeDriverPage():
         except TimeoutException:
             pass
 
-    def find_if_any_error_in_chrome_page(self):
+    def check_for_errors_in_chrome_page(self):
         try:
             element = self.driver.find_elements_by_xpath(chromepage.ChromePageErrorBtnReload[1])
             if element:
@@ -117,7 +117,11 @@ class ChromeDriverPage():
                 if element:
                     element = self.driver.find_elements_by_xpath(chromepage.ChromePageError[1])
                     if element:
-                        print(self.driver.page_source)
-                        return self.driver.page_source
+                        return "ChromePageError"
         except Exception as error:
             print("Chromedriver exception at find_if_any_error_in_chrome_page " + str(error))
+
+    def find_errors_in_chrome_page(self):
+        if "ChromePageError" in self.check_for_errors_in_chrome_page():
+            return self.driver.page_source
+
