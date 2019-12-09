@@ -1,7 +1,7 @@
 import os
 import time
 from random import randint
-
+from selenium.webdriver import ChromeOptions
 from appium import webdriver
 from selenium.common.exceptions import InvalidSessionIdException, TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
@@ -26,10 +26,12 @@ class ChromeDriverPage():
         self.screen_page_name = 'chrome-screen'
         self.chromedriverpath = self.chromedriverExecutable + str(self.chromedriverVersion) + "/chromedriver"
         client = AppiumClientLocal()
+        options = ChromeOptions()
+        options.add_experimental_option('w3c',False)
         desired_caps = dict(automationName=client.name, platformName=self.platform, browserName=self.browser,
                             udid=self.device_id, deviceName=self.platform, chromedriverExecutable=self.chromedriverpath
                             )
-        self.driver = webdriver.Remote(client.get_remote_url(), desired_caps)
+        self.driver = webdriver.Remote(client.get_remote_url(), desired_caps, options)
         self.driver.implicitly_wait(self.chrome_driver_timeout)
 
     def __del__(self):
