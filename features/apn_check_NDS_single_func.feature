@@ -10,4 +10,4 @@ Feature: Using Android Device with NDS profile run apn test using chrome
 
     Examples:
       | apn                         | url                      | title  | no_links | apn_data_connection_wait |
-      | ibrowse-func-epg1           | https://www.ebay.co.uk   | ebay   |        2 |                        5 |
+      | tesco-func-epg1           | https://www.ebay.co.uk   | ebay   |        2 |                        5 |
