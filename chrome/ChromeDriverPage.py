@@ -5,7 +5,7 @@ from selenium.webdriver import ChromeOptions
 from appium import webdriver
 from selenium.common.exceptions import InvalidSessionIdException, TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
-
+import re
 from androidpages.AppiumClientLocal import AppiumClientLocal
 from selenium.webdriver.support import expected_conditions as ec
 
@@ -125,4 +125,10 @@ class ChromeDriverPage():
         except Exception as error:
             print("Chromedriver exception at check_for_details_button_in_chrome_page " + str(error))
 
-
+    def check_for_errors_in_chrome_page(self):
+        try:
+            value = re.findall(r"err\_timed\_out", self.get_web_page_source())
+            if len(value):
+                return value[0]
+        except Exception as error:
+            print("Chromedriver exception at check_for_details_button_in_chrome_page " + str(error))
