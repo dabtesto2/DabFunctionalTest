@@ -18,7 +18,6 @@ def step_impl(context, title, no_links):
     context.chrome_page_obj.dismiss_message_box_if_any()
     context.chrome_page_obj.check_document_ready_state(title)
     page_source = context.chrome_page_obj.find_if_any_error_in_chrome_page()
-    print(page_source)
     assert_that(page_source,
                 not_(contains_string("ERR_TIMED_OUT".lower())),
                 raises(ValueError," Page Timeout Occured User Plane Error"))
