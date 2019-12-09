@@ -9,5 +9,5 @@ Feature: Using Android Device with NDS profile run apn test using chrome
     And Check if page loads with "<title>" and click "<no_links>" dynamic links
 
     Examples:
-      | apn                         | url                      | title  | no_links | apn_data_connection_wait |
-      | tesco-func-epg1           | https://www.ebay.co.uk   | ebay   |        2 |                        5 |
+      | apn                       | url                                     | title  | no_links | apn_data_connection_wait |
+      | tesco-func-epg1           | https://102.incompass.netstar-inc.com   | ebay   |        2 |                        5 |
