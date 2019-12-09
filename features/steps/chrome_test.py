@@ -17,7 +17,7 @@ def step_impl(context, browser, url):
 def step_impl(context, title, no_links):
     context.chrome_page_obj.dismiss_message_box_if_any()
     context.chrome_page_obj.check_document_ready_state(title)
-    print(context.chrome_page_obj.get_web_page_source)
+    print(context.chrome_page_obj.get_web_page_source())
     var = context.chrome_page_obj.find_if_any_error_in_chrome_page()
     print("Page" + str(var))
     title = title.lower()
