@@ -17,9 +17,8 @@ def step_impl(context, browser, url):
 def step_impl(context, title, no_links):
     context.chrome_page_obj.dismiss_message_box_if_any()
     context.chrome_page_obj.check_document_ready_state(title)
-    print(context.chrome_page_obj.get_web_page_source())
-    var = context.chrome_page_obj.find_if_any_error_in_chrome_page()
-    print("Page" + str(var))
+    assert_that(context.chrome_page_obj.find_if_any_error_in_chrome_page(),
+                not_("ERR_TIMED_OUT".lower()), raises(ValueError," Page Timeout Occured User Plane Error"))
     title = title.lower()
     assert_that(context.chrome_page_obj.get_web_page_source(), contains_string(title), raises(ValueError, title))
     context.chrome_page_obj.get_links_from_page()
