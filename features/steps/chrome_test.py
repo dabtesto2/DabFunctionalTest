@@ -20,7 +20,7 @@ def step_impl(context, title, no_links):
     page_source = context.chrome_page_obj.find_if_any_error_in_chrome_page()
     print(page_source)
     assert_that(page_source,
-                contains_string("ERR_TIMED_OUT".lower()),
+                not_(contains_string("ERR_TIMED_OUT".lower())),
                 raises(ValueError," Page Timeout Occured User Plane Error"))
     title = title.lower()
     assert_that(context.chrome_page_obj.get_web_page_source(), contains_string(title), raises(ValueError, title))
