@@ -27,7 +27,7 @@ class ChromeDriverPage():
         self.chromedriverpath = self.chromedriverExecutable + str(self.chromedriverVersion) + "/chromedriver"
         client = AppiumClientLocal()
         options = ChromeOptions()
-        options.add_experimental_option('w3c',False)
+        options.add_experimental_option('w3c', False)
         desired_caps = dict(automationName=client.name, platformName=self.platform, browserName=self.browser,
                             udid=self.device_id, deviceName=self.platform, chromedriverExecutable=self.chromedriverpath
                             )
@@ -117,6 +117,7 @@ class ChromeDriverPage():
                 if element:
                     element = self.driver.find_elements_by_xpath(chromepage.ChromePageError[1])
                     if element:
-                        return  self.driver.page_source()
+                        return self.driver.page_source()
+            return "No Error"
         except Exception as error:
             print("Chromedriver exception at find_if_any_error_in_chrome_page " + str(error))
