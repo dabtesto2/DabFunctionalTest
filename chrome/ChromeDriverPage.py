@@ -117,6 +117,6 @@ class ChromeDriverPage():
                 if element:
                     element = self.driver.find_elements_by_xpath(chromepage.ChromePageError[1])
                     if element:
-                        return  self.driver.page_source
+                        return  self.driver.page_source()
         except Exception as error:
             print("Chromedriver exception at find_if_any_error_in_chrome_page " + str(error))
