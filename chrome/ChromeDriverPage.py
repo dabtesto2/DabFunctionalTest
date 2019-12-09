@@ -10,6 +10,7 @@ from androidpages.AppiumClientLocal import AppiumClientLocal
 from selenium.webdriver.support import expected_conditions as ec
 
 from androidpages.Locators import MessageBox
+from androidpages.Locators import chromepage
 
 
 class ChromeDriverPage():
@@ -72,7 +73,7 @@ class ChromeDriverPage():
 
     def get_links_from_page(self):
         try:
-            elements = self.driver.find_elements_by_xpath("//a[@href]")
+            elements = self.driver.find_elements_by_xpath(chromepage.DynamicLinks[1])
             for items in elements:
                 self.html_links.append(items.get_attribute("href"))
         except Exception as error:
@@ -86,7 +87,7 @@ class ChromeDriverPage():
                     self.driver.get(self.html_links.pop(randint(0, (len(self.html_links) - 1))))
                     no_links -= 1
                 except Exception as error:
-                     print("Chromedriver exception during click_links_from_page " + str(error))
+                    print("Chromedriver exception during click_links_from_page " + str(error))
         except Exception as error:
             print("Chromedriver exception at click_links_from_page " + str(error))
 
@@ -105,3 +106,15 @@ class ChromeDriverPage():
             element.click()
         except TimeoutException:
             pass
+
+    def find_error_in_chrome_page(self):
+        wait = WebDriverWait(self.driver, self.chrome_driver_timeout / self.chrome_driver_timeout)
+        element = wait.until(ec.presence_of_element_located(*chromepage.ChromePageErrorBtnDetails))
+        if element:
+            wait = WebDriverWait(self.driver, self.chrome_driver_timeout / self.chrome_driver_timeout)
+            element = wait.until(ec.presence_of_element_located(*chromepage.ChromePageErrorBtnReload))
+            if element:
+                wait = WebDriverWait(self.driver, self.chrome_driver_timeout / self.chrome_driver_timeout)
+                element = wait.until(ec.presence_of_element_located(*chromepage.ChromePageError))
+                if element:
+                    return element.getText()

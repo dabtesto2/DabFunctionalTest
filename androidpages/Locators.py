@@ -77,3 +77,11 @@ class AccessPointNames:
     OK = (MobileBy.XPATH, "//android.widget.Button[@text='OK']")
     Reset = (MobileBy.XPATH, "//android.widget.Button[@text='Reset']")
     EditText = (MobileBy.XPATH, "//android.widget.EditText")
+
+
+class chromepage:
+
+    DynamicLinks = (MobileBy.XPATH, "//a[@href]")
+    ChromePageError = (MobileBy.XPATH,"//*[contains(text()='ERR_')]")
+    ChromePageErrorBtnReload = (MobileBy.XPATH, "//button[text()='Reload']")
+    ChromePageErrorBtnDetails = (MobileBy.XPATH, "//button[text()='Details']")
