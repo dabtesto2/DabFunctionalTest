@@ -133,6 +133,6 @@ class ChromeDriverPage():
         try:
             value = re.findall(r"err\_timed\_out", self.get_web_page_source())
             if len(value):
-                return value[0]
+                return str(value[0])
         except Exception as error:
             print("Chromedriver exception at check_for_details_button_in_chrome_page " + str(error))
