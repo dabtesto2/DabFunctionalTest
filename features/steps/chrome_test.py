@@ -29,6 +29,6 @@ def step_impl(context, title, no_links):
     title = title.lower()
     assert_that(context.chrome_page_obj.get_web_page_source(), contains_string(title), raises(ValueError, title))
     context.chrome_page_obj.get_links_from_page()
-    context.chrome_page_obj.click_links_from_page(int(no_links))
+    context.chrome_page_obj.click_links_from_page(no_links)
     context.chrome_page_obj.save_chrome_web_page_screenshot()
     del context.chrome_page_obj
