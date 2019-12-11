@@ -18,6 +18,7 @@ def step_impl(context, browser, url):
 def step_impl(context, title, no_links):
     context.chrome_page_obj.dismiss_message_box_if_any()
     context.chrome_page_obj.check_document_ready_state(title)
+    context.chrome_page_obj.save_chrome_web_page_screenshot()
     assert_that(context.chrome_page_obj.check_for_errors_in_chrome_page(),
                 is_not("ERR_TIMED_OUT".lower()),
                 "Chrome Browser Page Timeout Occured when loading URL")
@@ -30,5 +31,4 @@ def step_impl(context, title, no_links):
     assert_that(context.chrome_page_obj.get_web_page_source(), contains_string(title), raises(ValueError, title))
     context.chrome_page_obj.get_links_from_page()
     context.chrome_page_obj.click_links_from_page(no_links)
-    context.chrome_page_obj.save_chrome_web_page_screenshot()
     del context.chrome_page_obj
