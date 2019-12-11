@@ -12,7 +12,7 @@ def step_impl(context, browser, url):
         chrome_page_obj = ChromeDriverPage(context.device_id)
         chrome_page_obj.dismiss_message_box_if_any()
         chrome_page_obj.get_web_page_using_chrome_browser(url)
-        allure.attach('step-:check data downloaded', context.chrome_page_obj.save_chrome_web_page_screenshot(),
+        allure.attach('step-:check data downloaded', chrome_page_obj.save_chrome_web_page_screenshot(),
                       AttachmentType.PNG)
         context.chrome_page_obj = chrome_page_obj
 
