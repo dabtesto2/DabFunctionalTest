@@ -43,7 +43,7 @@ class ChromeDriverPage():
 
     def save_chrome_web_page_screenshot(self):
         try:
-            return self.driver.get_screenshot_as_png()
+            return self.driver.get_screenshot_as_base64()
             #self.driver.save_screenshot(self.result_directory + self.screen_page_name + str(time.time_ns()) + ".png")
         except Exception as error:
             print("Chromedriver exception at save_chrome_web_page_screenshot " + str(error))
