@@ -27,7 +27,6 @@ def step_impl(context, status):
     android_device_obj.open_android_device_status_page("About phone")
     android_device_obj.set_android_wait(2)
     network_conn = android_device_obj.get_network_connection()
-    allure.attach.file()
     allure.attach.file("Device_ip_status", android_device_obj.get_android_device_screen_shot(),
                        attachment_type=AttachmentType.PNG)
     assert_that(network_conn, equal_to_ignoring_whitespace(status),
