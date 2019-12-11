@@ -1,5 +1,6 @@
+from allure_commons.types import AttachmentType
 from behave import *
-
+import allure
 from androidpages.AndroidDevice import AndroidDevice
 from hamcrest import *
 import time
@@ -12,7 +13,8 @@ def step_impl(context, device_profile, apn_name, seconds):
     android_device_obj.dismiss_message_box_if_any()
     android_device_obj.select_apn(apn_name)
     android_device_obj.set_android_wait(int(seconds))
-    android_device_obj.get_android_device_screen_shot()
+    allure.attach('step-: select apn', android_device_obj.get_android_device_screen_shot(),
+                  type=AttachmentType.PNG)
     android_device_obj.click_android_home()
     del android_device_obj
 
@@ -25,7 +27,8 @@ def step_impl(context, status):
     android_device_obj.open_android_device_status_page("About phone")
     android_device_obj.set_android_wait(2)
     network_conn = android_device_obj.get_network_connection()
-    android_device_obj.get_android_device_screen_shot()
+    allure.attach('step-:check data connection status', android_device_obj.get_android_device_screen_shot(),
+                  type=AttachmentType.PNG)
     assert_that(network_conn, equal_to_ignoring_whitespace(status),
                 raises(ValueError, "No User plane for this session Mobile returned status = " + network_conn))
     print(android_device_obj.get_device_info())
@@ -37,7 +40,8 @@ def step_impl(context, device_profile, network_type):
     android_device_obj = AndroidDevice(device_profile)
     android_device_obj.dismiss_message_box_if_any()
     android_device_obj.start_android_plugin_app()
-    android_device_obj.get_android_device_screen_shot()
+    allure.attach('step-:check data downloaded', android_device_obj.get_android_device_screen_shot(),
+                  type=AttachmentType.PNG)
     assert_that(android_device_obj.get_data_network_type(), contains_string(network_type), "Network type not matched")
     print("Network Type assigned for the device  "+android_device_obj.get_data_network_type())
     print("Data Connection State  " + android_device_obj.get_data_state())
