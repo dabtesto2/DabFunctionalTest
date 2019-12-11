@@ -13,6 +13,8 @@ def step_impl(context, device_profile, apn_name, seconds):
     android_device_obj.dismiss_message_box_if_any()
     android_device_obj.select_apn(apn_name)
     android_device_obj.set_android_wait(int(seconds))
+    allure.attach(android_device_obj.get_android_device_screen_shot(), name="apn_"+apn_name,
+                  attachment_type=AttachmentType.PNG)
     allure.attach('step-: select apn', android_device_obj.get_android_device_screen_shot(),
                   AttachmentType.PNG)
     android_device_obj.click_android_home()
