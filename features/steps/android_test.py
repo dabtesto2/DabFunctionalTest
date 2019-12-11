@@ -40,7 +40,6 @@ def step_impl(context, device_profile, network_type):
     android_device_obj = AndroidDevice(device_profile)
     android_device_obj.dismiss_message_box_if_any()
     android_device_obj.start_android_plugin_app()
-    allure.attach()
     allure.attach('step-:check data downloaded', android_device_obj.get_android_device_screen_shot(),
                   AttachmentType.PNG)
     assert_that(android_device_obj.get_data_network_type(), contains_string(network_type), "Network type not matched")
