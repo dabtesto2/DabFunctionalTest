@@ -115,10 +115,7 @@ class BasePage(AndroidTestPluginApp):
 
     def get_device_screen_shot(self):
         try:
-            self.driver.save_screenshot('./tmp.png')
-            file = open('./tmp.png')
-            return file.read()
-            #return self.driver.get_screenshot_as_png()
+            return self.driver.get_screenshot_as_png()
             #self.driver.save_screenshot(self.result_directory + self.screen_page_name + str(time.time_ns()) + '.png')
         except Exception as error:
             print("Selenium exception in get_device_screen_Shot " + str(error))
