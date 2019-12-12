@@ -22,8 +22,6 @@ class ChromeDriverPage():
         self.device_id = device_profile
         self.chromedriverExecutable = "/Users/purush/chromedriver/"
         self.chromedriverVersion = 78
-        self.result_directory = '%s/screenshot/' % os.getcwd()
-        self.screen_page_name = 'chrome-screen'
         self.chromedriverpath = self.chromedriverExecutable + str(self.chromedriverVersion) + "/chromedriver"
         client = AppiumClientLocal()
         options = ChromeOptions()
@@ -44,7 +42,6 @@ class ChromeDriverPage():
     def save_chrome_web_page_screenshot(self):
         try:
             return self.driver.get_screenshot_as_png()
-            #self.driver.save_screenshot(self.result_directory + self.screen_page_name + str(time.time_ns()) + ".png")
         except Exception as error:
             print("Chromedriver exception at save_chrome_web_page_screenshot " + str(error))
 
