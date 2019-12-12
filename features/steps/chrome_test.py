@@ -12,7 +12,7 @@ def step_impl(context, browser, url):
         chrome_page_obj = ChromeDriverPage(context.device_id)
         chrome_page_obj.dismiss_message_box_if_any()
         chrome_page_obj.get_web_page_using_chrome_browser(url)
-        allure.attach(source=chrome_page_obj.save_chrome_web_page_screenshot(), name="Chrome_page",
+        allure.attach(chrome_page_obj.save_chrome_web_page_screenshot(), name="Chrome_page",
                       attachment_type=AttachmentType.PNG)
         context.chrome_page_obj = chrome_page_obj
 
@@ -21,7 +21,7 @@ def step_impl(context, browser, url):
 def step_impl(context, title, no_links):
     context.chrome_page_obj.dismiss_message_box_if_any()
     context.chrome_page_obj.check_document_ready_state(title)
-    allure.attach(source=context.chrome_page_obj.save_chrome_web_page_screenshot(), name="Chrome_"+title,
+    allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name="Chrome_"+title,
                   attachment_type=AttachmentType.PNG)
     context.chrome_page_obj.save_chrome_web_page_screenshot()
     assert_that(context.chrome_page_obj.check_for_errors_in_chrome_page(),
