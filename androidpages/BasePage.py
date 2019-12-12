@@ -20,7 +20,7 @@ class BasePage(AndroidTestPluginApp):
     """
     # this function is called every time a new object of the base class is created.
     def __init__(self, device_profile, timeout=5):
-
+        print("Device Profile " + device_profile)
         android = AndroidDevicePool(device_profile)
         client = AppiumClientLocal()
         self.device_id = android.get_android_device_id()
