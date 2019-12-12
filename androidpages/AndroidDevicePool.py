@@ -5,7 +5,7 @@ class AndroidDevicePool():
         self._device = {
             "dev1": {"udid": "ce0417145b24bca70d", "profile": "NDS", "msisdn": "447516903691", "imsi":"234106663078773"},
             "dev2": {"udid": "2adbc704fc0d7ece", "profile": "PC", "msisdn":"447725629466", "imsi":"234106663078775"},
-            "dev3": {"udid": "ce0417145b24bca70d", "profile": "OA",  "msisdn": "447516903691", "imsi":"234106663078773"}
+            "dev3": {"udid": "ce071717ab7bd73901", "profile": "OA",  "msisdn": "447517999432", "imsi":"234101333546803"}
         }
         self.platform = "Android"
         self.fastReset = True
