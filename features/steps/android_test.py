@@ -13,8 +13,8 @@ def step_impl(context, device_profile, apn_name, seconds):
     android_device_obj.dismiss_message_box_if_any()
     android_device_obj.select_apn(apn_name)
     android_device_obj.set_android_wait(int(seconds))
-    allure.attach("apn_select_" + apn_name, android_device_obj.get_android_device_screen_shot(),
-                  AttachmentType.PNG)
+    allure.attach(source=android_device_obj.get_android_device_screen_shot(), name="apn_select_" + apn_name,
+                  attachment_type=AttachmentType.PNG)
     android_device_obj.click_android_home()
     del android_device_obj
 
@@ -27,8 +27,8 @@ def step_impl(context, status):
     android_device_obj.open_android_device_status_page("About phone")
     android_device_obj.set_android_wait(2)
     network_conn = android_device_obj.get_network_connection()
-    allure.attach.file("Device_ip_status", android_device_obj.get_android_device_screen_shot(),
-                       attachment_type=AttachmentType.PNG)
+    allure.attach(source=android_device_obj.get_android_device_screen_shot(), name="Device_ip_status",
+                  attachment_type=AttachmentType.PNG)
     assert_that(network_conn, equal_to_ignoring_whitespace(status),
                 raises(ValueError, "No User plane for this session Mobile returned status = " + network_conn))
     print(android_device_obj.get_device_info())
@@ -40,8 +40,8 @@ def step_impl(context, device_profile, network_type):
     android_device_obj = AndroidDevice(device_profile)
     android_device_obj.dismiss_message_box_if_any()
     android_device_obj.start_android_plugin_app()
-    allure.attach.file("Check_Data_connection_status", android_device_obj.get_android_device_screen_shot(),
-                       attachment_type=AttachmentType.PNG)
+    allure.attach(source=android_device_obj.get_android_device_screen_shot(), name="Check_Data_connection_status",
+                  attachment_type=AttachmentType.PNG)
     assert_that(android_device_obj.get_data_network_type(), contains_string(network_type), "Network type not matched")
     print("Network Type assigned for the device  " + android_device_obj.get_data_network_type())
     print("Data Connection State  " + android_device_obj.get_data_state())
