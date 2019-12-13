@@ -1,7 +1,7 @@
 @full_apn_nds
 Feature: Using Android Device check DAB FULL APN status using 4G
 
-  Scenario Outline: With Android Device profile setup the context
+  Scenario Outline: With Android Device profile setup the context for <apn> with device profile <device_profile>
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<apn_data_connection_wait>" sec
     When Network connection status is "Data" collect device information
     Then Data can be downloaded for "<device_profile>" subscriber with network type "LTE"
