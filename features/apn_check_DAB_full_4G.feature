@@ -1,5 +1,5 @@
 @full_apn_nds
-Feature: Using Android Device check DAB FULL APN status
+Feature: Using Android Device check DAB FULL APN status using 4G
 
   Scenario Outline: With Android Device profile setup the context
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<apn_data_connection_wait>" sec
