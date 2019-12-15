@@ -1,7 +1,7 @@
   @cf_blacklist
   Feature: Verify if Device is blocked when trying to browse item from blacklist for http and https
 
-  Scenario Outline: With Android Device profile setup the context for <apn> with device profile <device_profile>
+  Scenario Outline: Block when user browse item from Blacklist using <apn> with device profile <device_profile>
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
      When Network connection status is "Data" collect device information
      Then Data can be downloaded for "<device_profile>" subscriber with network type "LTE"
