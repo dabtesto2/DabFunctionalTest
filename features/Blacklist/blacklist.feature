@@ -31,8 +31,8 @@
       | idata-func-epg1 | http://www.o2-blacklist.incompass.netstar-inc.com/  | Access denied        | 5              | OA             |
       | mvne1-func-epg1 | http://www.o2-blacklist.incompass.netstar-inc.com/  | Access denied        | 5              | PC             |
       | tesco-func-epg2 | http://www.dip.cc/                                  | Access denied        | 5              | OA             |
-      | idata-func-epg1 | https://www.o2-blacklist.incompass.netstar-inc.com/ | ERR_TIMED_OUT        | 5              | OA             |
-      | mvne1-func-epg1 | https://www.dip.cc/                                 | ERR_CONNECTION_RESET | 5              | PC             |
+      | idata-func-epg1 | https://www.o2-blacklist.incompass.netstar-inc.com/ | ERR_CONNECTION_RESET | 5              | OA             |
+      | mvne1-func-epg1 | https://www.dip.cc/                                 | ERR_TIMED_OUT        | 5              | PC             |
       | tesco-func-epg2 | https://www.mobile-spy.com/                         | ERR_CONNECTION_RESET | 5              | OA             |
 
   @cf_blacklist_serv
@@ -49,7 +49,7 @@
       | idata-serv-epg1 | http://www.o2-blacklist.incompass.netstar-inc.com/  | Access denied        | 5              | OA             |
       | mvne1-serv-epg1 | http://www.o2-blacklist.incompass.netstar-inc.com/  | Access denied        | 5              | PC             |
       | tesco-serv-epg2 | http://www.dip.cc/                                  | Access denied        | 5              | OA             |
-      | idata-serv-epg1 | https://www.o2-blacklist.incompass.netstar-inc.com/ | ERR_TIMED_OUT        | 5              | OA             |
-      | mvne1-serv-epg1 | https://www.dip.cc/                                 | ERR_CONNECTION_RESET | 5              | PC             |
+      | idata-serv-epg1 | https://www.o2-blacklist.incompass.netstar-inc.com/ | ERR_CONNECTION_RESET | 5              | OA             |
+      | mvne1-serv-epg1 | https://www.dip.cc/                                 | ERR_TIMED_OUT        | 5              | PC             |
       | tesco-serv-epg2 | https://www.mobile-spy.com/                         | ERR_CONNECTION_RESET | 5              | OA             |
 
