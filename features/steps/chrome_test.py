@@ -17,13 +17,12 @@ def step_impl(context, browser, url):
         context.chrome_page_obj = chrome_page_obj
 
 
-@then(u'Check if page loads with "{title}" and click "{no_links}" dynamic links')
-def step_impl(context, title, no_links):
+@then(u'Check if page loads with "{title}" and click "{no_links}" links without error "{error}"')
+def step_impl(context, title, no_links, error):
     context.chrome_page_obj.dismiss_message_box_if_any()
     context.chrome_page_obj.check_document_ready_state(title)
-    context.chrome_page_obj.save_chrome_web_page_screenshot()
     assert_that(context.chrome_page_obj.check_for_errors_in_chrome_page(),
-                is_not("ERR_TIMED_OUT".lower()),
+                is_not(error.lower()),
                 "Chrome Browser Page Timeout Occured when loading URL")
     assert_that(not context.chrome_page_obj.check_for_reload_button_in_chrome_page(),
                 "Chrome Browser Page Timeout Occured with Reload Option")
@@ -34,3 +33,12 @@ def step_impl(context, title, no_links):
     allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name="Chrome_" + title,
                   attachment_type=AttachmentType.PNG)
     del context.chrome_page_obj
+
+
+@then(u'if url in blacklist then user is blocked with "{error}" or redirected to page "{content}"')
+def step_impl(context, error, content):
+    assert_that(context.chrome_page_obj.get_web_page_source,
+                any_of(contains_string(error.lower()), contains_string(content.lower())),
+                "Chrome Browser Page Timeout Occured when loading URL")
+    allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name="Chrome_" + title,
+                  attachment_type=AttachmentType.PNG)
