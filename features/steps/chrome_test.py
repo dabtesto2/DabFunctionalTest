@@ -21,7 +21,7 @@ def step_impl(context, browser, url):
 def step_impl(context, title, no_links, error):
     context.chrome_page_obj.dismiss_message_box_if_any()
     context.chrome_page_obj.check_document_ready_state(title)
-    assert_that(context.chrome_page_obj.check_for_errors_in_chrome_page(),
+    assert_that(context.chrome_page_obj.check_for_chrome_page_timeout(),
                 is_not(error.lower()),
                 "Chrome Browser Page Timeout Occured when loading URL")
     assert_that(not context.chrome_page_obj.check_for_reload_button_in_chrome_page(),
@@ -37,8 +37,7 @@ def step_impl(context, title, no_links, error):
 
 @then(u'if url in blacklist then user is blocked with "{error}" or redirected to page "{content}"')
 def step_impl(context, error, content):
-    assert_that(context.chrome_page_obj.get_web_page_source,
-                any_of(contains_string(error.lower()), contains_string(content.lower())),
-                "Chrome Browser Page Timeout Occured when loading URL")
-    allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name="Chrome_" + title,
-                  attachment_type=AttachmentType.PNG)
+    if_error_reset = context.chrome_page_obj.check_for_chrome_page_connection_reset()
+    if_error_access_denied = context.chrome_page_obj.check_for_chrome_page_access_denied()
+    any_of(assert_that(if_error_reset, contains_string(error.lower())),
+           assert_that(if_error_access_denied, contains_string(content.lower())))
