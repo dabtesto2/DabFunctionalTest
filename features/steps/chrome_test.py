@@ -39,7 +39,8 @@ def step_impl(context, title, no_links, error):
 def step_impl(context, error, content):
     if_error_reset = context.chrome_page_obj.check_for_chrome_page_connection_reset()
     if_error_access_denied = context.chrome_page_obj.check_for_chrome_page_access_denied()
-    any_of(assert_that(if_error_reset, contains_string(error.lower())),
-           assert_that(if_error_access_denied, contains_string(content.lower())))
+    assert_that(if_error_reset + "or" + if_error_access_denied,
+                any_of(contains_string(error.lower()),contains_string(content.lower())),
+                "Black list page not blocked")
     allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name="blocked",
                   attachment_type=AttachmentType.PNG)
