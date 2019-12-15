@@ -21,10 +21,11 @@ def step_impl(context, browser, url):
 def step_impl(context, title, no_links, error):
     context.chrome_page_obj.dismiss_message_box_if_any()
     context.chrome_page_obj.check_document_ready_state(title)
-    assert_that(context.chrome_page_obj.check_for_chrome_page_timeout(),
-                is_not(error.lower()),
+    if_error_page_timeout = context.chrome_page_obj.check_for_chrome_page_timeout()
+    if_page_contain_reload_btn = context.chrome_page_obj.check_for_reload_button_in_chrome_page()
+    assert_that(if_error_page_timeout,is_not(error.lower()),
                 "Chrome Browser Page Timeout Occured when loading URL")
-    assert_that(not context.chrome_page_obj.check_for_reload_button_in_chrome_page(),
+    assert_that(not if_page_contain_reload_btn,
                 "Chrome Browser Page Timeout Occured with Reload Option")
     title = title.lower()
     assert_that(context.chrome_page_obj.get_web_page_source(), contains_string(title), raises(ValueError, title))
@@ -39,7 +40,8 @@ def step_impl(context, title, no_links, error):
 def step_impl(context, content):
     if_error_reset = context.chrome_page_obj.check_for_chrome_page_connection_reset()
     if_error_access_denied = context.chrome_page_obj.check_for_chrome_page_access_denied()
-    assert_that(if_error_reset + "or" + if_error_access_denied,
+    is_error_page_timeout = context.chrome_page_obj.check_for_chrome_page_timeout()
+    assert_that(if_error_reset + "or" + if_error_access_denied + "or" + is_error_page_timeout,
                 contains_string(content.lower()), "Black list page not blocked")
     allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name="blocked",
                   attachment_type=AttachmentType.PNG)
