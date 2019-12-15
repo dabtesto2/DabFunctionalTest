@@ -127,10 +127,32 @@ class ChromeDriverPage():
         except Exception as error:
             print("Chromedriver exception at check_for_details_button_in_chrome_page " + str(error))
 
-    def check_for_errors_in_chrome_page(self):
+    def check_for_chrome_page_timeout(self):
         try:
             value = re.findall(r"err\_timed\_out", self.get_web_page_source())
             if len(value):
                 return str(value[0])
+            else:
+                return "None"
         except Exception as error:
-            print("Chromedriver exception at check_for_details_button_in_chrome_page " + str(error))
+            print("Chromedriver exception at check_for_chrome_page_timeout " + str(error))
+
+    def check_for_chrome_page_connection_reset(self):
+        try:
+            value = re.findall(r"err\_connection\_reset", self.get_web_page_source())
+            if len(value):
+                return str(value[0])
+            else:
+                return "None"
+        except Exception as error:
+            print("Chromedriver exception at check_for_chrome_page_connection_reset " + str(error))
+
+    def check_for_chrome_page_access_denied(self):
+        try:
+            value = re.findall(r"access denied", self.get_web_page_source())
+            if len(value):
+                return str(value[0])
+            else:
+                return "None"
+        except Exception as error:
+            print("Chromedriver exception at check_for_chrome_page_access_denied " + str(error))
