@@ -1,4 +1,4 @@
-@func_apn_health_check
+@apn_health_check_func
 Feature: Using Android Device check DAB func APN status using 4G
 
   Scenario Outline: With Android Device profile setup the context for <apn> with device profile <device_profile>

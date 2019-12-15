@@ -1,4 +1,4 @@
-@full_apn_health_check
+@apn_health_check_full
 Feature: Using Android Device check DAB FULL APN status using 4G
 
   Scenario Outline: With Android Device profile setup the context for <apn> with device profile <device_profile>
