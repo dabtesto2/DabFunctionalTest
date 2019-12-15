@@ -1,4 +1,4 @@
-@serv_apn_nds
+@serv_apn_health_check
 Feature: Using Android Device check DAB serv APN status using 4G
 
   Scenario Outline: With Android Device profile setup the context for <apn> with device profile <device_profile>
