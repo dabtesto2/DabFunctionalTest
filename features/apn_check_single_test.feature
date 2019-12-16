@@ -1,12 +1,13 @@
-Feature: Using Android Device check DAB serv APN status using 4G
+ Feature: Verify if Device is blocked when trying to browse item from IWF for http and https
 
-  Scenario Outline: With Android Device profile setup the context for <apn> with device profile <device_profile>
-    Given Android device using "<device_profile>" select apn "<apn>" and wait for "<apn_data_connection_wait>" sec
-    When Network connection status is "Data" collect device information
-    Then Data can be downloaded for "<device_profile>" subscriber with network type "LTE"
-    And Open "chrome" browser and get url "<url>"
-    And Check if page loads with "<title>" and click "<no_links>" dynamic links
+  Scenario Outline: Block when user browse item from IWF using <apn> with device profile <device_profile>
+    Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
+     When Network connection status is "Data" collect device information
+     Then Data can be downloaded for "<device_profile>" subscriber with network type "LTE"
+      And Open "chrome" browser and get url "<url>"
+      And if url in "iwf" then user is blocked or redirected to page with "<content>" inside page
 
     Examples:
-      | apn                         | url                      | title  | no_links | apn_data_connection_wait | device_profile|
-      | idata-full-epg1             | https://www.google.co.uk | google |        2 |                        5 |OA             |
+      | apn             | url                                                                           | content              | data_conn_wait | device_profile |
+      | idata-full-epg1 | http://ec2-3-136-212-197.us-east-2.compute.amazonaws.com/iwftest/?id=102&vw=7 | Access denied        | 5              | OA             |
+      | idata-full-epg1 | https://o2uyhlezymcd.vandviwf.com                                             | ERR_CONNECTION_RESET | 5              | OA             |
