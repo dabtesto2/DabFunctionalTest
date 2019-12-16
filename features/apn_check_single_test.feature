@@ -1,4 +1,4 @@
- Feature: Verify if Device is blocked when trying to browse item from blacklist for http and https
+  Feature: Verify if Device is blocked when trying to browse item from blacklist for http and https
 
   @cf_blacklist_full
 
