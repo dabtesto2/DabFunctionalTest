@@ -9,5 +9,5 @@
 
     Examples:
       | apn             | url                                                                           | content              | data_conn_wait | device_profile |
-      | idata-full-epg1 | http://ec2-3-136-212-197.us-east-2.compute.amazonaws.com/iwftest/?id=102&vw=7 | Access denied        | 5              | OA             |
-      | idata-full-epg1 | https://o2uyhlezymcd.vandviwf.com                                             | ERR_CONNECTION_RESET | 5              | OA             |
+      | mvne1-full-epg1 | http://ec2-3-136-212-197.us-east-2.compute.amazonaws.com/iwftest/?id=102&vw=7 | Access denied        | 5              | OA             |
+      | mvne1-full-epg1 | https://o2uyhlezymcd.vandviwf.com                                             | ERR_CONNECTION_RESET | 5              | OA             |
