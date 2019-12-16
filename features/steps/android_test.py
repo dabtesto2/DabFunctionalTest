@@ -8,7 +8,7 @@ import time
 
 @given(u'Android device using "{device_profile}" select apn "{apn_name}" and wait for "{seconds}" sec')
 def step_impl(context, device_profile, apn_name, seconds):
-    if apn_name is not_("use-same-apn"):
+ #   if apn_name is not_("use-same-apn"):
         context.device_profile = device_profile
         android_device_obj = AndroidDevice(device_profile)
         android_device_obj.dismiss_message_box_if_any()
@@ -18,8 +18,8 @@ def step_impl(context, device_profile, apn_name, seconds):
                       attachment_type=AttachmentType.PNG)
         android_device_obj.click_android_home()
         del android_device_obj
-    else:
-        print("skip select APN..")
+  #  else:
+   #     print("skip select APN..")
 
 
 @when(u'Network connection status is "{status}" collect device information')
