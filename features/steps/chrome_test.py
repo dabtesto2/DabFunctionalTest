@@ -36,13 +36,13 @@ def step_impl(context, title, no_links, error):
     del context.chrome_page_obj
 
 
-@then(u'if url in blacklist then user is blocked or redirected to page with "{content}" inside page')
-def step_impl(context, content):
+@then(u'if url in "{list}" then user is blocked or redirected to page with "{content}" inside page')
+def step_impl(context, list , content):
     if_error_reset = context.chrome_page_obj.check_for_chrome_page_connection_reset()
     if_error_access_denied = context.chrome_page_obj.check_for_chrome_page_access_denied()
     is_error_page_timeout = context.chrome_page_obj.check_for_chrome_page_timeout()
     assert_that(if_error_reset + "or" + if_error_access_denied + "or" + is_error_page_timeout,
                 contains_string(content.lower()), "Black list page not blocked")
-    allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name="blocked",
+    allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name=list+"_item",
                   attachment_type=AttachmentType.PNG)
     del context.chrome_page_obj
