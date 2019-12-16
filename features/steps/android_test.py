@@ -8,16 +8,18 @@ import time
 
 @given(u'Android device using "{device_profile}" select apn "{apn_name}" and wait for "{seconds}" sec')
 def step_impl(context, device_profile, apn_name, seconds):
-    context.device_profile = device_profile
-    android_device_obj = AndroidDevice(device_profile)
-    android_device_obj.dismiss_message_box_if_any()
-    android_device_obj.select_apn(apn_name)
-    android_device_obj.set_android_wait(int(seconds))
-    allure.attach(android_device_obj.get_android_device_screen_shot(), name="apn_select_" + apn_name,
-                  attachment_type=AttachmentType.PNG)
-    android_device_obj.click_android_home()
-    del android_device_obj
-
+    if apn_name is not_("use-same-apn"):
+        context.device_profile = device_profile
+        android_device_obj = AndroidDevice(device_profile)
+        android_device_obj.dismiss_message_box_if_any()
+        android_device_obj.select_apn(apn_name)
+        android_device_obj.set_android_wait(int(seconds))
+        allure.attach(android_device_obj.get_android_device_screen_shot(), name="apn_select_" + apn_name,
+                      attachment_type=AttachmentType.PNG)
+        android_device_obj.click_android_home()
+        del android_device_obj
+    else:
+        pass
 
 @when(u'Network connection status is "{status}" collect device information')
 def step_impl(context, status):
