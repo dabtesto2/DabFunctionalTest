@@ -1,8 +1,8 @@
-  Feature: Verify if Device is blocked when trying to browse item from NDS blocked catgory for http and https
+  Feature: Verify if Device is blocked when trying to browse item from NDS blocked category for http and https
 
   @cf_nds_cat_full
 
-  Scenario Outline: Block when user browse item from NDS blocked catgory using <apn> with device profile <device_profile>
+  Scenario Outline: Block when user browse item from NDS blocked category using <apn> with device profile <device_profile>
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
      When Network connection status is "Data" collect device information
      Then Data can be downloaded for "<device_profile>" subscriber with network type "LTE"
@@ -55,7 +55,7 @@
 
   @cf_nds_cat_func
 
-  Scenario Outline: Block when user browse item from NDS blocked catgory using <apn> with device profile <device_profile>
+  Scenario Outline: Block when user browse item from NDS blocked category using <apn> with device profile <device_profile>
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
      When Network connection status is "Data" collect device information
      Then Data can be downloaded for "<device_profile>" subscriber with network type "LTE"
@@ -108,7 +108,7 @@
 
   @cf_nds_cat_serv
 
-  Scenario Outline: Block when user browse item from NDS blocked catgory using <apn> with device profile <device_profile>
+  Scenario Outline: Block when user browse item from NDS blocked category using <apn> with device profile <device_profile>
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
      When Network connection status is "Data" collect device information
      Then Data can be downloaded for "<device_profile>" subscriber with network type "LTE"
