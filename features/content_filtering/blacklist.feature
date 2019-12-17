@@ -28,11 +28,11 @@
 
     Examples:
       | apn             | url                                                 | content              | data_conn_wait | device_profile |
-      | idata-full-epg1 | http://www.o2-blacklist.incompass.netstar-inc.com/  | Access denied        | 5              | OA             |
+      | idata-func-epg1 | http://www.o2-blacklist.incompass.netstar-inc.com/  | Access denied        | 5              | OA             |
       | use-same-apn    | https://www.o2-blacklist.incompass.netstar-inc.com/ | ERR_CONNECTION_RESET | 5              | OA             |
-      | mvne1-full-epg1 | http://www.o2-blacklist.incompass.netstar-inc.com/  | Access denied        | 5              | PC             |
+      | mvne1-func-epg1 | http://www.o2-blacklist.incompass.netstar-inc.com/  | Access denied        | 5              | PC             |
       | use-same-apn    | https://www.dip.cc/                                 | ERR_TIMED_OUT        | 5              | PC             |
-      | tesco-full-epg2 | https://www.mobile-spy.com/                         | ERR_CONNECTION_RESET | 5              | NDS            |
+      | tesco-func-epg2 | https://www.mobile-spy.com/                         | ERR_CONNECTION_RESET | 5              | NDS            |
       | use-same-apn    | http://www.dip.cc/                                  | Access denied        | 5              | NDS            |
 
   @cf_blacklist_serv
@@ -45,9 +45,9 @@
 
     Examples:
       | apn             | url                                                 | content              | data_conn_wait | device_profile |
-      | idata-full-epg1 | http://www.o2-blacklist.incompass.netstar-inc.com/  | Access denied        | 5              | OA             |
+      | idata-serv-epg1 | http://www.o2-blacklist.incompass.netstar-inc.com/  | Access denied        | 5              | OA             |
       | use-same-apn    | https://www.o2-blacklist.incompass.netstar-inc.com/ | ERR_CONNECTION_RESET | 5              | OA             |
-      | mvne1-full-epg1 | http://www.o2-blacklist.incompass.netstar-inc.com/  | Access denied        | 5              | PC             |
+      | mvne1-serv-epg1 | http://www.o2-blacklist.incompass.netstar-inc.com/  | Access denied        | 5              | PC             |
       | use-same-apn    | https://www.dip.cc/                                 | ERR_TIMED_OUT        | 5              | PC             |
-      | tesco-full-epg2 | https://www.mobile-spy.com/                         | ERR_CONNECTION_RESET | 5              | NDS            |
+      | tesco-serv-epg2 | https://www.mobile-spy.com/                         | ERR_CONNECTION_RESET | 5              | NDS            |
       | use-same-apn    | http://www.dip.cc/                                  | Access denied        | 5              | NDS            |
