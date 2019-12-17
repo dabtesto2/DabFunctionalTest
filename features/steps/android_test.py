@@ -41,12 +41,16 @@ def step_impl(context, status):
 
 @then(u'Data can be downloaded for "{device_profile}" subscriber with network type "{network_type}"')
 def step_impl(context, device_profile, network_type):
+    network_types = network_type.split("|")
     android_device_obj = AndroidDevice(device_profile)
     android_device_obj.dismiss_message_box_if_any()
     android_device_obj.start_android_plugin_app()
     allure.attach(android_device_obj.get_android_device_screen_shot(), name="Check_Data_connection_status",
                   attachment_type=AttachmentType.PNG)
-    assert_that(android_device_obj.get_data_network_type(), contains_string(network_type), "Network type not matched")
+    assert_that(android_device_obj.get_data_network_type(), any_of(contains_string(network_types[0]),
+                                                                   contains_string(network_types[1]),
+                                                                   contains_string(network_types[2])),
+                "Network type not matched")
     print("Network Type assigned for the device  " + android_device_obj.get_data_network_type())
     print("Data Connection State  " + android_device_obj.get_data_state())
     assert_that(android_device_obj.get_data_state(), contains_string("DATA_CONNECTED"),
