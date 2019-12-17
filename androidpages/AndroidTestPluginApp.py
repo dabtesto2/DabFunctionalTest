@@ -79,22 +79,28 @@ class AndroidTestPluginApp:
         except Exception as error:
             print("Exception occurred at start_android_plugin_app " + str(error))
 
-    def get_data_activity(self):
+    def get_data_activity(self, timeout=10):
         try:
-            for loop in range(1, 10):
+            for loop in range(1, timeout):
                 data = self.driver.execute_script("mobile:shell", data_activity)
                 value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
                 if "INOUT" in value[0]:
                     return value[0]
-                time.sleep(0.5)
+                time.sleep(1)
             data = self.driver.execute_script("mobile:shell", data_activity)
             value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
             return value[0]
         except Exception as error:
             print("Exception occurred at get_data_activity " + str(error))
 
-    def get_data_state(self):
+    def get_data_state(self, timeout=10):
         try:
+            for loop in range(1, timeout):
+                data = self.driver.execute_script("mobile:shell", data_state)
+                value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
+                if "CONNECTED" in value[0]:
+                    return value[0]
+                time.sleep(1)
             data = self.driver.execute_script("mobile:shell", data_state)
             value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
             return value[0]

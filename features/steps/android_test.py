@@ -13,7 +13,9 @@ def step_impl(context, device_profile, apn_name, seconds):
         android_device_obj = AndroidDevice(device_profile)
         android_device_obj.dismiss_message_box_if_any()
         android_device_obj.select_apn(apn_name)
-        android_device_obj.set_android_wait(int(seconds))
+        print("Data Connection State  " + android_device_obj.get_data_state(int(seconds)))
+        assert_that(android_device_obj.get_data_state(int(seconds)), contains_string("DATA_CONNECTED"),
+                    "No Data session")
         allure.attach(android_device_obj.get_android_device_screen_shot(), name="apn_select_" + apn_name,
                       attachment_type=AttachmentType.PNG)
         android_device_obj.click_android_home()
@@ -39,8 +41,8 @@ def step_impl(context, status):
     del android_device_obj
 
 
-@then(u'Data can be downloaded for "{device_profile}" subscriber with network type "{network_type}"')
-def step_impl(context, device_profile, network_type):
+@then(u'Data can be downloaded for "<device_profile>" with network type "LTE|HSPAP|HSUPA" wait for "<data_conn_wait>"')
+def step_impl(context, device_profile, network_type,seconds):
     network_types = network_type.split("|")
     android_device_obj = AndroidDevice(device_profile)
     android_device_obj.dismiss_message_box_if_any()
@@ -53,11 +55,11 @@ def step_impl(context, device_profile, network_type):
                                                                    contains_string(network_types[2])),
                 "Device Not attached to Network 4G or 3G")
     print("Network Type assigned for the device  " + android_device_obj.get_data_network_type())
-    print("Data Connection State  " + android_device_obj.get_data_state())
-    assert_that(android_device_obj.get_data_state(), contains_string("DATA_CONNECTED"),
+    print("Data Connection State  " + android_device_obj.get_data_state(int(seconds)))
+    assert_that(android_device_obj.get_data_state(int(seconds)), contains_string("DATA_CONNECTED"),
                 "No Data session")
-    print("Data Activity  " + android_device_obj.get_data_activity())
-    assert_that(android_device_obj.get_data_activity(), contains_string("DATA_ACTIVITY_INOUT"),
+    print("Data Activity  " + android_device_obj.get_data_activity(int(seconds)))
+    assert_that(android_device_obj.get_data_activity(int(seconds)), contains_string("DATA_ACTIVITY_INOUT"),
                 "No User plane D/L for subscriber")
     assert_that(android_device_obj.get_msisdn(),
                 not_(android_device_obj.get_android_msisdn()), "MSISDN mismatch")
