@@ -19,6 +19,7 @@ def step_impl(context, device_profile, apn_name, seconds):
         android_device_obj.click_android_home()
         del android_device_obj
     else:
+        context.device_profile = device_profile
         print("skip select APN.")
 
 
