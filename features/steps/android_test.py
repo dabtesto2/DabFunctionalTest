@@ -51,7 +51,7 @@ def step_impl(context, device_profile, network_type):
     assert_that(android_device_obj.get_data_network_type(), any_of(contains_string(network_types[0]),
                                                                    contains_string(network_types[1]),
                                                                    contains_string(network_types[2])),
-                "Network type not matched")
+                "Device Not attached to Network 4G or 3G")
     print("Network Type assigned for the device  " + android_device_obj.get_data_network_type())
     print("Data Connection State  " + android_device_obj.get_data_state())
     assert_that(android_device_obj.get_data_state(), contains_string("DATA_CONNECTED"),
