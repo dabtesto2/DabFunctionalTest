@@ -81,12 +81,12 @@ class AndroidTestPluginApp:
 
     def get_data_activity(self):
         try:
-            for loop in range(1, 10):
+            for loop in range(1, 100):
                 data = self.driver.execute_script("mobile:shell", data_activity)
                 value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
                 if "INOUT" in value[0]:
                     return value[0]
-                time.sleep(2)
+                time.sleep(0.5)
             data = self.driver.execute_script("mobile:shell", data_activity)
             value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
             return value[0]
