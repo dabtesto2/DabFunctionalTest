@@ -44,6 +44,7 @@ def step_impl(context, device_profile, network_type):
     network_types = network_type.split("|")
     android_device_obj = AndroidDevice(device_profile)
     android_device_obj.dismiss_message_box_if_any()
+    android_device_obj.stop_android_plugin_app()
     android_device_obj.start_android_plugin_app()
     allure.attach(android_device_obj.get_android_device_screen_shot(), name="Check_Data_connection_status",
                   attachment_type=AttachmentType.PNG)
