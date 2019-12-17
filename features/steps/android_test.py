@@ -8,7 +8,7 @@ import time
 
 @given(u'Android device using "{device_profile}" select apn "{apn_name}" and wait for "{seconds}" sec')
 def step_impl(context, device_profile, apn_name, seconds):
-    if not ("use-same-apn" in apn_name):
+    if not ("same-apn" in apn_name):
         context.device_profile = device_profile
         android_device_obj = AndroidDevice(device_profile)
         android_device_obj.dismiss_message_box_if_any()
