@@ -10,12 +10,12 @@
 
     Examples:
       | apn             | url                                                                           | content              | data_conn_wait | device_profile |
-      | idata-full-epg1 | http://ec2-3-136-212-197.us-east-2.compute.amazonaws.com/iwftest/?id=102&vw=7 | Access denied        | 30             | OA             |
-      | idata-full-epg1 | https://o2uyhlezymcd.vandviwf.com                                             | ERR_CONNECTION_RESET | 30             | OA             |
-      | mvne1-full-epg1 | http://ec2-3-136-212-197.us-east-2.compute.amazonaws.com/iwftest/?id=102&vw=7 | Access denied        | 30             | PC             |
-      | mvne1-full-epg1 | https://o2uyhlezymcd.vandviwf.com                                             | ERR_CONNECTION_RESET | 30             | PC             |
-      | tesco-full-epg2 | http://ec2-3-136-212-197.us-east-2.compute.amazonaws.com/iwftest/?id=102&vw=7 | Access denied        | 30             | NDS            |
-      | tesco-full-epg2 | https://o2uyhlezymcd.vandviwf.com                                             | ERR_CONNECTION_RESET | 30             | NDS            |
+      | idata-full-epg1 | http://ec2-3-136-212-197.us-east-2.compute.amazonaws.com/iwftest/?id=102&vw=7 | Access denied        | 60            | OA             |
+      | idata-full-epg1 | https://o2uyhlezymcd.vandviwf.com                                             | ERR_CONNECTION_RESET | 60            | OA             |
+      | mvne1-full-epg1 | http://ec2-3-136-212-197.us-east-2.compute.amazonaws.com/iwftest/?id=102&vw=7 | Access denied        | 60            | PC             |
+      | mvne1-full-epg1 | https://o2uyhlezymcd.vandviwf.com                                             | ERR_CONNECTION_RESET | 60            | PC             |
+      | tesco-full-epg2 | http://ec2-3-136-212-197.us-east-2.compute.amazonaws.com/iwftest/?id=102&vw=7 | Access denied        | 60            | NDS            |
+      | tesco-full-epg2 | https://o2uyhlezymcd.vandviwf.com                                             | ERR_CONNECTION_RESET | 60            | NDS            |
 
   @cf_iwf_func
   Scenario Outline: Block when user browse item from IWF using <apn> with device profile <device_profile>
@@ -27,12 +27,12 @@
 
     Examples:
       | apn             | url                                                                           | content              | data_conn_wait | device_profile |
-      | idata-func-epg1 | http://ec2-3-136-212-197.us-east-2.compute.amazonaws.com/iwftest/?id=102&vw=7 | Access denied        | 30             | OA             |
-      | idata-func-epg1 | https://o2uyhlezymcd.vandviwf.com                                             | ERR_CONNECTION_RESET | 30             | OA             |
-      | mvne1-func-epg1 | http://ec2-3-136-212-197.us-east-2.compute.amazonaws.com/iwftest/?id=102&vw=7 | Access denied        | 30             | PC             |
-      | mvne1-func-epg1 | https://o2uyhlezymcd.vandviwf.com                                             | ERR_CONNECTION_RESET | 30             | PC             |
-      | tesco-func-epg2 | http://ec2-3-136-212-197.us-east-2.compute.amazonaws.com/iwftest/?id=102&vw=7 | Access denied        | 30             | NDS            |
-      | tesco-func-epg2 | https://o2uyhlezymcd.vandviwf.com                                             | ERR_CONNECTION_RESET | 30             | NDS            |
+      | idata-func-epg1 | http://ec2-3-136-212-197.us-east-2.compute.amazonaws.com/iwftest/?id=102&vw=7 | Access denied        | 60            | OA             |
+      | idata-func-epg1 | https://o2uyhlezymcd.vandviwf.com                                             | ERR_CONNECTION_RESET | 60            | OA             |
+      | mvne1-func-epg1 | http://ec2-3-136-212-197.us-east-2.compute.amazonaws.com/iwftest/?id=102&vw=7 | Access denied        | 60            | PC             |
+      | mvne1-func-epg1 | https://o2uyhlezymcd.vandviwf.com                                             | ERR_CONNECTION_RESET | 60            | PC             |
+      | tesco-func-epg2 | http://ec2-3-136-212-197.us-east-2.compute.amazonaws.com/iwftest/?id=102&vw=7 | Access denied        | 60            | NDS            |
+      | tesco-func-epg2 | https://o2uyhlezymcd.vandviwf.com                                             | ERR_CONNECTION_RESET | 60            | NDS            |
 
   @cf_iwf_serv
   Scenario Outline: Block when user browse item from IWF using <apn> with device profile <device_profile>
@@ -44,9 +44,9 @@
 
     Examples:
       | apn             | url                                                                           | content              | data_conn_wait | device_profile |
-      | idata-serv-epg1 | http://ec2-3-136-212-197.us-east-2.compute.amazonaws.com/iwftest/?id=102&vw=7 | Access denied        | 30             | OA             |
-      | idata-serv-epg1 | https://o2uyhlezymcd.vandviwf.com                                             | ERR_CONNECTION_RESET | 30             | OA             |
-      | mvne1-serv-epg1 | http://ec2-3-136-212-197.us-east-2.compute.amazonaws.com/iwftest/?id=102&vw=7 | Access denied        | 30             | PC             |
-      | mvne1-serv-epg1 | https://o2uyhlezymcd.vandviwf.com                                             | ERR_CONNECTION_RESET | 30             | PC             |
-      | tesco-serv-epg2 | http://ec2-3-136-212-197.us-east-2.compute.amazonaws.com/iwftest/?id=102&vw=7 | Access denied        | 30             | NDS            |
-      | tesco-serv-epg2 | https://o2uyhlezymcd.vandviwf.com                                             | ERR_CONNECTION_RESET | 30             | NDS            |
+      | idata-serv-epg1 | http://ec2-3-136-212-197.us-east-2.compute.amazonaws.com/iwftest/?id=102&vw=7 | Access denied        | 60            | OA             |
+      | idata-serv-epg1 | https://o2uyhlezymcd.vandviwf.com                                             | ERR_CONNECTION_RESET | 60            | OA             |
+      | mvne1-serv-epg1 | http://ec2-3-136-212-197.us-east-2.compute.amazonaws.com/iwftest/?id=102&vw=7 | Access denied        | 60            | PC             |
+      | mvne1-serv-epg1 | https://o2uyhlezymcd.vandviwf.com                                             | ERR_CONNECTION_RESET | 60            | PC             |
+      | tesco-serv-epg2 | http://ec2-3-136-212-197.us-east-2.compute.amazonaws.com/iwftest/?id=102&vw=7 | Access denied        | 60            | NDS            |
+      | tesco-serv-epg2 | https://o2uyhlezymcd.vandviwf.com                                             | ERR_CONNECTION_RESET | 60            | NDS            |
