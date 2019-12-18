@@ -100,7 +100,7 @@ class AndroidTestPluginApp:
             for loop in range(1, timeout):
                 data = self.driver.execute_script("mobile:shell", data_state)
                 value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
-                if "CONNECTED" in value[0]:
+                if "DATA_CONNECTED" in value[0]:
                     print(f"GET_DATA_STATE  success after {loop} sec ")
                     return value[0]
                 time.sleep(1)
