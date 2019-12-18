@@ -85,10 +85,12 @@ class AndroidTestPluginApp:
                 data = self.driver.execute_script("mobile:shell", data_activity)
                 value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
                 if "INOUT" in value[0]:
+                    print(f"GET_DATA_ACTIVITY  success after {loop} sec ")
                     return value[0]
                 time.sleep(1)
             data = self.driver.execute_script("mobile:shell", data_activity)
             value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
+            print(f"GET_DATA_ACTIVITY  timeout after {timeout} sec ")
             return value[0]
         except Exception as error:
             print("Exception occurred at get_data_activity " + str(error))
@@ -99,10 +101,12 @@ class AndroidTestPluginApp:
                 data = self.driver.execute_script("mobile:shell", data_state)
                 value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
                 if "CONNECTED" in value[0]:
+                    print(f"GET_DATA_STATE  success after {loop} sec ")
                     return value[0]
                 time.sleep(1)
             data = self.driver.execute_script("mobile:shell", data_state)
             value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
+            print(f"GET_DATA_STATE  timeout after {timeout} sec ")
             return value[0]
         except Exception as error:
             print("Exception occurred at get_data_state " + str(error))
