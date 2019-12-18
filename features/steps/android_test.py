@@ -43,7 +43,7 @@ def step_impl(context, status):
     del android_device_obj
 
 
-@then(u'Data can be downloaded with "{device_profile}" and network "{network_type}" wait for "{data_conn_wait}" sec')
+@then(u'Data can be downloaded with "{device_profile}" and network "{network_type}" wait for "{seconds}" sec')
 def step_impl(context, device_profile, network_type, seconds):
     network_types = network_type.split("|")
     android_device_obj = AndroidDevice(device_profile)
