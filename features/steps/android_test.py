@@ -43,8 +43,8 @@ def step_impl(context, status):
     del android_device_obj
 
 
-@then(u'Data can be downloaded for "<device_profile>" with network type "LTE|HSPAP|HSUPA" wait for "<data_conn_wait>"')
-def step_impl(context, device_profile, network_type,seconds):
+@then(u'Data can be downloaded with "{device_profile}" and network "{network_type}" wait for "{data_conn_wait}" sec')
+def step_impl(context, device_profile, network_type, seconds):
     network_types = network_type.split("|")
     android_device_obj = AndroidDevice(device_profile)
     android_device_obj.dismiss_message_box_if_any()
