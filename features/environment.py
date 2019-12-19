@@ -1,15 +1,9 @@
-from appium import webdriver
-import os
-from androidpages.AndroidDevice import AndroidDevice
-from androidpages.AppiumClientLocal import AppiumClientLocal
-from androidpages.AndroidDevicePool import AndroidDevicePool
-from selenium.common import exceptions
-from appium.webdriver.appium_service import AppiumService
+import allure
+from allure_commons.types import AttachmentType
 
 
-def before_scenario(context, scenario):
-    pass
-
-
-def after_scenario(context, scenario):
-    pass
+def after_step(context, step):
+    if step.status == 'failed':
+        step_str = step.name
+        allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name=step_str,
+                      attachment_type=AttachmentType.PNG)
