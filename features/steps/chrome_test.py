@@ -41,8 +41,9 @@ def step_impl(context, list_item, content):
     if_error_reset = context.chrome_page_obj.check_for_chrome_page_connection_reset()
     if_error_access_denied = context.chrome_page_obj.check_for_chrome_page_access_denied()
     is_error_page_timeout = context.chrome_page_obj.check_for_chrome_page_timeout()
-    assert_that(if_error_reset + "or" + if_error_access_denied + "or" + is_error_page_timeout,
-                contains_string(content.lower()), "Black list page not blocked")
+    is_content_match = context.chrome_page_obj.get_web_page_source()
+    assert_that(if_error_reset + "or" + if_error_access_denied + "or" + is_error_page_timeout +
+                "or" + is_content_match,contains_string(content.lower()), "Black list page not blocked")
     allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name=list_item + "_item",
                   attachment_type=AttachmentType.PNG)
     del context.chrome_page_obj
