@@ -11,7 +11,7 @@
     Examples:
       | apn             | nds_cat           | url                                  | content       | device_profile | data_conn_wait |
       | mvne1-full-epg2 | Adult-SearchLinks | http://304.incompass.netstar-inc.com | over-18       | NDS            | 60             |
-      | tesco-full-epg1 | Adult-SearchLinks | http://boodigo.com                   | over 18       | NDS            | 60             |
+      | tesco-full-epg1 | Adult-SearchLinks | http://boodigo.com                   | Accessing 18  | NDS            | 60             |
       | mvne1-full-epg1 | Adult-SearchLinks | http://304.incompass.netstar-inc.com | Parental Control| PC             | 60             |
       | tesco-full-epg1 | Adult-SearchLinks | http://boodigo.com                   | Parental Control| PC             | 60             |
 
