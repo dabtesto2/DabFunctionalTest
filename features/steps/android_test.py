@@ -45,7 +45,7 @@ def step_impl(context, status):
 
 @then(u'Data can be downloaded with "{device_profile}" and network "{network_type}" wait for "{seconds}" sec')
 def step_impl(context, device_profile, network_type, seconds):
-    network_types = network_type.split("|")
+    network_types = network_type.split(",")
     android_device_obj = AndroidDevice(device_profile)
     android_device_obj.dismiss_message_box_if_any()
     android_device_obj.stop_android_plugin_app()
