@@ -41,8 +41,11 @@ def step_impl(context, list_item, content):
     if_error_reset = context.chrome_page_obj.check_for_chrome_page_connection_reset()
     if_error_access_denied = context.chrome_page_obj.check_for_chrome_page_access_denied()
     is_error_page_timeout = context.chrome_page_obj.check_for_chrome_page_timeout()
-    assert_that(if_error_reset + "or" + if_error_access_denied + "or" + is_error_page_timeout,
-                contains_string(content.lower()), list_item + "page not blocked or redirected")
+    is_error_page_content_decoding_failed = context.chrome_page_obj.check_for_chrome_page_content_decoding_failed()
+    assert_that(if_error_reset + "or" + if_error_access_denied
+                + "or" + is_error_page_timeout + "or" + is_error_page_content_decoding_failed,
+                any_of(contains_string(content.lower()), contains_string("content_decoding_failed")),
+                list_item + "page not blocked or redirected")
     allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name=list_item + "_item",
                   attachment_type=AttachmentType.PNG)
     del context.chrome_page_obj

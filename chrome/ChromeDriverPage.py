@@ -147,6 +147,16 @@ class ChromeDriverPage():
         except Exception as error:
             print("Chromedriver exception at check_for_chrome_page_connection_reset " + str(error))
 
+    def check_for_chrome_page_content_decoding_failed(self):
+        try:
+            value = re.findall(r"err\_content\_decoding\_failed", self.get_web_page_source())
+            if len(value):
+                return str(value[0])
+            else:
+                return "None"
+        except Exception as error:
+            print("Chromedriver exception at check_for_chrome_page_connection_reset " + str(error))
+
     def check_for_chrome_page_access_denied(self):
         try:
             if len(re.findall(r"access denied", self.get_web_page_source())):
