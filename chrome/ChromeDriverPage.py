@@ -149,10 +149,17 @@ class ChromeDriverPage():
 
     def check_for_chrome_page_access_denied(self):
         try:
-            value = re.findall(r"access denied", self.get_web_page_source())
-            if len(value):
+            if len(re.findall(r"access denied", self.get_web_page_source())):
+                value = re.findall(r"access denied", self.get_web_page_source())
+                return str(value[0])
+            elif len(re.findall(r"over-18s", self.get_web_page_source())):
+                value = re.findall(r"over-18s", self.get_web_page_source())
+                return str(value[0])
+            elif len(re.findall(r"over 18", self.get_web_page_source())):
+                value = re.findall(r"over 18", self.get_web_page_source())
                 return str(value[0])
             else:
                 return "None"
         except Exception as error:
             print("Chromedriver exception at check_for_chrome_page_access_denied " + str(error))
+
