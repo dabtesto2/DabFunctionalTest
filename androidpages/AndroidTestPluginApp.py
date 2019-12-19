@@ -42,6 +42,13 @@ data_state = {
     'timeout': 5000
 }
 
+device_reboot = {
+    'command': 'reboot',
+    'args': [''],
+    'includeStderr': True,
+    'timeout': 5000
+}
+
 imsi = {
     'command': 'am',
     'args': ['broadcast -a', 'com.dab.dabo2.GET_IMSI'],
@@ -104,6 +111,8 @@ class AndroidTestPluginApp:
                     print(f"GET_DATA_STATE  success after {loop} sec ")
                     return value[0]
                 time.sleep(1)
+            self.driver.execute_script("mobile:shell", device_reboot)
+            time.sleep(60)
             data = self.driver.execute_script("mobile:shell", data_state)
             value = re.findall(r".*data\=\"(.*)\".*", data['stdout'])
             print(f"GET_DATA_STATE  timeout after {timeout} sec ")
