@@ -155,8 +155,8 @@ class ChromeDriverPage():
             elif len(re.findall(r"over-18s", self.get_web_page_source())):
                 value = re.findall(r"over-18s", self.get_web_page_source())
                 return str(value[0])
-            elif len(re.findall(r"over 18", self.get_web_page_source())):
-                value = re.findall(r"over 18", self.get_web_page_source())
+            elif len(re.findall(r"under 18", self.get_web_page_source())):
+                value = re.findall(r"under 18", self.get_web_page_source())
                 return str(value[0])
             else:
                 return "None"
