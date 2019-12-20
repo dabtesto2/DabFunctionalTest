@@ -1,4 +1,4 @@
-  Feature: Verify if Device is blocked when trying to browse item from drugs category for http and https
+  Feature: Verify if Device is blocked when trying to browse item from drugs category for http
 
   @cf_nds_cat_fulll
   Scenario Outline: Block when user browse item from drugs category using <apn> with device profile <device_profile>
