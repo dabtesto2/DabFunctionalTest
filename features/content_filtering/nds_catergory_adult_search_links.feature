@@ -1,4 +1,4 @@
-  Feature: Verify if Device is blocked when trying to browse item from adult search links category for http
+  Feature: Verify if Device is blocked when trying to browse item from adult search links category for http and https
 
   @cf_nds_cat_full
   Scenario Outline: Block when user browse item from adult links category using <apn> with device profile <device_profile>

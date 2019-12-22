@@ -9,11 +9,11 @@
       And if url in "<nds_cat>" then user is blocked or redirected to page with "<content>" inside page
     Examples:
       | apn             | nds_cat   | url                                  | content          | device_profile | data_conn_wait |
-      | idata-full-epg1 | Marijuana | http://104.incompass.netstar-inc.com | over 18          | NDS            | 60             |
+      | idata-full-epg2 | Marijuana | http://104.incompass.netstar-inc.com | over 18          | NDS            | 60             |
       | tesco-full-epg1 | Marijuana | http://www.marijuana.com             | over 18          | NDS            | 60             |
       | mvne1-full-epg1 | Marijuana | http://www.marijuana.com             | over-18          | NDS            | 60             |
       | idata-full-epg2 | Marijuana | http://104.incompass.netstar-inc.com | Parental Control | PC             | 60             |
-      | tesco-full-epg1 | Marijuana | http://www.marijuana.com             | under 18         | PC             | 60             |
+      | tesco-full-epg2 | Marijuana | http://www.marijuana.com             | under 18         | PC             | 60             |
 
   @cf_nds_cat_func
   Scenario Outline: Block when user browse item from marijuana category using <apn> with device profile <device_profile>
