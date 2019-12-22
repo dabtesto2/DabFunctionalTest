@@ -24,11 +24,11 @@
       And if url in "<nds_cat>" then user is blocked or redirected to page with "<content>" inside page
     Examples:
       | apn             | nds_cat         | url                                  | content          | device_profile | data_conn_wait |
-      | idata-full-epg1 | Sexual-Services | http://303.incompass.netstar-inc.com | over 18          | NDS            | 60             |
-      | tesco-full-epg1 | Sexual-Services | http://www.companionsescorts.com     | over 18          | NDS            | 60             |
-      | mvne1-full-epg1 | Sexual-Services | http://www.companionsescorts.com     | over-18          | NDS            | 60             |
-      | idata-full-epg2 | Sexual-Services | http://303.incompass.netstar-inc.com | Parental Control | PC             | 60             |
-      | tesco-full-epg1 | Sexual-Services | http://www.companionsescorts.com     | under 18         | PC             | 60             |
+      | idata-func-epg1 | Sexual-Services | http://303.incompass.netstar-inc.com | over 18          | NDS            | 60             |
+      | tesco-func-epg1 | Sexual-Services | http://www.companionsescorts.com     | over 18          | NDS            | 60             |
+      | mvne1-func-epg1 | Sexual-Services | http://www.companionsescorts.com     | over-18          | NDS            | 60             |
+      | idata-func-epg2 | Sexual-Services | http://303.incompass.netstar-inc.com | Parental Control | PC             | 60             |
+      | tesco-func-epg1 | Sexual-Services | http://www.companionsescorts.com     | under 18         | PC             | 60             |
 
   @cf_nds_cat_serv
   Scenario Outline: Block when user browse item from sexual service category using <apn> with device profile <device_profile>
@@ -39,8 +39,8 @@
       And if url in "<nds_cat>" then user is blocked or redirected to page with "<content>" inside page
     Examples:
       | apn             | nds_cat         | url                                  | content          | device_profile | data_conn_wait |
-      | idata-full-epg1 | Sexual-Services | http://303.incompass.netstar-inc.com | over 18          | NDS            | 60             |
-      | tesco-full-epg1 | Sexual-Services | http://www.companionsescorts.com     | over 18          | NDS            | 60             |
-      | mvne1-full-epg1 | Sexual-Services | http://www.companionsescorts.com     | over-18          | NDS            | 60             |
-      | idata-full-epg2 | Sexual-Services | http://303.incompass.netstar-inc.com | Parental Control | PC             | 60             |
-      | tesco-full-epg1 | Sexual-Services | http://www.companionsescorts.com     | under 18         | PC             | 60             |
+      | idata-serv-epg1 | Sexual-Services | http://303.incompass.netstar-inc.com | over 18          | NDS            | 60             |
+      | tesco-serv-epg1 | Sexual-Services | http://www.companionsescorts.com     | over 18          | NDS            | 60             |
+      | mvne1-serv-epg1 | Sexual-Services | http://www.companionsescorts.com     | over-18          | NDS            | 60             |
+      | idata-serv-epg2 | Sexual-Services | http://303.incompass.netstar-inc.com | Parental Control | PC             | 60             |
+      | tesco-serv-epg1 | Sexual-Services | http://www.companionsescorts.com     | under 18         | PC             | 60             |
