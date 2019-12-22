@@ -10,7 +10,7 @@
     Examples:
       | apn             | nds_cat              | url                                 | content          | device_profile | data_conn_wait |
       | idata-full-epg2 | Terrorism-Extremists | http:/201.incompass.netstar-inc.com | over 18          | NDS            | 60             |
-      | mvne1-full-epg1 | Terrorism-Extremists | http:/201.incompass.netstar-inc.com | over 18          | NDS            | 60             |
+      | mvne1-full-epg1 | Terrorism-Extremists | http:/201.incompass.netstar-inc.com | over-18          | NDS            | 60             |
       | tesco-full-epg1 | Terrorism-Extremists | http://www.terroristwebsites.info   | over 18          | NDS            | 60             |
       | idata-full-epg2 | Terrorism-Extremists | http:/201.incompass.netstar-inc.com | Parental Control | PC             | 60             |
       | tesco-full-epg2 | Terrorism-Extremists | http://www.terroristwebsites.info   | under 18         | PC             | 60             |
@@ -25,7 +25,7 @@
     Examples:
       | apn             | nds_cat              | url                                 | content          | device_profile | data_conn_wait |
       | idata-func-epg2 | Terrorism-Extremists | http:/201.incompass.netstar-inc.com | over 18          | NDS            | 60             |
-      | mvne1-func-epg1 | Terrorism-Extremists | http:/201.incompass.netstar-inc.com | over 18          | NDS            | 60             |
+      | mvne1-func-epg1 | Terrorism-Extremists | http:/201.incompass.netstar-inc.com | over-18          | NDS            | 60             |
       | tesco-func-epg1 | Terrorism-Extremists | http://www.terroristwebsites.info   | over 18          | NDS            | 60             |
       | idata-func-epg2 | Terrorism-Extremists | http:/201.incompass.netstar-inc.com | Parental Control | PC             | 60             |
       | tesco-func-epg2 | Terrorism-Extremists | http://www.terroristwebsites.info   | under 18         | PC             | 60             |
@@ -40,7 +40,7 @@
     Examples:
       | apn             | nds_cat              | url                                 | content          | device_profile | data_conn_wait |
       | idata-serv-epg2 | Terrorism-Extremists | http:/201.incompass.netstar-inc.com | over 18          | NDS            | 60             |
-      | mvne1-serv-epg1 | Terrorism-Extremists | http:/201.incompass.netstar-inc.com | over 18          | NDS            | 60             |
+      | mvne1-serv-epg1 | Terrorism-Extremists | http:/201.incompass.netstar-inc.com | over-18          | NDS            | 60             |
       | tesco-serv-epg1 | Terrorism-Extremists | http://www.terroristwebsites.info   | over 18          | NDS            | 60             |
       | idata-serv-epg2 | Terrorism-Extremists | http:/201.incompass.netstar-inc.com | Parental Control | PC             | 60             |
       | tesco-serv-epg2 | Terrorism-Extremists | http://www.terroristwebsites.info   | under 18         | PC             | 60             |
