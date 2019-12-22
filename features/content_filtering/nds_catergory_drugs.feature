@@ -16,7 +16,6 @@
       | tesco-full-epg2 | Illegal-Drugs | http://102.incompass.netstar-inc.com | under 18         | PC             | 60             |
 
   @cf_nds_cat_func
-
   Scenario Outline: Block when user browse item from drugs category using <apn> with device profile <device_profile>
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
      When Network connection status is "Data" collect device information
@@ -32,7 +31,6 @@
       | tesco-func-epg2 | Illegal-Drugs | http://102.incompass.netstar-inc.com | under 18         | PC             | 60             |
 
   @cf_nds_cat_serv
-
   Scenario Outline: Block when user browse item from drugs category using <apn> with device profile <device_profile>
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
      When Network connection status is "Data" collect device information
