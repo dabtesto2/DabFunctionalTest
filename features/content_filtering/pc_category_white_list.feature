@@ -11,8 +11,8 @@
 
     Examples:
       | apn             | url                       | title    | no_links | data_conn_wait | device_profile |
-      | idata-full-epg1 | http://teach-ict.com/     | safekids | 2        | 5              | PC             |
-      | tesco-full-epg1 | http://teach-ict.com/     | safekids | 2        | 5              | PC             |
+      | idata-full-epg1 | http://teach-ict.com/     | teach-ict| 2        | 5              | PC             |
+      | tesco-full-epg1 | http://teach-ict.com/     | teach-ict| 2        | 5              | PC             |
       | idata-full-epg1 | https://www.bbc.co.uk     | bbc      | 2        | 5              | PC             |
       | tesco-full-epg1 | https://www.bbc.co.uk     | bbc      | 2        | 5              | PC             |
       | idata-full-epg1 | http://www.roalddahl.com/ | roal     | 2        | 5              | PC             |
@@ -29,8 +29,8 @@
 
     Examples:
       | apn             | url                       | title    | no_links | data_conn_wait | device_profile |
-      | idata-func-epg1 | http://teach-ict.com/     | safekids | 2        | 5              | PC             |
-      | tesco-func-epg1 | http://teach-ict.com/     | safekids | 2        | 5              | PC             |
+      | idata-func-epg1 | http://teach-ict.com/     | teach-ict| 2        | 5              | PC             |
+      | tesco-func-epg1 | http://teach-ict.com/     | teach-ict| 2        | 5              | PC             |
       | idata-func-epg1 | https://www.bbc.co.uk     | bbc      | 2        | 5              | PC             |
       | tesco-func-epg1 | https://www.bbc.co.uk     | bbc      | 2        | 5              | PC             |
       | idata-func-epg1 | http://www.roalddahl.com/ | roal     | 2        | 5              | PC             |
@@ -46,8 +46,8 @@
 
     Examples:
       | apn             | url                       | title    | no_links | data_conn_wait | device_profile |
-      | idata-serv-epg1 | http://teach-ict.com/     | safekids | 2        | 5              | PC             |
-      | tesco-serv-epg1 | http://teach-ict.com/     | safekids | 2        | 5              | PC             |
+      | idata-serv-epg1 | http://teach-ict.com/     | teach-ict| 2        | 5              | PC             |
+      | tesco-serv-epg1 | http://teach-ict.com/     | teach-ict| 2        | 5              | PC             |
       | idata-serv-epg1 | https://www.bbc.co.uk     | bbc      | 2        | 5              | PC             |
       | tesco-serv-epg1 | https://www.bbc.co.uk     | bbc      | 2        | 5              | PC             |
       | idata-serv-epg1 | http://www.roalddahl.com/ | roal     | 2        | 5              | PC             |
