@@ -10,10 +10,10 @@
       And if url in "iwf" then user is blocked or redirected to page with "<content>" inside page
 
     Examples:
-      | apn             | url                                               | content       | data_conn_wait | device_profile |
-      | idata-full-epg1 | http://www.dea-enforced.incompass.netstar-inc.com/ | Access denied | 60             | OA             |
-      | tesco-full-epg1 | http://www.dea-enforced.incompass.netstar-inc.com/ | Access denied | 60             | PC             |
-      | mvne1-full-epg2 | http://www.dea-enforced.incompass.netstar-inc.com/ | Access denied | 60             | NDS            |
+      | apn             | url                                                | content | data_conn_wait | device_profile |
+      | idata-full-epg1 | http://www.dea-enforced.incompass.netstar-inc.com/ | blocked | 60             | OA             |
+      | tesco-full-epg1 | http://www.dea-enforced.incompass.netstar-inc.com/ | blocked | 60             | PC             |
+      | mvne1-full-epg2 | http://www.dea-enforced.incompass.netstar-inc.com/ | blocked | 60             | NDS            |
 
   @cf_dea_func
 
@@ -25,10 +25,10 @@
       And if url in "iwf" then user is blocked or redirected to page with "<content>" inside page
 
     Examples:
-      | apn             | url                                               | content       | data_conn_wait | device_profile |
-      | idata-func-epg1 | http://www.dea-enforced.incompass.netstar-inc.com/| Access denied | 60             | OA             |
-      | tesco-func-epg1 | http://www.dea-enforced.incompass.netstar-inc.com/| Access denied | 60             | PC             |
-      | mvne1-func-epg2 | http://www.dea-enforced.incompass.netstar-inc.com/| Access denied | 60             | NDS            |
+      | apn             | url                                                | content | data_conn_wait | device_profile |
+      | idata-func-epg1 | http://www.dea-enforced.incompass.netstar-inc.com/ | blocked | 60             | OA             |
+      | tesco-func-epg1 | http://www.dea-enforced.incompass.netstar-inc.com/ | blocked | 60             | PC             |
+      | mvne1-func-epg2 | http://www.dea-enforced.incompass.netstar-inc.com/ | blocked | 60             | NDS            |
 
   @cf_dea_serv
 
@@ -40,7 +40,8 @@
       And if url in "iwf" then user is blocked or redirected to page with "<content>" inside page
 
     Examples:
-      | apn             | url                                               | content       | data_conn_wait | device_profile |
-      | idata-serv-epg1 | http://www.dea-enforced.incompass.netstar-inc.com/| Access denied | 60             | OA             |
-      | tesco-serv-epg1 | http://www.dea-enforced.incompass.netstar-inc.com/| Access denied | 60             | PC             |
-      | mvne1-serv-epg2 | http://www.dea-enforced.incompass.netstar-inc.com/| Access denied | 60             | NDS            |
+      | apn             | url                                                | content | data_conn_wait | device_profile |
+      | idata-serv-epg1 | http://www.dea-enforced.incompass.netstar-inc.com/ | blocked | 60             | OA             |
+      | tesco-serv-epg1 | http://www.dea-enforced.incompass.netstar-inc.com/ | blocked | 60             | PC             |
+      | mvne1-serv-epg2 | http://www.dea-enforced.incompass.netstar-inc.com/ | blocked | 60             | NDS            |
+
