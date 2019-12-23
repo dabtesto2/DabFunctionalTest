@@ -35,7 +35,8 @@
       | tesco-func-epg1 | https://www.bbc.co.uk     | bbc      | 2        | 10            | PC             |
       | idata-func-epg1 | http://www.roalddahl.com/ | roal     | 2        | 10            | PC             |
       | tesco-func-epg1 | http://www.roalddahl.com/ | roal     | 2        | 10            | PC             |
-  @pc_kids_cat_serv
+
+    @pc_kids_cat_serv
 
   Scenario Outline: With Android Device profile setup the context for <apn> with device profile <device_profile>
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
