@@ -1,7 +1,7 @@
-  Feature: Verify if Device is blocked when trying to browse item from violence category for http and https
+  Feature: Verify if Device is blocked when trying to browse item from violence list for http and https
 
   @cf_nds_cat_full
-  Scenario Outline: Block when user browse item from violence category using <apn> with device profile <device_profile>
+  Scenario Outline: Block when user browse item from violence list using <apn> with device profile <device_profile>
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
      When Network connection status is "Data" collect device information
      Then Data can be downloaded with "<device_profile>" and network "LTE,HSPAP,HSUPA,HSPA" wait for "<data_conn_wait>" sec
@@ -16,7 +16,7 @@
       | mvne1-full-epg2 | Violence-Suicide | http://fakepassport.info             | under 18         | PC             | 60             |
 
   @cf_nds_cat_func
-  Scenario Outline: Block when user browse item from violence category using <apn> with device profile <device_profile>
+  Scenario Outline: Block when user browse item from violence list using <apn> with device profile <device_profile>
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
      When Network connection status is "Data" collect device information
      Then Data can be downloaded with "<device_profile>" and network "LTE,HSPAP,HSUPA,HSPA" wait for "<data_conn_wait>" sec
@@ -31,7 +31,7 @@
       | mvne1-func-epg2 | Violence-Suicide | http://fakepassport.info             | under 18         | PC             | 60             |
 
   @cf_nds_cat_serv
-  Scenario Outline: Block when user browse item from violence category using <apn> with device profile <device_profile>
+  Scenario Outline: Block when user browse item from violence list using <apn> with device profile <device_profile>
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
      When Network connection status is "Data" collect device information
      Then Data can be downloaded with "<device_profile>" and network "LTE,HSPAP,HSUPA,HSPA" wait for "<data_conn_wait>" sec
