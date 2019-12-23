@@ -10,9 +10,9 @@
       And if url in "<nds_cat>" then user is blocked or redirected to page with "<content>" inside page
     Examples:
       | apn             | nds_cat    | url                                                    | content | device_profile | data_conn_wait |
-      | tesco-full-epg2 | o2-tobacco | http://www.o2-alcoholtokids.incompass.netstar-inc.com/ | over 18 | NDS            | 60             |
-      | idata-full-epg1 | o2-tobacco | http://www.o2-alcoholtokids.incompass.netstar-inc.com/ | over 18 | NDS            | 60             |
-      | mvne1-full-epg1 | o2-tobacco | http://www.o2-alcoholtokids.incompass.netstar-inc.com/ | over-18 | NDS            | 60             |
+      | tesco-full-epg2 | o2_alcohol | http://www.o2-alcoholtokids.incompass.netstar-inc.com/ | over 18 | NDS            | 60             |
+      | idata-full-epg1 | o2_alcohol | http://www.o2-alcoholtokids.incompass.netstar-inc.com/ | over 18 | NDS            | 60             |
+      | mvne1-full-epg1 | o2_alcohol | http://www.o2-alcoholtokids.incompass.netstar-inc.com/ | over-18 | NDS            | 60             |
 
   @cf_nds_cat_o2_alcohol_func
 
@@ -24,9 +24,9 @@
       And if url in "<nds_cat>" then user is blocked or redirected to page with "<content>" inside page
     Examples:
       | apn             | nds_cat    | url                                                    | content | device_profile | data_conn_wait |
-      | tesco-func-epg2 | o2-tobacco | http://www.o2-alcoholtokids.incompass.netstar-inc.com/ | over 18 | NDS            | 60             |
-      | idata-func-epg1 | o2-tobacco | http://www.o2-alcoholtokids.incompass.netstar-inc.com/ | over 18 | NDS            | 60             |
-      | mvne1-func-epg1 | o2-tobacco | http://www.o2-alcoholtokids.incompass.netstar-inc.com/ | over-18 | NDS            | 60             |
+      | tesco-func-epg2 | o2_alcohol | http://www.o2-alcoholtokids.incompass.netstar-inc.com/ | over 18 | NDS            | 60             |
+      | idata-func-epg1 | o2_alcohol | http://www.o2-alcoholtokids.incompass.netstar-inc.com/ | over 18 | NDS            | 60             |
+      | mvne1-func-epg1 | o2_alcohol | http://www.o2-alcoholtokids.incompass.netstar-inc.com/ | over-18 | NDS            | 60             |
 
   @cf_nds_cat_o2_alcohol_serv
 
@@ -38,6 +38,6 @@
       And if url in "<nds_cat>" then user is blocked or redirected to page with "<content>" inside page
     Examples:
       | apn             | nds_cat    | url                                                    | content | device_profile | data_conn_wait |
-      | tesco-serv-epg2 | o2-tobacco | http://www.o2-alcoholtokids.incompass.netstar-inc.com/ | over 18 | NDS            | 60             |
-      | idata-serv-epg1 | o2-tobacco | http://www.o2-alcoholtokids.incompass.netstar-inc.com/ | over 18 | NDS            | 60             |
-      | mvne1-serv-epg1 | o2-tobacco | http://www.o2-alcoholtokids.incompass.netstar-inc.com/ | over-18 | NDS            | 60             |
+      | tesco-serv-epg2 | o2_alcohol | http://www.o2-alcoholtokids.incompass.netstar-inc.com/ | over 18 | NDS            | 60             |
+      | idata-serv-epg1 | o2_alcohol | http://www.o2-alcoholtokids.incompass.netstar-inc.com/ | over 18 | NDS            | 60             |
+      | mvne1-serv-epg1 | o2_alcohol | http://www.o2-alcoholtokids.incompass.netstar-inc.com/ | over-18 | NDS            | 60             |
