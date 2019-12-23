@@ -14,13 +14,12 @@ def step_impl(context, device_profile, apn_name, seconds):
         android_device_obj.dismiss_message_box_if_any()
         android_device_obj.stop_android_plugin_app()
         android_device_obj.select_apn(apn_name)
-        android_device_obj.stop_android_plugin_app()
+        allure.attach(android_device_obj.get_android_device_screen_shot(), name="apn_select_" + apn_name,
+                      attachment_type=AttachmentType.PNG)
         android_device_obj.start_android_plugin_app()
         print("Data Connection State  " + android_device_obj.get_data_state(int(seconds)))
         assert_that(android_device_obj.get_data_state(int(seconds)), contains_string("DATA_CONNECTED"),
                     "No Data session")
-        allure.attach(android_device_obj.get_android_device_screen_shot(), name="apn_select_" + apn_name,
-                      attachment_type=AttachmentType.PNG)
         android_device_obj.click_android_home()
         del android_device_obj
     else:
