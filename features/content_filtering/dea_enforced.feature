@@ -11,9 +11,9 @@
 
     Examples:
       | apn             | url                                               | content       | data_conn_wait | device_profile |
-      | idata-full-epg1 | http://www.dea-extreme.incompass.netstar-inc.com/ | Access denied | 60             | OA             |
-      | tesco-full-epg1 | http://www.dea-extreme.incompass.netstar-inc.com/ | Access denied | 60             | PC             |
-      | mvne1-full-epg2 | http://www.dea-extreme.incompass.netstar-inc.com/ | Access denied | 60             | NDS            |
+      | idata-full-epg1 | http://www.dea-enforced.incompass.netstar-inc.com/ | Access denied | 60             | OA             |
+      | tesco-full-epg1 | http://www.dea-enforced.incompass.netstar-inc.com/ | Access denied | 60             | PC             |
+      | mvne1-full-epg2 | http://www.dea-enforced.incompass.netstar-inc.com/ | Access denied | 60             | NDS            |
 
   @cf_dea_func
 
@@ -26,9 +26,9 @@
 
     Examples:
       | apn             | url                                               | content       | data_conn_wait | device_profile |
-      | idata-func-epg1 | http://www.dea-extreme.incompass.netstar-inc.com/ | Access denied | 60             | OA             |
-      | tesco-func-epg1 | http://www.dea-extreme.incompass.netstar-inc.com/ | Access denied | 60             | PC             |
-      | mvne1-func-epg2 | http://www.dea-extreme.incompass.netstar-inc.com/ | Access denied | 60             | NDS            |
+      | idata-func-epg1 | http://www.dea-enforced.incompass.netstar-inc.com/| Access denied | 60             | OA             |
+      | tesco-func-epg1 | http://www.dea-enforced.incompass.netstar-inc.com/| Access denied | 60             | PC             |
+      | mvne1-func-epg2 | http://www.dea-enforced.incompass.netstar-inc.com/| Access denied | 60             | NDS            |
 
   @cf_dea_serv
 
@@ -41,6 +41,6 @@
 
     Examples:
       | apn             | url                                               | content       | data_conn_wait | device_profile |
-      | idata-serv-epg1 | http://www.dea-extreme.incompass.netstar-inc.com/ | Access denied | 60             | OA             |
-      | tesco-serv-epg1 | http://www.dea-extreme.incompass.netstar-inc.com/ | Access denied | 60             | PC             |
-      | mvne1-serv-epg2 | http://www.dea-extreme.incompass.netstar-inc.com/ | Access denied | 60             | NDS            |
+      | idata-serv-epg1 | http://www.dea-enforced.incompass.netstar-inc.com/| Access denied | 60             | OA             |
+      | tesco-serv-epg1 | http://www.dea-enforced.incompass.netstar-inc.com/| Access denied | 60             | PC             |
+      | mvne1-serv-epg2 | http://www.dea-enforced.incompass.netstar-inc.com/| Access denied | 60             | NDS            |
