@@ -174,6 +174,9 @@ class ChromeDriverPage():
             elif len(re.findall(r"parental control", self.get_web_page_source())):
                 value = re.findall(r"parental control", self.get_web_page_source())
                 return str(value[0])
+            elif len(re.findall(r"site to be blocked", self.get_web_page_source())):
+                value = re.findall(r"site to be blocked", self.get_web_page_source())
+                return str(value[0])
             else:
                 return "None"
         except Exception as error:
