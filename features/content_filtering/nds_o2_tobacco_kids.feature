@@ -1,6 +1,6 @@
   Feature: Verify if Device is blocked when trying to browse item from o2 tobacco category for http and https
 
-  @cf_nds_cat_full
+  @cf_nds_cat_o2_tobacco_full
 
   Scenario Outline: Block when user browse item from o2 tobacco  category using <apn> with device profile <device_profile>
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
@@ -14,7 +14,7 @@
       | idata-full-epg1 | o2-tobacco | http://www.holismokes.com/ | over 18 | NDS            | 60             |
       | mvne1-full-epg1 | o2-tobacco | http://www.holismokes.com/ | over-18 | NDS            | 60             |
 
-  @cf_nds_cat_func
+  @cf_nds_cat_o2_tobacco_func
 
   Scenario Outline: Block when user browse item from o2 tobacco  category using <apn> with device profile <device_profile>
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
@@ -28,7 +28,7 @@
       | idata-func-epg1 | o2-tobacco | http://www.holismokes.com/ | over 18 | NDS            | 60             |
       | mvne1-func-epg1 | o2-tobacco | http://www.holismokes.com/ | over-18 | NDS            | 60             |
 
-  @cf_nds_cat_serv
+  @cf_nds_cat_o2_tobacco_serv
 
   Scenario Outline: Block when user browse item from o2 tobacco  category using <apn> with device profile <device_profile>
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
