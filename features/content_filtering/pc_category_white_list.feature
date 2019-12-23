@@ -1,6 +1,6 @@
   Feature: Verify if PC subscribers is allowed to browse item KIDS CAT , U13 and PC white for http and https
 
-  @cf_nds_cat_fulll
+  @pc_kids_cat_full
 
   Scenario Outline: With Android Device profile setup the context for <apn> with device profile <device_profile>
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
@@ -18,7 +18,7 @@
       | idata-full-epg1 | http://www.roalddahl.com/ | roal     | 2        | 10            | PC             |
       | tesco-full-epg1 | http://www.roalddahl.com/ | roal     | 2        | 10            | PC             |
 
-  @cf_nds_cat_func
+  @pc_kids_cat_func
 
   Scenario Outline: With Android Device profile setup the context for <apn> with device profile <device_profile>
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
@@ -35,7 +35,7 @@
       | tesco-func-epg1 | https://www.bbc.co.uk     | bbc      | 2        | 10            | PC             |
       | idata-func-epg1 | http://www.roalddahl.com/ | roal     | 2        | 10            | PC             |
       | tesco-func-epg1 | http://www.roalddahl.com/ | roal     | 2        | 10            | PC             |
-  @cf_nds_cat_serv
+  @pc_kids_cat_serv
 
   Scenario Outline: With Android Device profile setup the context for <apn> with device profile <device_profile>
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
