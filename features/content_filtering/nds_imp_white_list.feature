@@ -1,8 +1,8 @@
-  Feature: Verify if Device is blocked when trying to browse item from imp_white list for http and https
+  Feature: Verify if NDS subscriber is allowed when trying to browse item from imp_white list for http and https
 
   @cf_nds_imp_white_full
 
-  Scenario Outline: Block when user browse item from imp_white  list using <apn> with device profile <device_profile>
+  Scenario Outline: allow when user browse item from imp_white  list using <apn> with device profile <device_profile>
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
      When Network connection status is "Data" collect device information
      Then Data can be downloaded with "<device_profile>" and network "LTE,HSPAP,HSUPA,HSPA" wait for "<data_conn_wait>" sec
@@ -16,7 +16,7 @@
 
   @cf_nds_imp_white_func
 
-  Scenario Outline: Block when user browse item from imp_white  list using <apn> with device profile <device_profile>
+  Scenario Outline: allow when user browse item from imp_white  list using <apn> with device profile <device_profile>
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
      When Network connection status is "Data" collect device information
      Then Data can be downloaded with "<device_profile>" and network "LTE,HSPAP,HSUPA,HSPA" wait for "<data_conn_wait>" sec
@@ -30,7 +30,7 @@
 
   @cf_nds_imp_white_serv
 
-  Scenario Outline: Block when user browse item from imp_white  list using <apn> with device profile <device_profile>
+  Scenario Outline: allow when user browse item from imp_white  list using <apn> with device profile <device_profile>
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
      When Network connection status is "Data" collect device information
      Then Data can be downloaded with "<device_profile>" and network "LTE,HSPAP,HSUPA,HSPA" wait for "<data_conn_wait>" sec
