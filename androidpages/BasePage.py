@@ -27,15 +27,13 @@ class BasePage(AndroidTestPluginApp):
         print("Device ID  " + self.device_id)
         self.imsi = android.get_android_device_imsi()
         self.msisdn = android.get_android_device_msisdn()
+        super().__init__(self.driver, self.device_id)
         desired_caps = dict(automationName=client.name, platformName=android.platform, fastReset=android.fastReset,
                             deviceOrientation=android.orientation, deviceName=android.platform,
                             udid=self.device_id, appActivity=android.starupactivity,
                             appPackage=android.startuppackage)
         try:
             self.driver = webdriver.Remote(client.get_remote_url(), desired_caps)
-            self.driver.implicitly_wait(timeout / timeout)
-            super().__init__(self.driver, self.device_id)
-
         except NewConnectionError as error:
             print("Remote appium web driver Connection Error " + str(error))
         except MaxRetryError as error:
@@ -43,6 +41,7 @@ class BasePage(AndroidTestPluginApp):
         except Exception as error:
             print("Remote appium web driver Connection error " + str(error))
 
+        self.driver.implicitly_wait(timeout / timeout)
         self.test_working_directory = '%s/' % os.getcwd()
         self.element_timeout = timeout
         self.result_directory = '%s/screenshot/' % os.getcwd()
