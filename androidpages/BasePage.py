@@ -38,10 +38,13 @@ class BasePage(AndroidTestPluginApp):
 
         except NewConnectionError as error:
             print("Remote appium web driver Connection Error " + str(error))
+            raise ValueError('No Connection to Appium Server ' + client.get_remote_url())
         except MaxRetryError as error:
             print("Remote appium web driver Connection error " + str(error))
+            raise ValueError('No Connection to Appium Server ') + client.get_remote_url()
         except Exception as error:
             print("Remote appium web driver Connection error " + str(error))
+            raise ValueError('No Connection to Appium Server ' + client.get_remote_url())
 
         self.test_working_directory = '%s/' % os.getcwd()
         self.element_timeout = timeout
