@@ -84,6 +84,7 @@ class ChromeDriverPage():
             while no_links > 0:
                 try:
                     self.dismiss_message_box_if_any()
+                    print("count = " + self.html_links.count())
                     if self.html_links.count() > 0:
                         self.driver.get(self.html_links.pop(randint(0, (len(self.html_links) - 1))))
                     else:
