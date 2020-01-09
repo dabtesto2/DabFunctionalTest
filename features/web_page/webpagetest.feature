@@ -8,4 +8,4 @@ Scenario Outline: Test the web page
 
     Examples:
       | apn             | url                        | content              | data_conn_wait | device_profile |
-      | idata-serv-epg1 | https://www.grunenthal.com | Access denied        | 60            | OA             |
+      | idata-serv-epg1 | https://www.grunenthal.com | Access denied        | 60            | NDS             |
