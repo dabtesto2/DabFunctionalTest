@@ -1,10 +1,10 @@
 import allure
 from allure_commons.types import AttachmentType
-from behave import then
+from behave import then, Given
 from chrome.ChromeDriverPage import ChromeDriverPage
 
 
-@then(u'Open chrome browser and get url "{url}"')
+@Given(u'Open chrome browser and get url "{url}"')
 def step_impl(context, url):
     chrome_page_obj = ChromeDriverPage("ce071717ab7bd73901")
     chrome_page_obj.dismiss_message_box_if_any()
