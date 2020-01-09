@@ -19,7 +19,8 @@ def step_impl(context, title, no_links):
     context.chrome_page_obj.dismiss_message_box_if_any()
     context.chrome_page_obj.check_document_ready_state(title)
     context.chrome_page_obj.get_links_from_page()
-    context.chrome_page_obj.click_links_from_page(no_links)
+    links = int(no_links)
+    context.chrome_page_obj.click_links_from_page(links)
     allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name="Chrome_" + title,
                   attachment_type=AttachmentType.PNG)
     del context.chrome_page_obj
