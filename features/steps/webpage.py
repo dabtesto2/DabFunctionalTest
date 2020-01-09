@@ -13,3 +13,4 @@ def step_impl(context, url):
     allure.attach(chrome_page_obj.save_chrome_web_page_screenshot(), name="Chrome_page",
                   attachment_type=AttachmentType.PNG)
     context.chrome_page_obj = chrome_page_obj
+    del context.chrome_page_obj
