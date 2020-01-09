@@ -1,3 +1,5 @@
+Feature: Test the web page
+
 Scenario Outline: Test the web page
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
      When Network connection status is "Data" collect device information
