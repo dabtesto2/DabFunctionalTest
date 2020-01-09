@@ -1,7 +1,6 @@
 import allure
 from allure_commons.types import AttachmentType
 from behave import then
-
 from chrome.ChromeDriverPage import ChromeDriverPage
 
 
