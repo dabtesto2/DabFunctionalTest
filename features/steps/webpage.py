@@ -15,7 +15,7 @@ def step_impl(context, url):
     del context.chrome_page_obj
 
 
-@then(u'Check if page loads with "{title}" and click "{no_links}" links without error "{error}"')
+@then(u'Check if page loads with "{title}" and click "{no_links}" links')
 def step_impl(context, title, no_links, error):
     context.chrome_page_obj.dismiss_message_box_if_any()
     context.chrome_page_obj.check_document_ready_state(title)
