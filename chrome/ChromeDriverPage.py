@@ -39,7 +39,6 @@ class ChromeDriverPage():
         except InvalidSessionIdException:
             pass
 
-
     def save_chrome_web_page_screenshot(self):
         try:
             return self.driver.get_screenshot_as_png()
