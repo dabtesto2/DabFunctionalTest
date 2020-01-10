@@ -6,6 +6,7 @@ from chrome.ChromeDriverPage import ChromeDriverPage
 
 @Given(u'Open chrome browser get url "{url}" using "{device}"')
 def step_impl(context, url, device):
+    context.url = url
     chrome_page_obj = ChromeDriverPage(device)
     chrome_page_obj.get_web_page_using_chrome_browser(url)
     context.chrome_page_obj = chrome_page_obj
