@@ -1,9 +1,6 @@
 Feature: Get links from web page
 
-  Background: Open page https://www.grunenthal.com
-        Given Open chrome browser and get url "https://www.grunenthal.com"
-
-  Scenario Outline: Get links from web page
+  Scenario Outline: Open page https://www.grunenthal.com
     Then Check if page loads with "<link>"
     Examples:
       | link                                                                                             |
