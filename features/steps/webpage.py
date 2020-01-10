@@ -13,7 +13,7 @@ def step_impl(context, url):
 
 
 @then(u'print links from page')
-def step_impl(context, link):
+def step_impl(context):
     context.chrome_page_obj.print_links_from_page()
     del context.chrome_page_obj
 
