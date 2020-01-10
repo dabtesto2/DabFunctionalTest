@@ -5,5 +5,4 @@ Feature: Get links from web page
     Then Check if page loads with "<link>"
     Examples:
       | link                                                                                             |
-      | https://www.grunenthal.com/en/footer-links/privacy-statement                                     |
       | https://www.grunenthal.com/#                                                                     |
