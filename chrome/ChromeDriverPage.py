@@ -202,9 +202,8 @@ class ChromeDriverPage():
         except Exception as error:
             print("Chromedriver exception during click_links_from_page " + str(error))
 
-    def scroll_until_contains_text(self):
+    def find_page_height(self):
         try:
-            last_height = self.driver.execute_script("return document.documentElement.scrollHeight")
-            print(" HEIGHT " + last_height)
+            return self.driver.execute_script("return document.documentElement.scrollHeight")
         except Exception as error:
             print("Selenium exception in scroll_with_uiselector_contains_text " + str(error))
