@@ -4,9 +4,9 @@ from behave import then, Given
 from chrome.ChromeDriverPage import ChromeDriverPage
 
 
-@Given(u'Open chrome browser and get url "{url}"')
-def step_impl(context, url):
-    context.url = url
+@Given(u'Open chrome browser and get url')
+def step_impl(context):
+    url = "https://www.grunenthal.com"
     chrome_page_obj = ChromeDriverPage("ce071717ab7bd73901")
     chrome_page_obj.get_web_page_using_chrome_browser(url)
     context.chrome_page_obj = chrome_page_obj
