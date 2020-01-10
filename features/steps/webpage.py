@@ -22,6 +22,8 @@ def step_impl(context):
 def step_impl(context, link):
     context.chrome_page_obj.check_document_ready_state(context.url)
     context.chrome_page_obj.click_link_on_page(link)
-    print(context.chrome_page_obj.get_window_size())
+    height = context.chrome_page_obj.get_window_size()
+    print(height['height'])
+    context.chrome_page_obj.execute_script("window.scrollTo(0,document.body.scrollHeight)")
     allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name="Chrome_" + link,
                   attachment_type=AttachmentType.PNG)
