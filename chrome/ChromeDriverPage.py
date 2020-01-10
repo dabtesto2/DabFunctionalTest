@@ -75,6 +75,7 @@ class ChromeDriverPage():
         try:
             elements = self.driver.find_elements_by_xpath(chromepage.DynamicLinks[1])
             for items in elements:
+                print("Links from page " + items.get_attribute("href"))
                 self.html_links.append(items.get_attribute("href"))
         except Exception as error:
             print("Chromedriver exception at get_links_from_page " + str(error))
