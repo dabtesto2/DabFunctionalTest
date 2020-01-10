@@ -2,6 +2,11 @@ import allure
 from allure_commons.types import AttachmentType
 
 
+def before_feature(context, feature):
+    if 'web_page_setup' in feature.tags:
+        context.excute_step(u'Open chrome browser and get url "https://www.grunenthal.com"')
+
+
 def after_step(context, step):
     if step.status == 'failed':
         step_str = step.name
@@ -9,7 +14,4 @@ def after_step(context, step):
                       attachment_type=AttachmentType.PNG)
 
 
-def before_feature(context, feature):
-    if 'web_page_setup' in feature.tags:
-        context.excute_step(u'Open chrome browser and get url "https://www.grunenthal.com"')
 
