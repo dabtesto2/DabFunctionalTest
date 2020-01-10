@@ -34,7 +34,7 @@ class ChromeDriverPage():
 
     def __del__(self):
         try:
-            if self.driver.session_id > 0:
+            if self.driver.session_id :
                 self.driver.quit()
         except InvalidSessionIdException:
             pass
