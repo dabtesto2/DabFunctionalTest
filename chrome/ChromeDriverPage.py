@@ -84,8 +84,7 @@ class ChromeDriverPage():
         try:
             while no_links > 0:
                 try:
-                    #self.dismiss_message_box_if_any()
-
+                    self.dismiss_message_box_if_any()
                     if len(self.html_links) > 0:
                         link_name = self.html_links.pop(randint(0, (len(self.html_links) - 1)))
                         print ("Link name " + link_name)
@@ -188,8 +187,18 @@ class ChromeDriverPage():
 
     def click_all_links_from_page(self):
         try:
-            elements = self.driver.find_elements_by_xpath(chromepage.DynamicLinks[1])
-            for items in elements:
-                self.driver.get(items.get_attribute("href"))
+            no_links = len(self.html_links)
+            while no_links > 0:
+                try:
+                    if no_links > 0:
+                        link_name = self.html_links.pop(randint(0, (len(self.html_links) - 1)))
+                        print("Link name " + link_name)
+                        self.driver.get(link_name)
+                    else:
+                        print("No Links found in Page")
+                        break
+                    no_links -= 1
+                except Exception as error:
+                    print("Chromedriver exception during click_links_from_page " + str(error))
         except Exception as error:
-            print("Chromedriver exception at get_links_from_page " + str(error))
+            print("Chromedriver exception at click_links_from_page " + str(error))
