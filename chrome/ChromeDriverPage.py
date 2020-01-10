@@ -3,7 +3,7 @@ import time
 from random import randint
 from selenium.webdriver import ChromeOptions
 from appium import webdriver
-from selenium.common.exceptions import InvalidSessionIdException, TimeoutException , StaleElementReferenceException
+from selenium.common.exceptions import InvalidSessionIdException, TimeoutException, StaleElementReferenceException
 from selenium.webdriver.support.wait import WebDriverWait
 import re
 from androidpages.AppiumClientLocal import AppiumClientLocal
@@ -75,7 +75,6 @@ class ChromeDriverPage():
         try:
             elements = self.driver.find_elements_by_xpath(chromepage.DynamicLinks[1])
             for items in elements:
-                print("Links from page " + items.get_attribute("href"))
                 self.html_links.append(items.get_attribute("href"))
         except StaleElementReferenceException:
             pass
@@ -89,7 +88,6 @@ class ChromeDriverPage():
                     self.dismiss_message_box_if_any()
                     if len(self.html_links) > 0:
                         link_name = self.html_links.pop(randint(0, (len(self.html_links) - 1)))
-                        print ("Link name " + link_name)
                         self.driver.get(link_name)
                     else:
                         print("No Links found in Page")
@@ -187,20 +185,19 @@ class ChromeDriverPage():
         except Exception as error:
             print("Chromedriver exception at check_for_chrome_page_access_denied " + str(error))
 
-    def click_all_links_from_page(self):
+    def print_links_from_page(self):
         try:
-            no_links = len(self.html_links)
-            while no_links > 0:
-                try:
-                    if no_links > 0:
-                        link_name = self.html_links.pop(randint(0, (len(self.html_links) - 1)))
-                        print("Link name " + link_name)
-                        self.driver.get(link_name)
-                    else:
-                        print("No Links found in Page")
-                        break
-                    no_links -= 1
-                except Exception as error:
-                    print("Chromedriver exception during click_links_from_page " + str(error))
+            elements = self.driver.find_elements_by_xpath(chromepage.DynamicLinks[1])
+            for items in elements:
+                print(items.get_attribute("href"))
+        except StaleElementReferenceException:
+            pass
         except Exception as error:
-            print("Chromedriver exception at click_links_from_page " + str(error))
+            print("Chromedriver exception at get_links_from_page " + str(error))
+
+    def click_link_on_page(self, link):
+        try:
+            self.dismiss_message_box_if_any()
+            self.driver.get(link)
+        except Exception as error:
+            print("Chromedriver exception during click_links_from_page " + str(error))
