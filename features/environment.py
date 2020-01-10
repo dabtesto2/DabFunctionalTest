@@ -4,7 +4,7 @@ from allure_commons.types import AttachmentType
 
 def before_feature(context, feature):
     if 'web_page_setup' in feature.tags:
-        context.execute_steps(u'''Open chrome browser and get url {https://www.grunenthal.com}''')
+        context.execute_steps(u'''Open chrome browser and get url''')
 
 
 def after_step(context, step):
