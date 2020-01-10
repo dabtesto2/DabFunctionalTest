@@ -189,7 +189,7 @@ class ChromeDriverPage():
         try:
             elements = self.driver.find_elements_by_xpath(chromepage.DynamicLinks[1])
             for items in elements:
-                print("|"+items.get_attribute("href")+"|")
+                print("|" + items.get_attribute("href") + "|")
         except StaleElementReferenceException:
             pass
         except Exception as error:
@@ -201,3 +201,10 @@ class ChromeDriverPage():
             self.driver.get(link)
         except Exception as error:
             print("Chromedriver exception during click_links_from_page " + str(error))
+
+    def scroll_until_contains_text(self):
+        try:
+            last_height = self.driver.execute_script("return document.documentElement.scrollHeight")
+            print(" HEIGHT " + last_height)
+        except Exception as error:
+            print("Selenium exception in scroll_with_uiselector_contains_text " + str(error))
