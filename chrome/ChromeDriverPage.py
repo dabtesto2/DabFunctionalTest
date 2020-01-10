@@ -3,7 +3,7 @@ import time
 from random import randint
 from selenium.webdriver import ChromeOptions
 from appium import webdriver
-from selenium.common.exceptions import InvalidSessionIdException, TimeoutException
+from selenium.common.exceptions import InvalidSessionIdException, TimeoutException , StaleElementReferenceException
 from selenium.webdriver.support.wait import WebDriverWait
 import re
 from androidpages.AppiumClientLocal import AppiumClientLocal
@@ -77,6 +77,8 @@ class ChromeDriverPage():
             for items in elements:
                 print("Links from page " + items.get_attribute("href"))
                 self.html_links.append(items.get_attribute("href"))
+        except StaleElementReferenceException:
+            pass
         except Exception as error:
             print("Chromedriver exception at get_links_from_page " + str(error))
 
