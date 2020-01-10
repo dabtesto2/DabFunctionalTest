@@ -34,7 +34,7 @@ class ChromeDriverPage():
 
     def __del__(self):
         try:
-            if self.driver.session_id :
+            if self.driver.session_id:
                 self.driver.quit()
         except InvalidSessionIdException:
             pass
@@ -193,17 +193,17 @@ class ChromeDriverPage():
         except StaleElementReferenceException:
             pass
         except Exception as error:
-            print("Chromedriver exception at get_links_from_page " + str(error))
+            print("Chromedriver exception at print_links_from_page " + str(error))
 
     def click_link_on_page(self, link):
         try:
             self.dismiss_message_box_if_any()
             self.driver.get(link)
         except Exception as error:
-            print("Chromedriver exception during click_links_from_page " + str(error))
+            print("Chromedriver exception during click_link_on_page " + str(error))
 
-    def find_page_height(self):
+    def get_window_size(self):
         try:
-            return self.driver.execute_script("return document.documentElement.scrollHeight")
+            return self.driver.get_window_size()
         except Exception as error:
-            print("Selenium exception in scroll_with_uiselector_contains_text " + str(error))
+            print("Selenium exception in get_window_size " + str(error))
