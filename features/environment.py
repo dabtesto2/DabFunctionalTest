@@ -11,5 +11,5 @@ def after_step(context, step):
 
 def before_feature(context, feature):
     if 'web_page_setup' in feature.tags:
-        context.excute_steps(u'Open chrome browser and get url "https://www.grunenthal.com"')
+        context.excute_step(u'Open chrome browser and get url "https://www.grunenthal.com"')
 
