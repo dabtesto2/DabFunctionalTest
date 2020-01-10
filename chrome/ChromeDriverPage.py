@@ -83,9 +83,12 @@ class ChromeDriverPage():
         try:
             while no_links > 0:
                 try:
-                    self.dismiss_message_box_if_any()
+                    #self.dismiss_message_box_if_any()
+
                     if len(self.html_links) > 0:
-                        self.driver.get(self.html_links.pop(randint(0, (len(self.html_links) - 1))))
+                        link_name = self.html_links.pop(randint(0, (len(self.html_links) - 1)))
+                        print ("Link name " + link_name)
+                        self.driver.get(link_name)
                     else:
                         print("No Links found in Page")
                         break
