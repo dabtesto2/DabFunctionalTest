@@ -33,8 +33,7 @@ class MobileNetworks:
 
 
 class MessageBox:
-    # dismiss_alert = (MobileBy.XPATH, "//android.widget.Button[@text='OK']")
-    dismiss_alert = (MobileBy.XPATH, "//*[contains(text(),'OK')]")
+    dismiss_alert = (MobileBy.XPATH, "//android.widget.Button[@text='OK']")
 
 
 class AccessPointNames:
