@@ -25,4 +25,3 @@ def step_impl(context, link):
     context.chrome_page_obj.click_link_on_page(link)
     allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name="Chrome_" + link,
                   attachment_type=AttachmentType.PNG)
-    del context.chrome_page_obj
