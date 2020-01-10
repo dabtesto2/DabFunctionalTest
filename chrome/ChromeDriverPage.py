@@ -34,10 +34,11 @@ class ChromeDriverPage():
 
     def __del__(self):
         try:
-            if self.driver.session:
+            if self.driver.session_id > 0:
                 self.driver.quit()
         except InvalidSessionIdException:
             pass
+
 
     def save_chrome_web_page_screenshot(self):
         try:
