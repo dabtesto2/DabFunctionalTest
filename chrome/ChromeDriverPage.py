@@ -29,7 +29,7 @@ class ChromeDriverPage():
         desired_caps = dict(automationName=client.name, platformName=self.platform, browserName=self.browser,
                             udid=self.device_id, deviceName=self.platform, chromedriverExecutable=self.chromedriverpath
                             )
-        self.driver = webdriver.Remote(client.get_remote_url(), desired_caps)
+        self.driver = webdriver.Remote(client.get_remote_url(), desired_caps,options)
         self.driver.implicitly_wait(self.chrome_driver_timeout)
 
     def __del__(self):
