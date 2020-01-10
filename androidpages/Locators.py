@@ -33,7 +33,8 @@ class MobileNetworks:
 
 
 class MessageBox:
-    dismiss_alert = (MobileBy.XPATH, "//android.widget.Button[@text='OK']")
+    # dismiss_alert = (MobileBy.XPATH, "//android.widget.Button[@text='OK']")
+    dismiss_alert = (MobileBy.XPATH, "//*[contains(text(),'OK')]")
 
 
 class AccessPointNames:
@@ -80,8 +81,7 @@ class AccessPointNames:
 
 
 class chromepage:
-
     DynamicLinks = (MobileBy.XPATH, "//a[@href]")
-    ChromePageError = (MobileBy.XPATH,"//*[contains(@text, 'ERR_')]")
+    ChromePageError = (MobileBy.XPATH, "//*[contains(@text, 'ERR_')]")
     ChromePageErrorBtnReload = (MobileBy.XPATH, "//button[text()='Reload']")
     ChromePageErrorBtnDetails = (MobileBy.XPATH, "//button[text()='Details']")
