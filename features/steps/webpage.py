@@ -23,4 +23,4 @@ def step_impl(context, link):
     context.chrome_page_obj.check_document_ready_state(context.url)
     context.chrome_page_obj.click_link_on_page(link)
     height = context.chrome_page_obj.get_window_size()
-    print("height " +  height['height'])
+    print(height['height'])
