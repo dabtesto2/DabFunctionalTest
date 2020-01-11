@@ -211,5 +211,6 @@ class ChromeDriverPage():
     def scroll_page_forward(self):
         try:
             scroll_string = "new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollForward();"
+            self.driver.find_element_by_android_uiautomator(scroll_string)
         except Exception as error:
             print("Selenium exception in scroll_forward " + str(error))
