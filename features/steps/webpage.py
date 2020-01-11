@@ -9,6 +9,7 @@ def step_impl(context, url, device):
     context.url = url
     chrome_page_obj = ChromeDriverPage(device)
     chrome_page_obj.get_web_page_using_chrome_browser(url)
+    chrome_page_obj.chrome_scroll_with_uiselector_contains_text_click("Ok, continue to the website")
     context.chrome_page_obj = chrome_page_obj
 
 
