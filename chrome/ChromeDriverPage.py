@@ -209,12 +209,11 @@ class ChromeDriverPage():
         except Exception as error:
             print("Selenium exception in get_window_size " + str(error))
 
-    def scroll_page_forward(self, dest):
+    def chrome_scroll_with_uiselector_contains_text_click(self, search_string):
         try:
-            actions = TouchAction(self.driver)
-            #print("Scroll from  " + self.scroll + "to" + dest)
-            actions.scroll(self.scroll, dest)
-            self.scroll = dest
-            actions.perform()
+            scroll_string = "new UiScrollable(new UiSelector().scrollable(true)." \
+                            "instance(0)).scrollIntoView( new UiSelector()." \
+                            "text(\"" + search_string + "\"));"
+            self.driver.find_element_by_android_uiautomator(scroll_string).click()
         except Exception as error:
-            print("Selenium exception in scroll_forward " + str(error))
+            print("Selenium exception in schrome_scroll_with_uiselector_contains_text " + str(error))
