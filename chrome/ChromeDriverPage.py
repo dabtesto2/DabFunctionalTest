@@ -222,4 +222,4 @@ class ChromeDriverPage():
             print(startx, starty, startx, height)
            # self.driver.swipe(startx, starty, startx, height,1)
         except Exception as error:
-            print("Selenium exception in chrome_find_element_containing_text_and_click " + str(error))
+            print("Selenium exception in chrome_scroll_to_page " + str(error))
