@@ -30,4 +30,4 @@ def step_impl(context, link):
     scroll_h4 = int(scroll_h / 4 * 3)
     scroll_h5 = int(scroll_h / 4 * 3.5)
     scroll_h6 = int(scroll_h / 4 * 4)
-    print (scroll_h5)
+    print(scroll_h5)
