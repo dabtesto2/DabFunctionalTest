@@ -28,5 +28,5 @@ def step_impl(context, link):
     startx = int(window_size['width'] / 2)
     starty = int(window_size['height'] * 0.20)
     for height in scroll_list:
-        print(startx,starty,startx,height)
+        context.chrome_page_obj.chrome_scroll_to_page(startx,starty,startx,height)
         starty = height
