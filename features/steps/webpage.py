@@ -23,6 +23,7 @@ def step_impl(context):
 def step_impl(context, link):
     context.chrome_page_obj.check_document_ready_state(context.url)
     context.chrome_page_obj.click_link_on_page(link)
+    window_size = context.chrome_page_obj.get_window_size()
     scroll_list = list(map(lambda x: int(x * (window_size['height'] / 4)), [1.5, 2, 2.5, 3, 3.5, 4]))
     for height in scroll_list:
         window_size = context.chrome_page_obj.get_window_size()
