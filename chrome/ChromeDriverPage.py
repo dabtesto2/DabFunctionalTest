@@ -1,4 +1,4 @@
-import os
+from appium.webdriver.common.touch_action import TouchAction
 import time
 from random import randint
 from selenium.webdriver import ChromeOptions
@@ -18,6 +18,7 @@ class ChromeDriverPage():
         self.chrome_driver_timeout = timeout
         self.html_links = []
         self.platform = "Android"
+        self.scroll = 10
         self.browser = "Chrome"
         self.device_id = device_profile
         self.chromedriverExecutable = "/Users/purush/chromedriver/"
@@ -210,6 +211,10 @@ class ChromeDriverPage():
 
     def scroll_page_forward(self, dest):
         try:
-            self.driver.scroll(0, dest, 1)
+            actions = TouchAction(self.driver)
+            print("Scroll from  " + self.scroll + "to" + dest)
+            actions.scroll(self.scroll, dest)
+            self.scroll = dest
+            actions.perform()
         except Exception as error:
             print("Selenium exception in scroll_forward " + str(error))
