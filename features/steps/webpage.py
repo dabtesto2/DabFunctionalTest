@@ -27,15 +27,25 @@ def step_impl(context, link):
     scroll_h2 = scroll_h * 2
     scroll_h3 = scroll_h * 3
     scroll_h4 = scroll_h * 4
+    print (" scroll_h " + scroll_h)
     context.chrome_page_obj.execute_script("window.scrollTo(0," + scroll_h + ")")
     allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name="Chrome_1" + link,
                   attachment_type=AttachmentType.PNG)
+
+    print (" scroll_h2 " + scroll_h2)
+
     context.chrome_page_obj.execute_script("window.scrollTo(0," + scroll_h2 + ")")
     allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name="Chrome_2" + link,
                   attachment_type=AttachmentType.PNG)
+
+    print (" scroll_h3 " + scroll_h3)
+
     context.chrome_page_obj.execute_script("window.scrollTo(0," + scroll_h3 + ")")
     allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name="Chrome_3" + link,
                   attachment_type=AttachmentType.PNG)
+
+    print (" scroll_h4 " + scroll_h4)
+
     context.chrome_page_obj.execute_script("window.scrollTo(0," + scroll_h4 + ")")
     allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name="Chrome_4" + link,
                   attachment_type=AttachmentType.PNG)
