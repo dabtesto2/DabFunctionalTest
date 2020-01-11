@@ -210,6 +210,6 @@ class ChromeDriverPage():
 
     def scroll_page_forward(self, dest):
         try:
-            self.driver.scroll(0, dest)
+            self.driver.scroll(0, dest, 1)
         except Exception as error:
             print("Selenium exception in scroll_forward " + str(error))
