@@ -212,7 +212,7 @@ class ChromeDriverPage():
     def scroll_page_forward(self, dest):
         try:
             actions = TouchAction(self.driver)
-            print("Scroll from  " + self.scroll + "to" + dest)
+            #print("Scroll from  " + self.scroll + "to" + dest)
             actions.scroll(self.scroll, dest)
             self.scroll = dest
             actions.perform()
