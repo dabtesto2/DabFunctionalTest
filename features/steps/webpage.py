@@ -25,4 +25,4 @@ def step_impl(context, link):
     height = context.chrome_page_obj.get_window_size()
     scroll_list = list(map(lambda x:int(x*(height['height']/4)) , [1.5,2,2.5,3,3.5,4]))
     for height in scroll_list:
-        print(height)
+        context.chrome_page_obj.scroll_page_forward()
