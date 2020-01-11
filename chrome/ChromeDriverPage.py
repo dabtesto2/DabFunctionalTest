@@ -209,11 +209,10 @@ class ChromeDriverPage():
         except Exception as error:
             print("Selenium exception in get_window_size " + str(error))
 
-    def chrome_scroll_with_uiselector_contains_text_click(self, search_string):
+    def chrome_find_element_containing_text_and_click(self, search_string):
         try:
-            scroll_string = "new UiScrollable(new UiSelector().scrollable(true)." \
-                            "instance(0)).scrollIntoView( new UiSelector()." \
-                            "text(\"" + search_string + "\"));"
-            self.driver.find_element_by_android_uiautomator(scroll_string).click()
+            element = self.driver.find_elements_by_xpath("//*[contains(text(), '" + search_string + "')]")
+            element.click()
         except Exception as error:
-            print("Selenium exception in schrome_scroll_with_uiselector_contains_text " + str(error))
+            print("Selenium exception in chrome_find_element_containing_text_and_click " + str(error))
+
