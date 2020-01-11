@@ -25,6 +25,4 @@ def step_impl(context, link):
     height = context.chrome_page_obj.get_window_size()
     scroll_list = list(map(lambda x:int(x*(height['height']/4)) , [1.5,2,2.5,3,3.5,4]))
     for height in scroll_list:
-        context.chrome_page_obj.execute_script("window.scrollTo(0," + height + ")")
-        allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name="Chrome_1" + height + link,
-                      attachment_type=AttachmentType.PNG)
+        print(height)
