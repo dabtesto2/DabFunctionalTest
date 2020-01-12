@@ -6,6 +6,7 @@ def before_feature(context, feature):
     if 'web_page_setup' in feature.tags:
         context.execute_steps('''
                                 Given Open chrome browser get url "https://www.grunenthal.com" using "ce071717ab7bd73901"
+                                Then print links from page
                                 ''')
 
 
