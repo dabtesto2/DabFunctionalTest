@@ -217,9 +217,9 @@ class ChromeDriverPage():
         except Exception as error:
             print("Selenium exception in chrome_find_element_containing_text_and_click " + str(error))
 
-    def chrome_scroll_to_page(self, startx, starty, height):
+    def chrome_scroll_to_page(self, x_position, y_position):
         try:
-            print(startx, starty, startx, height)
-            self.driver.execute_script("window.scrollBy(" + startx + "," + height + ")")
+            self.driver.execute_script("window.scrollBy(" + x_position + "," + y_position + ")")
+            print(f"scroll device window by {x_position} {y_position} ")
         except Exception as error:
             print("Selenium exception in chrome_scroll_to_page " + str(error))
