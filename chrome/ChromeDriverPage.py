@@ -207,7 +207,7 @@ class ChromeDriverPage():
         try:
             return  self.driver.execute_script("return document.body.scrollHeight")
         except Exception as error:
-            print("Selenium exception in get_window_size " + str(error))
+            print("Selenium exception in get_page_height " + str(error))
 
     def chrome_find_element_containing_text_and_click(self, search_string):
         try:
