@@ -1,4 +1,4 @@
 @web_page_setup
 Feature: print links from web page
   Scenario : print links from page https://www.grunenthal.com
-    Then print links from page
+    Given print links from page
