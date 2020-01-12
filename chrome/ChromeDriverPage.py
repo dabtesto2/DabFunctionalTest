@@ -191,7 +191,7 @@ class ChromeDriverPage():
             elements = self.driver.find_elements_by_xpath(chromepage.DynamicLinks[1])
             for items in elements:
                 if items.text is not None:
-                    print("|" + items.get_attribute("href") + "|" + items.text + "|")
+                    print("|" + items.get_attribute("href") + "|" + items.text + "|" + len(items.text) + "|")
         except StaleElementReferenceException:
             pass
         except Exception as error:
