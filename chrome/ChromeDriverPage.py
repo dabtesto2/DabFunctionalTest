@@ -191,7 +191,8 @@ class ChromeDriverPage():
             elements = self.driver.find_elements_by_xpath(chromepage.DynamicLinks[1])
             for items in elements:
                 if items.text is not None:
-                    print("|" + items.get_attribute("href") + "|" + items.text + "|" + len(items.text) + "|")
+                    print(len(items.text))
+                    print("|" + items.get_attribute("href") + "|" + items.text + "|")
         except StaleElementReferenceException:
             pass
         except Exception as error:
@@ -206,7 +207,7 @@ class ChromeDriverPage():
 
     def get_page_height(self):
         try:
-            return  self.driver.execute_script("return document.body.scrollHeight")
+            return self.driver.execute_script("return document.body.scrollHeight")
         except Exception as error:
             print("Selenium exception in get_page_height " + str(error))
 
