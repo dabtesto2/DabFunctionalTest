@@ -9,6 +9,11 @@ def before_feature(context, feature):
                                 ''')
 
 
+def after_feature(context, feature):
+    if 'web_page_setup' in feature.tags:
+        del context.chrome_page_obj
+
+
 def after_step(context, step):
     if step.status == 'failed':
         step_str = step.name

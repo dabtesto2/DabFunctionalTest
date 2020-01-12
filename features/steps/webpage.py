@@ -16,7 +16,6 @@ def step_impl(context, url, device):
 @then(u'print links from page')
 def step_impl(context):
     context.chrome_page_obj.print_links_from_page()
-    del context.chrome_page_obj
 
 
 @then(u'Check if page loads with "{link}"')
