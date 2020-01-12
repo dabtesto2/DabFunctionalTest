@@ -24,7 +24,10 @@ def step_impl(context, link):
     context.chrome_page_obj.check_document_ready_state(context.url)
     context.chrome_page_obj.click_link_on_page(link)
     chrome_page_height = context.chrome_page_obj.get_page_height()
-    scroll_list = list(map(lambda x: int(x * (chrome_page_height / 8)), [1, 2, 3, 4, 5, 6,7,8]))
+    scroll_list = list(map(lambda x: int(x * (chrome_page_height / 8)), [1, 2, 3, 4, 5, 6, 7, 8]))
     x_position = int(chrome_page_height / 8)
     for y_position in scroll_list:
+        file = "Chrome_{}_{}".format(y_position, link)
         context.chrome_page_obj.chrome_scroll_to_page(x_position, y_position)
+        allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name=file,
+                      attachment_type=AttachmentType.PNG)
