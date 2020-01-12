@@ -220,6 +220,6 @@ class ChromeDriverPage():
     def chrome_scroll_to_page(self, startx, starty, height):
         try:
             print(startx, starty, startx, height)
-           # self.driver.swipe(startx, starty, startx, height,1)
+            self.driver.execute_script("window.scrollBy(" + startx + "," + height + ")")
         except Exception as error:
             print("Selenium exception in chrome_scroll_to_page " + str(error))
