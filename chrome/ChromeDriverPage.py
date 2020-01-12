@@ -203,9 +203,9 @@ class ChromeDriverPage():
         except Exception as error:
             print("Chromedriver exception during click_link_on_page " + str(error))
 
-    def get_window_size(self):
+    def get_page_height(self):
         try:
-            return self.driver.get_window_size()
+            return  self.driver.execute_script("return document.body.scrollHeight")
         except Exception as error:
             print("Selenium exception in get_window_size " + str(error))
 
