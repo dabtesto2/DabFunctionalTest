@@ -221,6 +221,6 @@ class ChromeDriverPage():
         try:
             self.driver.execute_script("window.scrollTo({},{});".format(x_position, y_position))
             print("scroll device window by {} {} ".format(x_position, y_position))
-            self.set_chrome_wait(2)
+            self.set_chrome_wait(1)
         except Exception as error:
             print("Selenium exception in chrome_scroll_to_page " + str(error))
