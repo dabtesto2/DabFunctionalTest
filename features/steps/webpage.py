@@ -28,3 +28,5 @@ def step_impl(context, link):
     x_position = int(window_size['width'] / 2)
     for y_position in scroll_list:
         context.chrome_page_obj.chrome_scroll_to_page(x_position, y_position)
+        allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name="Chrome_" + y_position + link,
+                      attachment_type=AttachmentType.PNG)
