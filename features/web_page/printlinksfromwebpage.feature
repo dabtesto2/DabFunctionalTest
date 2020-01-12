@@ -1,8 +1,5 @@
-@web_page_setup
-Feature: print links from web page
+Feature: Get links from web page
 
-  Scenario Outline : print links from page https://www.grunenthal.com
+  Scenario  : Get links from web page
+    Given Open chrome browser get url "https://www.grunenthal.com" using "ce071717ab7bd73901"
     Then print links from page
-    Examples:
-      | link                                               |
-      | https://www.grunenthal.com/en/footer-links/contact |
