@@ -188,7 +188,8 @@ class ChromeDriverPage():
 
     def print_links_from_page(self):
         try:
-            elements = self.driver.find_elements_by_xpath(chromepage.DynamicLinks[1])
+            elements = self.driver.find_elements_by_tag_name("a")
+             #elements = self.driver.find_elements_by_xpath(chromepage.DynamicLinks[1])
             for items in elements:
                 if items.text is not None:
                     print("|" + items.get_attribute("href") + "|")
