@@ -18,7 +18,6 @@ class BasePage(AndroidTestPluginApp):
     """
     This class is the parent class for Android Device class and use selenium web driver class
     """
-    # this function is called every time a new object of the base class is created.
     def __init__(self, device_profile, timeout=5):
         print("Device Profile " + device_profile)
         android = AndroidDevicePool(device_profile)
@@ -60,7 +59,6 @@ class BasePage(AndroidTestPluginApp):
         except ValueError:
             print("Driver session not exist")
 
-    # this function performs click on web element whose locator is passed to it.
     def find_element_and_click(self, by_locator):
         try:
             element = self.wait_for_element_to_be_visible_ec(by_locator)
