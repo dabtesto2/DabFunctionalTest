@@ -1,6 +1,7 @@
 import allure
 from allure_commons.types import AttachmentType
 from behave import then, Given
+from safari.SafariDriver import SafariPage
 from chrome.ChromeDriverPage import ChromeDriverPage
 
 
@@ -11,6 +12,15 @@ def step_impl(context, url, device):
     chrome_page_obj.get_web_page_using_chrome_browser(url)
     chrome_page_obj.chrome_find_element_containing_text_and_click("Ok, continue to the website")
     context.chrome_page_obj = chrome_page_obj
+
+
+@Given(u'Open safari browser get url "{url}" using "{device}"')
+def step_impl(context, url, device):
+    context.url = url
+    safari_page_obj = SafariPage(device)
+    #safari_page_obj.get_web_page_using_safari_browser(url)
+    # safari_page_obj.safari_find_element_containing_text_and_click("Ok, continue to the website")
+    context.safari_page_obj = safari_page_obj
 
 
 @then(u'print links from page')
