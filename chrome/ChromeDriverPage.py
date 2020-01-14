@@ -185,7 +185,7 @@ class ChromeDriverPage:
         except Exception as error:
             print("Chromedriver exception at check_for_chrome_page_access_denied " + str(error))
 
-    def print_links_from_page(self):
+    def print_links_from_chrome_page(self):
         try:
             elements = self.driver.find_elements_by_tag_name("a")
              #elements = self.driver.find_elements_by_xpath(chromepage.DynamicLinks[1])

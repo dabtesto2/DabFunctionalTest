@@ -1,7 +1,7 @@
   @web_page_setup
   Feature: Get links from web page
   Scenario Outline: Open page https://www.grunenthal.com using safari browser
-     Then Check if page loads with "<link>"
+     Then Check if safari page loads with "<link>"
     Examples:
       | link                                                                                             |
       | https://www.grunenthal.com/#cd-primary-nav                                                       |
