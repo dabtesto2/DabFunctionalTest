@@ -7,7 +7,7 @@ class SafariPage:
         self.safari_driver_timeout = timeout
         self.html_links = []
         self.platform = "iOS"
-        self.version = "13.3"
+        self.version = "13"
         self.browser = "Safari"
         self.device_id = device_profile
         client = AppiumClientLocal()
