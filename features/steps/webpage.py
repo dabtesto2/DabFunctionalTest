@@ -18,14 +18,14 @@ def step_impl(context, url, device):
 def step_impl(context, url, device):
     context.url = url
     safari_page_obj = SafariPage(device)
-    # safari_page_obj.get_web_page_using_safari_browser(url)
-    # safari_page_obj.safari_find_element_containing_text_and_click("Ok, continue to the website")
+    safari_page_obj.get_web_page_using_safari_browser(url)
+    safari_page_obj.safari_find_element_containing_text_and_click("Ok, continue to the website")
     context.safari_page_obj = safari_page_obj
 
 
 @then(u'print links from safari page')
 def step_impl(context):
-    pass
+    context.safari_page_obj.print_links_from_safari_page()
 
 
 @then(u'print links from chrome page')
