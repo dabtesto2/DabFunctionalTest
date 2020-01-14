@@ -7,5 +7,3 @@ class AppiumClientLocal:
     def get_remote_url(self):
         return self._url
 
-    def get_ios_client_name(self):
-        return self.name
