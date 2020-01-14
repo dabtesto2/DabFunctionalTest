@@ -47,6 +47,6 @@ def step_impl(context, link):
                       attachment_type=AttachmentType.PNG)
 
 
-@then(u'Check if chrome page loads with "{link}"')
+@then(u'Check if safari page loads with "{link}"')
 def step_impl(context, link):
     pass
