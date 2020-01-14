@@ -39,7 +39,7 @@ class SafariPage:
             elements = self.driver.find_elements_by_tag_name("a")
             for items in elements:
                 if items.text is not None:
-                    print("|" + items.get_attribute("href") + "|" + items.text + "|")
+                    print("|" + items.get_attribute("href") + "|")
         except StaleElementReferenceException:
             pass
         except Exception as error:
