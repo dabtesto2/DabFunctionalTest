@@ -26,6 +26,7 @@ def step_impl(context, url, device):
 @then(u'print links from safari page')
 def step_impl(context):
     context.safari_page_obj.print_links_from_safari_page()
+    del context.safari_page_obj
 
 
 @then(u'print links from chrome page')
