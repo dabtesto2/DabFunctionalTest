@@ -13,12 +13,11 @@ from androidpages.Locators import MessageBox
 from androidpages.Locators import chromepage
 
 
-class ChromeDriverPage():
+class ChromeDriverPage:
     def __init__(self, device_profile, timeout=10):
         self.chrome_driver_timeout = timeout
         self.html_links = []
         self.platform = "Android"
-        self.scroll = 10
         self.browser = "Chrome"
         self.device_id = device_profile
         self.chromedriverExecutable = "/Users/purush/chromedriver/"
