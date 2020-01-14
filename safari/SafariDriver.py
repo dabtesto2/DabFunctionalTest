@@ -16,7 +16,7 @@ class SafariPage:
                             udid=self.device_id, deviceName=self.platform, platformVersion=self.version
                             )
         self.driver = webdriver.Remote(client.get_remote_url(), desired_caps)
-        self.driver.implicitly_wait(self.safari_driver_timeout)
+        #self.driver.implicitly_wait(self.safari_driver_timeout)
 
     def get_web_page_using_safari_browser(self, url):
         try:
