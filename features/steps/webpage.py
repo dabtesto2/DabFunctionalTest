@@ -36,8 +36,8 @@ def step_impl(context):
 
 @then(u'Check if chrome page loads with "{link}"')
 def step_impl(context, link):
-    context.chrome_page_obj.check_document_ready_state(context.url)
     context.chrome_page_obj.click_link_on_page(link)
+    context.chrome_page_obj.check_document_ready_state(context.url)
     chrome_page_height = context.chrome_page_obj.get_page_height()
     scroll_list = list(map(lambda x: int(x * (chrome_page_height / 8)), [0, 1, 2, 3, 4, 5, 6, 8, 9, 10]))
     x_position = int(chrome_page_height / 10)
@@ -50,8 +50,8 @@ def step_impl(context, link):
 
 @then(u'Check if safari page loads with "{link}"')
 def step_impl(context, link):
-    context.safari_page_obj.check_safari_document_ready_state(context.url)
     context.safari_page_obj.click_link_on_safari_page(link)
+    context.safari_page_obj.check_safari_document_ready_state(context.url)
     safari_page_height = context.safari_page_obj.get_safari_page_height()
     scroll_list = list(map(lambda x: int(x * (safari_page_height / 8)), [0, 1, 2, 3, 4, 5, 6, 8, 9, 10]))
     x_position = int(safari_page_height / 10)
