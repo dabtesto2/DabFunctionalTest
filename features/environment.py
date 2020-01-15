@@ -9,7 +9,7 @@ def before_feature(context, feature):
                                 ''')
     if 'web_page_safari_setup' in feature.tags:
         context.execute_steps('''
-                                Given Open safari browser get url "https://www.grunenthal.com" using "caecc423e608824f597d8a3dbc382b3addc0382f"
+                                Given Open safari browser get url "https://www.grunenthal.com" using "8d0a9f6c8218eaa1356fdf3e4e08573d1228ae3a"
                                 ''')
 
 
