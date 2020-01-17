@@ -27,9 +27,9 @@ class SafariPage:
         except Exception as error:
             print("SafariPage exception at get_web_page_using_safari_browser " + str(error))
 
-    def safari_find_element_containing_text_and_click(self, search_string):
+    def safari_find_element_containing_link_and_click(self, search_string):
         try:
-            element = self.driver.find_elements_by_xpath("//XCUIElementTypeTextField[@value='"+search_string+"']")
+            element = self.driver.find_elements_by_xpath("//XCUIElementTypeLink[@label='"+search_string+"']")
             #element = self.driver.find_elements_by_xpath("//*[contains(text(), '" + search_string + "')]")
             for elem in element:
                 elem.click()
