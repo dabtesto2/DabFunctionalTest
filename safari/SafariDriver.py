@@ -29,7 +29,8 @@ class SafariPage:
 
     def safari_find_element_containing_text_and_click(self, search_string):
         try:
-            element = self.driver.find_elements_by_xpath("//*[contains(text(), '" + search_string + "')]")
+            element = self.driver.find_elements_by_xpath("//XCUIElementTypeTextField[@value='"+search_string+"']")
+            #element = self.driver.find_elements_by_xpath("//*[contains(text(), '" + search_string + "')]")
             for elem in element:
                 elem.click()
         except Exception as error:
