@@ -20,7 +20,7 @@ class SafariPage:
                             udid=self.device_id, deviceName=self.platform, platformVersion=self.version,
                             startIWDP="true", orientation=self.orientation, newCommandTimeout=self.timeout,
                             noReset="true",xcodeSigningId="test.tangent90.com",xcodeOrgId="374Q29PQSM",
-                            showXcodeLog="true" , useNewWDA="true" , wdaLaunchTimeout=self.timeout,
+                            showXcodeLog="true" , wdaLaunchTimeout=self.timeout,
                             wdaConnectionTimeout=self.timeout
                             )
         self.driver = webdriver.Remote(client.get_remote_url(), desired_caps)
