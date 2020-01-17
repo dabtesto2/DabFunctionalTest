@@ -20,8 +20,8 @@ class SafariPage:
                             udid=self.device_id, deviceName=self.platform, platformVersion=self.version,
                             startIWDP="true", orientation=self.orientation, newCommandTimeout=self.commandtimeout,
                             noReset="true",xcodeSigningId="test.tangent90.com",xcodeOrgId="374Q29PQSM",
-                            showXcodeLog="true" , useNewWDA="true" , wdaLaunchTimeout="5000",
-                            wdaConnectionTimeout="1000"
+                            showXcodeLog="true" , useNewWDA="true" , wdaLaunchTimeout="60000",
+                            wdaConnectionTimeout="60000"
                             )
         self.driver = webdriver.Remote(client.get_remote_url(), desired_caps)
         self.driver.implicitly_wait(self.safari_driver_timeout)
