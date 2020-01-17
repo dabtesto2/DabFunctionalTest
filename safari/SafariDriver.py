@@ -11,12 +11,14 @@ class SafariPage:
         self.html_links = []
         self.platform = "iOS"
         self.version = "13"
+        self.commandtimeout = 30
         self.browser = "Safari"
+        self.orientation = "PORTRAIT"
         self.device_id = device_profile
         client = AppiumClientLocal()
         desired_caps = dict(automationName=client.name, platformName=self.platform, browserName=self.browser,
                             udid=self.device_id, deviceName=self.platform, platformVersion=self.version,
-                            startIWDP="true"
+                            startIWDP="true", orientation=self.orientation, newCommandTimeout=self.commandtimeout
                             )
         self.driver = webdriver.Remote(client.get_remote_url(), desired_caps)
         self.driver.implicitly_wait(self.safari_driver_timeout)
