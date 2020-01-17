@@ -20,7 +20,7 @@ def step_impl(context, url, device):
     context.url = url
     safari_page_obj = SafariPage(device)
     safari_page_obj.get_web_page_using_safari_browser(url)
-    #safari_page_obj.safari_find_element_containing_link_and_click("I'm ok with this")
+    safari_page_obj.safari_find_element_containing_link_and_click("Ok, continue to the website")
     context.safari_page_obj = safari_page_obj
 
 
