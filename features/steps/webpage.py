@@ -17,13 +17,12 @@ def step_impl(context, url, device):
 
 @Given(u'Open safari browser get url "{url}" using "{device}"')
 def step_impl(context, url, device):
-    pass
-    # context.url = url
-    # safari_page_obj = SafariPage(device)
-    # safari_page_obj.get_web_page_using_safari_browser(url)
-    # safari_page_obj.check_safari_document_ready_state(context.url)
-    # safari_page_obj.safari_find_element_containing_link_and_click("Ok, continue to the website")
-    # context.safari_page_obj = safari_page_obj
+    context.url = url
+    safari_page_obj = SafariPage(device)
+    safari_page_obj.get_web_page_using_safari_browser(url)
+    safari_page_obj.check_safari_document_ready_state(context.url)
+    safari_page_obj.safari_find_element_containing_link_and_click("Ok, continue to the website")
+    context.safari_page_obj = safari_page_obj
 
 
 @then(u'print links from safari page')
