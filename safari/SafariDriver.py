@@ -18,7 +18,10 @@ class SafariPage:
         client = AppiumClientLocal()
         desired_caps = dict(automationName=client.name, platformName=self.platform, browserName=self.browser,
                             udid=self.device_id, deviceName=self.platform, platformVersion=self.version,
-                            startIWDP="true", orientation=self.orientation, newCommandTimeout=self.commandtimeout
+                            startIWDP="true", orientation=self.orientation, newCommandTimeout=self.commandtimeout,
+                            noReset="true",xcodeSigningId="test.tangent90.com",xcodeOrgId="374Q29PQSM",
+                            showXcodeLog="true" , useNewWDA="true" , wdaLaunchTimeout="5000",
+                            wdaConnectionTimeout="1000"
                             )
         self.driver = webdriver.Remote(client.get_remote_url(), desired_caps)
         self.driver.implicitly_wait(self.safari_driver_timeout)
