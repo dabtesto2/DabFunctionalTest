@@ -11,14 +11,14 @@ class SafariPage:
         self.html_links = []
         self.platform = "iOS"
         self.version = "13"
-        self.timeout = 15
+        self.timeout = 60000
         self.browser = "Safari"
         self.orientation = "PORTRAIT"
         self.device_id = device_profile
         client = AppiumClientLocal()
         desired_caps = dict(automationName=client.name, platformName=self.platform, browserName=self.browser,
                             udid=self.device_id, deviceName=self.platform, platformVersion=self.version,
-                            startIWDP="true", orientation=self.orientation, newCommandTimeout=self.timeout,
+                            startIWDP="true", orientation=self.orientation, commandTimeouts=self.timeout,
                             noReset="true",xcodeSigningId="test.tangent90.com",xcodeOrgId="374Q29PQSM",
                             showXcodeLog="true" , wdaLaunchTimeout=self.timeout,
                             wdaConnectionTimeout=self.timeout
