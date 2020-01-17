@@ -4,7 +4,6 @@
      Then Check if safari page loads with "<link>"
     Examples:
       | link                                                                                             |
-      | http://grunenthal-pro.com/                                                                       |
       | https://www.grunenthal.com/#cd-primary-nav                                                       |
       | https://www.grunenthal.com/#cd-search                                                            |
       | https://www.grunenthal.com/#search-box                                                           |
