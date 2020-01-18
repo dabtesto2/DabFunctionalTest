@@ -54,7 +54,8 @@ def step_impl(context, link):
     context.safari_page_obj.click_link_on_safari_page(link)
     safari_page_height = context.safari_page_obj.get_safari_page_height()
     scroll_list = list(map(lambda x: int(x * (safari_page_height / 8)), [0, 1, 2, 3, 4, 5, 6, 8, 9, 10]))
-    x_position = int(safari_page_height / 10)
+    #x_position = int(safari_page_height / 10)
+    x_position = 0
     for y_position in scroll_list:
         file = "Safari_{}_{}".format(y_position, link)
         context.safari_page_obj.safari_scroll_to_page(x_position, y_position)
