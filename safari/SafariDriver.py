@@ -11,7 +11,7 @@ class SafariPage:
         self.html_links = []
         self.platform = "iOS"
         self.version = "13"
-        self.timeout = 60000
+        self.timeout = 120000
         self.browser = "Safari"
         self.orientation = "PORTRAIT"
         self.device_id = device_profile
