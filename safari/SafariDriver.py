@@ -38,7 +38,7 @@ class SafariPage:
             for elem in element:
                 elem.click()
         except Exception as error:
-            print("Selenium exception in safari_find_element_containing_text_and_click " + str(error))
+            print("Selenium exception in safari_find_element_containing_link_and_click " + str(error))
 
     def print_links_from_safari_page(self):
         try:
@@ -49,7 +49,7 @@ class SafariPage:
         except StaleElementReferenceException:
             pass
         except Exception as error:
-            print("SafariPage exception at print_links_from_page " + str(error))
+            print("SafariPage exception at print_links_from_safari_page " + str(error))
 
     def check_safari_document_ready_state(self, title):
         try:
@@ -62,7 +62,7 @@ class SafariPage:
         try:
             self.driver.get(link)
         except Exception as error:
-            print("SafariPage exception during click_link_on_page " + str(error))
+            print("SafariPage exception during click_link_on_safari_page " + str(error))
 
     def get_safari_page_height(self):
         try:
