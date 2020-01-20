@@ -1,14 +1,18 @@
 import allure
 from allure_commons.types import AttachmentType
 from behave import then, Given
+
+from androidpages.AndroidDevicePool import AndroidDevicePool
 from safari.SafariDriver import SafariPage
 from chrome.ChromeDriverPage import ChromeDriverPage
 
 
-@Given(u'Open chrome browser get url "{url}" using "{device}"')
-def step_impl(context, url, device):
+@Given(u'Open chrome browser get url "{url}" using "{model}"')
+def step_impl(context, url, model):
     context.url = url
-    chrome_page_obj = ChromeDriverPage(device)
+    android_obj = AndroidDevicePool(model)
+    context.device_id = android_obj.get_android_device_id_for_model()
+    chrome_page_obj = ChromeDriverPage(context.device_id)
     chrome_page_obj.get_web_page_using_chrome_browser(url)
     chrome_page_obj.check_document_ready_state(context.url)
     chrome_page_obj.chrome_find_element_containing_text_and_click("Ok, continue to the website")
