@@ -19,6 +19,7 @@ class BasePage(AndroidTestPluginApp):
     This class is the parent class for Android Device class and use selenium web driver class
     """
     def __init__(self, device_profile, timeout=5):
+        self.element_timeout = timeout
         print("Device Profile " + device_profile)
         android = AndroidDevicePool(device_profile)
         client = AppiumClientLocal()
@@ -44,11 +45,6 @@ class BasePage(AndroidTestPluginApp):
         except Exception as error:
             print("Remote appium web driver Connection error " + str(error))
             raise ValueError('No Connection to Appium Server ' + client.get_remote_url())
-
-        self.test_working_directory = '%s/' % os.getcwd()
-        self.element_timeout = timeout
-        self.result_directory = '%s/screenshot/' % os.getcwd()
-        self.screen_page_name = 'android-screen'
 
     def __del__(self):
         try:

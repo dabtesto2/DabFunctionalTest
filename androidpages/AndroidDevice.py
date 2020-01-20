@@ -139,3 +139,5 @@ class AndroidDevice(BasePage):
             self.click_message_box(MessageBox.dismiss_alert)
         except TimeoutException:
             pass
+        except Exception as error:
+            print("Selenium exception during dismiss_message_box_if_any " + str(error))
