@@ -14,12 +14,12 @@ from androidpages.Locators import chromepage
 
 
 class ChromeDriverPage:
-    def __init__(self, device_profile, timeout=10):
+    def __init__(self, device_id, timeout=10):
         self.chrome_driver_timeout = timeout
         self.html_links = []
         self.platform = "Android"
         self.browser = "Chrome"
-        self.device_id = device_profile
+        self.device_id = device_id
         self.chromedriverExecutable = "/Users/purush/chromedriver/"
         self.chromedriverVersion = 78
         self.chromedriverpath = self.chromedriverExecutable + str(self.chromedriverVersion) + "/chromedriver"
