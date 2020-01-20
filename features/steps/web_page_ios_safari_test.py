@@ -10,8 +10,7 @@ from safari.SafariDriver import SafariPage
 def step_impl(context, url, model):
     context.url = url
     ios_obj = iPhoneDevicePool(model)
-    context.device_id = ios_obj.get_ios_device_id()
-    safari_page_obj = SafariPage(context.device_id)
+    safari_page_obj = SafariPage(ios_obj)
     safari_page_obj.get_web_page_using_safari_browser(url)
     safari_page_obj.check_safari_document_ready_state(context.url)
     safari_page_obj.safari_find_element_containing_link_and_click("Ok, continue to the website")
