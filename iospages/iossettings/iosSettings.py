@@ -27,3 +27,8 @@ class iosSettings:
         self.driver = webdriver.Remote(client.get_remote_url(), desired_caps)
         self.driver.implicitly_wait(self.safari_driver_timeout)
 
+
+    def click_airplane_mode(self):
+        el = self.driver.find_elements_by_accessibility_id('Airplane Mode')
+        for var in el:
+            print(var)
