@@ -1,7 +1,6 @@
 import allure
 from allure_commons.types import AttachmentType
 from behave import then, Given
-
 from iospages.iOSDevicePool import iPhoneDevicePool
 from safari.SafariDriver import SafariPage
 
