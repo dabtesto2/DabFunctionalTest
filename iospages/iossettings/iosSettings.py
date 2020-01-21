@@ -20,15 +20,14 @@ class iosSettings:
         desired_caps = dict(automationName=client.name, platformName=self.platform, app=self.app,
                             udid=self.device_id, deviceName=self.platform, platformVersion=self.version,
                             startIWDP="true", orientation=self.orientation, commandTimeouts=self.timeout,
-                            noReset="true",xcodeSigningId=self.xcodesigninid,xcodeOrgId=self.xcodeorgid,
-                            showXcodeLog="true" , wdaLaunchTimeout=self.timeout,
+                            noReset="true", xcodeSigningId=self.xcodesigninid, xcodeOrgId=self.xcodeorgid,
+                            showXcodeLog="true", wdaLaunchTimeout=self.timeout,
                             wdaConnectionTimeout=self.timeout
                             )
         self.driver = webdriver.Remote(client.get_remote_url(), desired_caps)
         self.driver.implicitly_wait(self.safari_driver_timeout)
 
-
     def click_airplane_mode(self):
         el = self.driver.find_elements_by_accessibility_id('Airplane Mode')
         for var in el:
-            print(var)
+            print(var.get_attribute("name"))
