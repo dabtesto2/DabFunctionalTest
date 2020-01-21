@@ -3,8 +3,7 @@ from allure_commons.types import AttachmentType
 from behave import then, Given
 
 from androidpages.AndroidDevicePool import AndroidDevicePool
-from safari.SafariDriver import SafariPage
-from chrome.ChromeDriverPage import ChromeDriverPage
+from androidpages.chrome.ChromeDriverPage import ChromeDriverPage
 
 
 @Given(u'Open chrome browser get url "{url}" using "{model}"')

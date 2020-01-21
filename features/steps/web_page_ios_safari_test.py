@@ -2,7 +2,7 @@ import allure
 from allure_commons.types import AttachmentType
 from behave import then, Given
 from iospages.iOSDevicePool import iPhoneDevicePool
-from safari.SafariDriver import SafariPage
+from iospages.safari.SafariDriver import SafariPage
 
 
 @Given(u'Open safari browser get url "{url}" using "{model}"')

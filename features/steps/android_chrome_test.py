@@ -1,9 +1,8 @@
 import allure
 from allure_commons.types import AttachmentType
 from behave import *
-from chrome.ChromeDriverPage import ChromeDriverPage
+from androidpages.chrome.ChromeDriverPage import ChromeDriverPage
 from hamcrest import *
-import re
 
 
 @then(u'Open "{browser}" browser and get url "{url}"')
