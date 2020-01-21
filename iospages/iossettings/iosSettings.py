@@ -1,6 +1,5 @@
 from selenium.common.exceptions import StaleElementReferenceException, TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
-
 from iospages.AppiumClientLocal import AppiumClientLocal
 from appium import webdriver
 
