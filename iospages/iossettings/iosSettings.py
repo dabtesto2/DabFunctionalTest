@@ -30,6 +30,6 @@ class iosSettings:
     def click_airplane_mode(self):
         element = self.driver.find_element_by_accessibility_id('Mobile Data')
         try:
-            print("value " + element.get_attribute('name'))
+            print("value " + element.get_attribute('ID'))
         except Exception as error:
             print("Selenium exception in click_airplane_mode " + str(error))
