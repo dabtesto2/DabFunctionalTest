@@ -44,6 +44,7 @@ class iosSettings:
         try:
             mobile_data_ntwk_elem = self.driver.find_element_by_accessibility_id('APN')
             if mobile_data_ntwk_elem.get_attribute('enabled') and mobile_data_ntwk_elem.get_attribute('visible'):
+                mobile_data_ntwk_elem.clear()
                 mobile_data_ntwk_elem.send_keys("dab.test.apn1")
         except Exception as error:
             print("Selenium exception in click_airplane_mode " + str(error))
