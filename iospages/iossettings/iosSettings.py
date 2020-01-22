@@ -28,6 +28,6 @@ class iosSettings:
         self.driver.implicitly_wait(self.safari_driver_timeout)
 
     def click_airplane_mode(self):
-        el = self.driver.find_element_by_accessibility_id('Mobile Data')
-        for var in el:
-            print(var.get_attribute('name'))
+        elements = self.driver.find_element_by_accessibility_id('Mobile Data')
+        for var in elements:
+            print("value " + var.get_attribute('name'))
