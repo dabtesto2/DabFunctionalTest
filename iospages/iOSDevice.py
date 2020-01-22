@@ -1,7 +1,7 @@
 from iospages.iOSDevicePool import iPhoneDevicePool
 
 
-class iOSDevice(iPhoneDevicePool):
+class iOSDevice():
 
     def __init__(self, device_model, driver = None):
         super.__init__(device_model)
