@@ -2,3 +2,5 @@
 *.pyc
 *.DS_Store
 *.iml
+.idea/DabFunctionalTest.iml
+.idea/misc.xml
