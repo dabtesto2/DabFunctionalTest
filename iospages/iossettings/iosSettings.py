@@ -6,7 +6,7 @@ from appium import webdriver
 from iospages.iOSDevice import iOSDevice
 
 
-class iosSettings():
+class iosSettings(iOSDevice):
     def __init__(self, ios_obj, timeout=10):
         self.safari_driver_timeout = timeout
         self.platform = "iOS"
