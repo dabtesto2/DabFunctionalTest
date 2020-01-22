@@ -1,4 +1,4 @@
-from iospages.iOSDevicePool import iPhoneDevicePool
+from iospages.iPhoneDevicePool import iPhoneDevicePool
 
 
 class iOSDevice(iPhoneDevicePool):

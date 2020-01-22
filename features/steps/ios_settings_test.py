@@ -1,7 +1,7 @@
 from behave import Given
 
 from iospages.iOSDevice import iOSDevice
-from iospages.iOSDevicePool import iPhoneDevicePool
+from iospages.iPhoneDevicePool import iPhoneDevicePool
 from iospages.iossettings.iosSettings import iosSettings
 
 
