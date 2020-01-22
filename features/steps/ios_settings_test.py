@@ -7,7 +7,7 @@ from iospages.iossettings.iosSettings import iosSettings
 
 @Given(u'Launch ios Settings for "{model}"')
 def step_impl(context, model):
-    ios_obj = iOSDevice(model)
+    ios_obj = iPhoneDevicePool(model)
     settings_obj = iosSettings(ios_obj)
     settings_obj.set_apn()
 
