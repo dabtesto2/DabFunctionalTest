@@ -3,11 +3,12 @@ from selenium.webdriver.support.wait import WebDriverWait
 from iospages.AppiumClientLocal import AppiumClientLocal
 from appium import webdriver
 
+from iospages.iOSDevice import iOSDevice
 
-class iosSettings:
+
+class iosSettings(iOSDevice):
     def __init__(self, ios_obj, timeout=10):
         self.safari_driver_timeout = timeout
-        self.html_links = []
         self.platform = "iOS"
         self.version = ios_obj.get_ios_device_version()
         self.timeout = 120000
@@ -24,43 +25,18 @@ class iosSettings:
                             showXcodeLog="true", wdaLaunchTimeout=self.timeout,
                             wdaConnectionTimeout=self.timeout
                             )
-        self.driver = webdriver.Remote(client.get_remote_url(), desired_caps)
-        self.driver.implicitly_wait(self.safari_driver_timeout)
+        try:
+            self.driver = webdriver.Remote(client.get_remote_url(), desired_caps)
+            self.driver.implicitly_wait(self.safari_driver_timeout)
+            super.__init__(ios_obj.get_ios_current_device_model, self.driver)
+        except Exception as error:
+            print("Selenium exception in iosSettings " + str(error))
 
-    def click_airplane_mode(self):
+    def set_apn(self):
         try:
-            mobile_data_elem = self.driver.find_element_by_accessibility_id('Mobile Data')
-            if mobile_data_elem.get_attribute('enabled') and mobile_data_elem.get_attribute('visible'):
-                mobile_data_elem.click()
+            self.find_element_by_accessibility_id_and_click('Mobile Data')
+            self.find_element_by_accessibility_id_and_click('Mobile Data Network')
+            self.find_element_by_accessibility_id_and_enter_text('APN','dab.test.apn1')
+            self.find_element_by_accessibility_id_and_enter_text('Username', 'dabfull@idata.dabfull.ref')
         except Exception as error:
-            print("Selenium exception in click_airplane_mode " + str(error))
-        try:
-            mobile_data_ntwk_elem = self.driver.find_element_by_accessibility_id('Mobile Data Network')
-            if mobile_data_ntwk_elem.get_attribute('enabled') and mobile_data_ntwk_elem.get_attribute('visible'):
-                 mobile_data_ntwk_elem.click()
-        except Exception as error:
-            print("Selenium exception in click_airplane_mode " + str(error))
-
-        try:
-            mobile_data_ntwk_elem = self.driver.find_element_by_accessibility_id('APN')
-            if mobile_data_ntwk_elem.get_attribute('enabled') and mobile_data_ntwk_elem.get_attribute('visible'):
-                mobile_data_ntwk_elem.clear()
-                mobile_data_ntwk_elem.send_keys("dab.test.apn1")
-        except Exception as error:
-            print("Selenium exception in click_airplane_mode " + str(error))
-
-        try:
-            mobile_data_ntwk_elem = self.driver.find_element_by_accessibility_id('Username')
-            if mobile_data_ntwk_elem.get_attribute('enabled') and mobile_data_ntwk_elem.get_attribute('visible'):
-                mobile_data_ntwk_elem.clear()
-                mobile_data_ntwk_elem.send_keys("dabfull@idata.dabfull.ref")
-        except Exception as error:
-            print("Selenium exception in click_airplane_mode " + str(error))
-
-        try:
-            mobile_data_ntwk_elem = self.driver.find_element_by_accessibility_id('Password')
-            if mobile_data_ntwk_elem.get_attribute('enabled') and mobile_data_ntwk_elem.get_attribute('visible'):
-                mobile_data_ntwk_elem.clear()
-                mobile_data_ntwk_elem.send_keys("password")
-        except Exception as error:
-            print("Selenium exception in click_airplane_mode " + str(error))
+            print("Selenium exception in set_apn " + str(error))

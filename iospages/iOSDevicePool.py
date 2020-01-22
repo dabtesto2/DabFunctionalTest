@@ -30,3 +30,6 @@ class iPhoneDevicePool():
             if device['model'] in self.device_model:
                 return device['version']
         raise Exception(f'Requested device model {self.device_model} not Found')
+
+    def get_ios_current_device_model(self):
+        return self.device_model
