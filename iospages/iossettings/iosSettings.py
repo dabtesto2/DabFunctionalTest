@@ -34,7 +34,6 @@ class iosSettings:
             print("value " + element.get_attribute('name'))
             print("value " + element.get_attribute('label'))
             print("value " + element.get_attribute('enabled'))
-            print("value " + element.get_attribute('value'))
             print("value " + element.get_attribute('visible'))
 
         except Exception as error:
