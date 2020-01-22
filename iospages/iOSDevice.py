@@ -5,7 +5,6 @@ class iOSDevice():
 
     def __init__(self, device_model):
         super.__init__(device_model)
-        #self.driver = driver
 
     def find_element_by_accessibility_id_and_click(self,name):
         try:
