@@ -32,9 +32,7 @@ class iosSettings:
         try:
             print("value " + element.get_attribute('UID'))
             print("value " + element.get_attribute('name'))
-            print("value " + element.get_attribute('label'))
-            print("value " + element.get_attribute('enabled'))
-            print("value " + element.get_attribute('visible'))
-            element.get_attribute('UID').click()
+            if element.get_attribute('enabled') and element.get_attribute('visible'):
+                element.click()
         except Exception as error:
             print("Selenium exception in click_airplane_mode " + str(error))
