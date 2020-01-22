@@ -30,7 +30,7 @@ class iosSettings:
     def click_airplane_mode(self):
         element = self.driver.find_element_by_accessibility_id('Mobile Data')
         try:
-            print("value " + element.get_attribute('UID'))
+            print("value " + element.get_attribute('UID').__getattribute__('name'))
             print("value " + element.get_attribute('name'))
             print("value " + element.get_attribute('label'))
             print("value " + element.get_attribute('enabled'))
