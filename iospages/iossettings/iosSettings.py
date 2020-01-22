@@ -48,3 +48,19 @@ class iosSettings:
                 mobile_data_ntwk_elem.send_keys("dab.test.apn1")
         except Exception as error:
             print("Selenium exception in click_airplane_mode " + str(error))
+
+        try:
+            mobile_data_ntwk_elem = self.driver.find_element_by_accessibility_id('Username')
+            if mobile_data_ntwk_elem.get_attribute('enabled') and mobile_data_ntwk_elem.get_attribute('visible'):
+                mobile_data_ntwk_elem.clear()
+                mobile_data_ntwk_elem.send_keys("dabfull@idata.dabfull.ref")
+        except Exception as error:
+            print("Selenium exception in click_airplane_mode " + str(error))
+
+        try:
+            mobile_data_ntwk_elem = self.driver.find_element_by_accessibility_id('Password')
+            if mobile_data_ntwk_elem.get_attribute('enabled') and mobile_data_ntwk_elem.get_attribute('visible'):
+                mobile_data_ntwk_elem.clear()
+                mobile_data_ntwk_elem.send_keys("password")
+        except Exception as error:
+            print("Selenium exception in click_airplane_mode " + str(error))
