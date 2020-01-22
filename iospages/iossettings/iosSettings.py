@@ -28,13 +28,15 @@ class iosSettings:
         self.driver.implicitly_wait(self.safari_driver_timeout)
 
     def click_airplane_mode(self):
-        mobile_data_elem = self.driver.find_element_by_accessibility_id('Mobile Data')
-        mobile_data_ntwk_elem = self.driver.find_element_by_accessibility_id('Mobile Data Network')
         try:
+            mobile_data_elem = self.driver.find_element_by_accessibility_id('Mobile Data')
             if mobile_data_elem.get_attribute('enabled') and mobile_data_elem.get_attribute('visible'):
                 mobile_data_elem.click()
-            if mobile_data_ntwk_elem.get_attribute('enabled') and mobile_data_ntwk_elem.get_attribute('visible'):
-                mobile_data_ntwk_elem.click()
         except Exception as error:
             print("Selenium exception in click_airplane_mode " + str(error))
-
+        try:
+            mobile_data_ntwk_elem = self.driver.find_element_by_accessibility_id('Mobile Data Network')
+            if mobile_data_ntwk_elem.get_attribute('enabled') and mobile_data_ntwk_elem.get_attribute('visible'):
+                 mobile_data_ntwk_elem.click()
+        except Exception as error:
+            print("Selenium exception in click_airplane_mode " + str(error))
