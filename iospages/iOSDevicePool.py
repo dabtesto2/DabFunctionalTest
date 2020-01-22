@@ -6,10 +6,6 @@ class iPhoneDevicePool():
             "dev1": {"udid": "8d0a9f6c8218eaa1356fdf3e4e08573d1228ae3a", "model": "iphone8",
                      "xcodesigningid": "test.tangent90.com", "xcodeorgid":"374Q29PQSM","version":"13"}
          }
-        self.platform = "iOS"
-        self.fastReset = True
-        self.orientation = "PORTRAIT"
-        self.browsername = "Safari"
 
     def get_ios_device_id(self):
         for device in self._device.values():

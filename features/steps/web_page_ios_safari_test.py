@@ -1,14 +1,15 @@
 import allure
 from allure_commons.types import AttachmentType
 from behave import then, Given
-from iospages.iOSDevicePool import iPhoneDevicePool
+
+from iospages.iOSDevice import iOSDevice
 from iospages.safari.SafariDriver import SafariPage
 
 
 @Given(u'Open safari browser get url "{url}" using "{model}"')
 def step_impl(context, url, model):
     context.url = url
-    ios_obj = iPhoneDevicePool(model)
+    ios_obj = iOSDevice(model)
     safari_page_obj = SafariPage(ios_obj)
     safari_page_obj.get_web_page_using_safari_browser(url)
     safari_page_obj.check_safari_document_ready_state(context.url)
