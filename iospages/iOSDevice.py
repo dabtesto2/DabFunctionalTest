@@ -3,8 +3,9 @@ from iospages.iPhoneDevicePool import iPhoneDevicePool
 
 class iOSDevice(iPhoneDevicePool):
 
-    def __init__(self, device_model):
+    def __init__(self, device_model,driver=None ):
         super().__init__(device_model)
+        self.driver = driver
 
     def find_element_by_accessibility_id_and_click(self,name):
         try:

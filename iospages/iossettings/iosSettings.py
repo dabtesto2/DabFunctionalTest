@@ -28,6 +28,7 @@ class iosSettings(iOSDevice):
         try:
             self.driver = webdriver.Remote(client.get_remote_url(), desired_caps)
             self.driver.implicitly_wait(self.safari_driver_timeout)
+            super().__init__(ios_obj.get_ios_current_model,self.driver)
         except Exception as error:
             print("Selenium exception in iosSettings " + str(error))
 
