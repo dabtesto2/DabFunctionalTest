@@ -30,4 +30,4 @@ class iosSettings:
     def click_airplane_mode(self):
         el = self.driver.find_element_by_accessibility_id('Mobile Data')
         for var in el:
-            print(var)
+            print(var.get_attribute('name'))
