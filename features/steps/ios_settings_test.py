@@ -9,6 +9,6 @@ def step_impl(context, model):
     ios_obj = iPhoneDevicePool(model)
     print("Device ID " + ios_obj.get_ios_device_id())
     settings_obj = iosSettings(ios_obj)
-    settings_obj.click_airplane_mode()
+    settings_obj.set_apn()
 
 
