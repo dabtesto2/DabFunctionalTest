@@ -1,10 +1,10 @@
 from iospages.iOSDevicePool import iPhoneDevicePool
 
 
-class iOSDevice():
+class iOSDevice(iPhoneDevicePool):
 
     def __init__(self, device_model):
-        super.__init__(device_model)
+        super().__init__(device_model)
 
     def find_element_by_accessibility_id_and_click(self,name):
         try:
