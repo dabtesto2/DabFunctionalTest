@@ -4,8 +4,7 @@ from iospages.iOSDevice import iOSDevice
 from iospages.iPhoneDevicePool import iPhoneDevicePool
 from iospages.iossettings.iosSettings import iosSettings
 
-
-@Given(u'Launch ios Settings for "{model}" with "{apn}" "{username}" "{password}" "<time_wait>"')
+@Given(u'Launch ios Settings for "{model}" with "{apn}" "{username}" "{password}" "{time_wait}"')
 def step_impl(context, model, apn, username, password, time_wait):
     iphone_obj = iPhoneDevicePool(model)
     settings_obj = iosSettings(iphone_obj)
