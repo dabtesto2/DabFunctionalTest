@@ -36,3 +36,5 @@ class iOSDevice(iPhoneDevicePool):
                 element.send_keys(text)
         except Exception as error:
             print("Selenium exception in find_element_by_accessibility_id_and_enter_text " + str(error))
+
+

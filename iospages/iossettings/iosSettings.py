@@ -50,3 +50,6 @@ class iosSettings(iOSDevice):
             self.find_element_by_accessibility_id_and_switch('Airplane Mode',switch)
         except Exception as error:
             print("Selenium exception in switch_airplane_mode " + str(error))
+
+    def __del__(self):
+        self.driver.quit()
