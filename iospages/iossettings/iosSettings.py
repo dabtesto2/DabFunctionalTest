@@ -29,16 +29,16 @@ class iosSettings(iOSDevice):
         try:
             self.driver = webdriver.Remote(client.get_remote_url(), desired_caps)
             self.driver.implicitly_wait(self.safari_driver_timeout)
-            super().__init__(ios_obj.get_ios_current_model,self.driver)
+            super().__init__(ios_obj.get_ios_current_model, self.driver)
         except Exception as error:
             print("Selenium exception in iosSettings " + str(error))
 
-    def set_apn(self,apn,username,password,time_wait):
+    def set_apn(self, apn, username, password, time_wait):
         try:
             self.find_element_by_accessibility_id_and_click('Mobile Data')
             self.find_element_by_accessibility_id_and_click('Mobile Data Network')
-            self.find_element_by_accessibility_id_and_enter_text('APN',apn)
-            self.find_element_by_accessibility_id_and_enter_text('Username',username)
+            self.find_element_by_accessibility_id_and_enter_text('APN', apn)
+            self.find_element_by_accessibility_id_and_enter_text('Username', username)
             self.find_element_by_accessibility_id_and_enter_text('Password', password)
             self.driver.back()
             self.driver.back()
@@ -47,3 +47,9 @@ class iosSettings(iOSDevice):
             self.find_element_by_accessibility_id_and_click('Airplane Mode')
         except Exception as error:
             print("Selenium exception in set_apn " + str(error))
+
+    def switch_airplane_mode(self):
+        try:
+            self.find_element_by_accessibility_id_and_click('Airplane Mode')
+        except Exception as error:
+            print("Selenium exception in switch_airplane_mode " + str(error))
