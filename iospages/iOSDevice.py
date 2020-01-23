@@ -12,9 +12,9 @@ class iOSDevice(iPhoneDevicePool):
             element = self.driver.find_element_by_accessibility_id(name)
             if element.get_attribute('enabled') and element.get_attribute('visible'):
                 print('Value :' + element.get_attribute('value'))
-                if element.get_attribute('value') is "1" and switch is "off" :
+                if element.get_attribute('value') == "1" and switch is "off" :
                     element.click()
-                if element.get_attribute('value') is "0" and switch is "on":
+                if element.get_attribute('value') == "0" and switch is "on":
                     element.click()
         except Exception as error:
             print("Selenium exception in find_element_by_accessibility_id_and_switch " + str(error))
