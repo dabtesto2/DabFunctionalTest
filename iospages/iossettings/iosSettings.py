@@ -48,8 +48,8 @@ class iosSettings(iOSDevice):
         except Exception as error:
             print("Selenium exception in set_apn " + str(error))
 
-    def switch_airplane_mode(self):
+    def switch_airplane_mode(self,switch):
         try:
-            self.find_element_by_accessibility_id_and_click('Airplane Mode')
+            self.find_element_by_accessibility_id_and_switch('Airplane Mode',switch)
         except Exception as error:
             print("Selenium exception in switch_airplane_mode " + str(error))
