@@ -11,7 +11,7 @@ class iOSDevice(iPhoneDevicePool):
         try:
             element = self.driver.find_element_by_accessibility_id(name)
             if element.get_attribute('enabled') and element.get_attribute('visible'):
-                print('Value :' + element.get_attribute('value'))
+                # print('Value :' + element.get_attribute('value'))
                 if (int(element.get_attribute('value')) == 1) and ( "off" in switch) :
                     element.click()
                 if (int(element.get_attribute('value')) == 0) and ( "on" in switch):
