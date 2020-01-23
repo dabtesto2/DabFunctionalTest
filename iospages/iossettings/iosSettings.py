@@ -2,6 +2,7 @@ from selenium.common.exceptions import StaleElementReferenceException, TimeoutEx
 from selenium.webdriver.support.wait import WebDriverWait
 from iospages.AppiumClientLocal import AppiumClientLocal
 from appium import webdriver
+import time
 
 from iospages.iOSDevice import iOSDevice
 
@@ -32,15 +33,17 @@ class iosSettings(iOSDevice):
         except Exception as error:
             print("Selenium exception in iosSettings " + str(error))
 
-    def set_apn(self):
+    def set_apn(self,apn,username,password,time_wait):
         try:
             self.find_element_by_accessibility_id_and_click('Mobile Data')
             self.find_element_by_accessibility_id_and_click('Mobile Data Network')
-            self.find_element_by_accessibility_id_and_enter_text('APN','dab.test.apn1')
-            self.find_element_by_accessibility_id_and_enter_text('Username', 'dabfull@idata.dabfull.ref')
-            self.find_element_by_accessibility_id_and_enter_text('Password', 'Password')
+            self.find_element_by_accessibility_id_and_enter_text('APN',apn)
+            self.find_element_by_accessibility_id_and_enter_text('Username',username)
+            self.find_element_by_accessibility_id_and_enter_text('Password', password)
             self.driver.back()
             self.driver.back()
+            self.find_element_by_accessibility_id_and_click('Airplane Mode')
+            time.sleep(time_wait)
             self.find_element_by_accessibility_id_and_click('Airplane Mode')
         except Exception as error:
             print("Selenium exception in set_apn " + str(error))
