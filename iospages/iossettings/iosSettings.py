@@ -42,9 +42,6 @@ class iosSettings(iOSDevice):
             self.find_element_by_accessibility_id_and_enter_text('Password', password)
             self.driver.back()
             self.driver.back()
-            self.find_element_by_accessibility_id_and_click('Airplane Mode')
-            time.sleep(time_wait)
-            self.find_element_by_accessibility_id_and_click('Airplane Mode')
         except Exception as error:
             print("Selenium exception in set_apn " + str(error))
 
