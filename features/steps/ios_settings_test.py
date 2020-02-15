@@ -13,4 +13,5 @@ def step_impl(context, model, apn, username, password, time_wait):
     settings_obj.set_apn(apn, username, password, time_wait)
     settings_obj.switch_airplane_mode("on")
     settings_obj.switch_airplane_mode("off")
+    del settings_obj
 
