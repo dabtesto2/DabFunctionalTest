@@ -51,5 +51,15 @@ class iosSettings(iOSDevice):
         except Exception as error:
             print("Selenium exception in switch_airplane_mode " + str(error))
 
+    @staticmethod
+    def set_iOS_wait(seconds):
+        time.sleep(seconds)
+
+    def save_settings_page_screenshot(self):
+        try:
+            return self.driver.get_screenshot_as_png()
+        except Exception as error:
+            print("Settings page exception at save_safari_web_page_screenshot " + str(error))
+
     def __del__(self):
         self.driver.quit()
