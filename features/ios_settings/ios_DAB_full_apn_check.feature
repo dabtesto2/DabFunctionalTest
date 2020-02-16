@@ -1,4 +1,4 @@
-  Feature: Configure iOS settings
+  Feature: Check APN on iOS device <username>
 
   Scenario Outline: Configure iOS settings
     Given Launch ios Settings for "<model>" with "<apn>" "<username>" "<password>" "<time_wait>"
