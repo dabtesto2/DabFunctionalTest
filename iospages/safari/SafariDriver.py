@@ -21,8 +21,8 @@ class SafariPage:
         desired_caps = dict(automationName=client.name, platformName=self.platform, browserName=self.browser,
                             udid=self.device_id, deviceName=self.platform, platformVersion=self.version,
                             startIWDP="true", orientation=self.orientation, commandTimeouts=self.timeout,
-                            noReset="true",xcodeSigningId=self.xcodesigninid,xcodeOrgId=self.xcodeorgid,
-                            showXcodeLog="true" , wdaLaunchTimeout=self.timeout,
+                            noReset="true", xcodeSigningId=self.xcodesigninid, xcodeOrgId=self.xcodeorgid,
+                            showXcodeLog="true", wdaLaunchTimeout=self.timeout,
                             wdaConnectionTimeout=self.timeout
                             )
         self.driver = webdriver.Remote(client.get_remote_url(), desired_caps)
@@ -83,3 +83,9 @@ class SafariPage:
             return self.driver.get_screenshot_as_png()
         except Exception as error:
             print("SafariPage exception at save_safari_web_page_screenshot " + str(error))
+
+    def save_safari_page_screenshot(self):
+        try:
+            return self.driver.get_screenshot_as_png()
+        except Exception as error:
+            print("Safari page exception at save_safari_web_page_screenshot " + str(error))
