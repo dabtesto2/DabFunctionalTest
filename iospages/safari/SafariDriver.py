@@ -83,9 +83,3 @@ class SafariPage:
             return self.driver.get_screenshot_as_png()
         except Exception as error:
             print("SafariPage exception at save_safari_web_page_screenshot " + str(error))
-
-    def save_safari_page_screenshot(self):
-        try:
-            return self.driver.get_screenshot_as_png()
-        except Exception as error:
-            print("Safari page exception at save_safari_web_page_screenshot " + str(error))

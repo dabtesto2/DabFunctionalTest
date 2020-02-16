@@ -15,7 +15,7 @@ def step_impl(context, url, model):
     safari_page_obj.check_safari_document_ready_state(context.url)
     safari_page_obj.safari_find_element_containing_link_and_click("Ok, continue to the website")
     context.safari_page_obj = safari_page_obj
-    allure.attach(safari_page_obj.save_settings_page_screenshot(), name="Web Page",
+    allure.attach(safari_page_obj.save_safari_web_page_screenshot(), name="Web Page",
                   attachment_type=AttachmentType.PNG)
 
 
