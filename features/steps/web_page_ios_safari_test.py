@@ -11,10 +11,6 @@ def step_impl(context, url, model):
     context.url = url
     ios_obj = iOSDevice(model)
     safari_page_obj = SafariPage(ios_obj)
-    safari_page_obj.get_web_page_using_safari_browser("http://www.xhaus.com/headers")
-    safari_page_obj.check_safari_document_ready_state("http://www.xhaus.com/headers")
-    allure.attach(safari_page_obj.save_safari_web_page_screenshot(), name="IP Address",
-                  attachment_type=AttachmentType.PNG)
     safari_page_obj.get_web_page_using_safari_browser(url)
     safari_page_obj.check_safari_document_ready_state(context.url)
     #safari_page_obj.safari_find_element_containing_link_and_click("Ok, continue to the website")
