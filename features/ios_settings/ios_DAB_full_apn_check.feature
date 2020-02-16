@@ -1,6 +1,6 @@
-  Feature: Check APN on iOS device <username>
+  Feature: Check APN on iOS device
 
-  Scenario Outline: Configure iOS settings
+  Scenario Outline: Configure iOS settings <username>
     Given Launch ios Settings for "<model>" with "<apn>" "<username>" "<password>" "<time_wait>"
       And Open safari browser get url "<url>" using "<model>"
     Examples:
