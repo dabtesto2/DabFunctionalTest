@@ -16,7 +16,7 @@ def step_impl(context, model, apn, username, password, time_wait):
     settings_obj.switch_airplane_mode("on")
     settings_obj.switch_airplane_mode("off")
     settings_obj.set_iOS_wait(1)
-    allure.attach(settings_obj.save_safari_page_screenshot(), name="Mobile Data Connection",
+    allure.attach(settings_obj.save_settings_page_screenshot(), name="Mobile Data Connection",
                   attachment_type=AttachmentType.PNG)
     del settings_obj
     
