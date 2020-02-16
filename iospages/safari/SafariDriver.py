@@ -11,7 +11,7 @@ class SafariPage:
         self.html_links = []
         self.platform = "iOS"
         self.version = ios_obj.get_ios_device_version()
-        self.timeout = 15000
+        self.timeout = 5000
         self.browser = "Safari"
         self.orientation = "PORTRAIT"
         self.xcodesigninid = ios_obj.get_ios_device_xcodesigningid()
