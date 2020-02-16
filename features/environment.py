@@ -22,3 +22,7 @@ def after_step(context, step):
         step_str = step.name
         allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name=step_str,
                       attachment_type=AttachmentType.PNG)
+    else:
+        step_str = step.name
+        allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name=step_str,
+                      attachment_type=AttachmentType.PNG)
