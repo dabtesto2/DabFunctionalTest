@@ -18,6 +18,4 @@ def step_impl(context, model, apn, username, password, time_wait):
     settings_obj.set_iOS_wait(1)
     allure.attach(settings_obj.save_settings_page_screenshot(), name="Mobile Data Connection",
                   attachment_type=AttachmentType.PNG)
-    del settings_obj
-    
 
