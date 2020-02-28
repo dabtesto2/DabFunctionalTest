@@ -4,7 +4,7 @@ class AndroidDevicePool():
         self.device_profile = device_profile
         self._device = {
             "dev1": {"udid": "ce0417145b24bca70d", "profile": "NDS", "msisdn": "447516903691", "imsi":"234106663078773","model":"androids8"},
-            "dev2": {"udid": "2adbc704fc0d7ece", "profile": "PC", "msisdn":"447725629466", "imsi":"234106663078775","model":"Galaxy"},
+            "dev2": {"udid": "ce061716313b811a017e", "profile": "PC", "msisdn":"447725629466", "imsi":"234106663078775","model":"Galaxy"},
             "dev3": {"udid": "ce071717ab7bd73901", "profile": "OA",  "msisdn": "447517999432", "imsi":"234101333546803","model":"s8"}
         }
         self.platform = "Android"
