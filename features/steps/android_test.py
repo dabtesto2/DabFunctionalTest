@@ -18,8 +18,6 @@ def step_impl(context, device_profile, apn_name, seconds):
                       attachment_type=AttachmentType.PNG)
         android_device_obj.start_android_plugin_app()
         # print("Data Connection State  " + android_device_obj.get_data_state(int(seconds)))
-        assert_that(android_device_obj.get_data_state(int(seconds)), contains_string("DATA_CONNECTED"),
-                    "No Data session")
         android_device_obj.click_android_home()
         del android_device_obj
     else:
