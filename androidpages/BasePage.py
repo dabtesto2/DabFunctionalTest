@@ -41,7 +41,7 @@ class BasePage(AndroidTestPluginApp):
             raise ValueError('No Connection to Appium Server ' + client.get_remote_url())
         except MaxRetryError as error:
             print("Remote appium web driver Connection error " + str(error))
-            raise ValueError('No Connection to Appium Server ') + client.get_remote_url()
+            raise ValueError('No Connection to Appium Server '  + client.get_remote_url())
         except Exception as error:
             print("Remote appium web driver Connection error " + str(error))
             raise ValueError('No Connection to Appium Server ' + client.get_remote_url())
