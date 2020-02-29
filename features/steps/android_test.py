@@ -58,8 +58,9 @@ def step_impl(context, device_profile, network_type, seconds):
     print("Data Connection State  " + android_device_obj.get_data_state(int(seconds)))
     assert_that(android_device_obj.get_data_state(int(seconds)), contains_string("DATA_CONNECTED"),
                 "No Data session")
-    print("Data Activity  " + android_device_obj.get_data_activity(int(seconds)))
-    assert_that(android_device_obj.get_data_activity(int(seconds)), contains_string("DATA_ACTIVITY_INOUT"),
+    CheckDataActivity =  android_device_obj.get_data_activity(int(seconds))
+    print("Data Activity  " + CheckDataActivity)
+    assert_that(CheckDataActivity, contains_string("DATA_ACTIVITY_INOUT"),
                 "No User plane D/L for subscriber")
     assert_that(android_device_obj.get_msisdn(),
                 not_(android_device_obj.get_android_msisdn()), "MSISDN mismatch")
