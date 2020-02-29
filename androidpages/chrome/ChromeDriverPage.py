@@ -21,7 +21,7 @@ class ChromeDriverPage:
         self.browser = "Chrome"
         self.device_id = device_id
         self.chromedriverExecutable = "/Users/purush/chromedriver/"
-        self.chromedriverVersion = 81
+        self.chromedriverVersion = 80
         self.chromedriverpath = self.chromedriverExecutable + str(self.chromedriverVersion) + "/chromedriver"
         client = AppiumClientLocal()
         options = ChromeOptions()
