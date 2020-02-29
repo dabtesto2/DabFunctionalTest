@@ -10,4 +10,4 @@
 
     Examples:
       | apn                         | url                      | title  | no_links | data_conn_wait | device_profile |
-      | idata-full-epg1             | https://www.google.co.uk | google | 2        | 60             | OA             |
+      | idata-full-epg1             | https://www.ebay.co.uk | google | 2        | 60             | OA             |
