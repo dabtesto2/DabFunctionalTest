@@ -33,10 +33,9 @@ def step_impl(context, status):
     android_device_obj.dismiss_message_box_if_any()
     context.device_id = android_device_obj.get_android_device_id()
     android_device_obj.open_android_device_status_page("About phone")
-    android_device_obj.set_android_wait(2)
-    network_conn = android_device_obj.get_network_connection()
     allure.attach(android_device_obj.get_android_device_screen_shot(), name="Device_ip_status",
                   attachment_type=AttachmentType.PNG)
+    network_conn = android_device_obj.get_network_connection()
     assert_that(network_conn, equal_to_ignoring_whitespace(status),
                 raises(ValueError, "No User plane for this session Mobile returned status = " + network_conn))
     print(android_device_obj.get_device_info())
