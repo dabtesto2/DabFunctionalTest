@@ -17,3 +17,11 @@ def before_feature(context, feature):
                                 ''')
 
 
+def after_step(context, step):
+    if step.status == 'failed':
+        step_str = step.name
+        if context.chrome_page_obj is None:
+            pass
+        else:
+            allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name=step_str,
+                          attachment_type=AttachmentType.PNG)
