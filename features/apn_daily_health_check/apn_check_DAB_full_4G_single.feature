@@ -11,5 +11,5 @@
     Examples:
       | apn                         | url                      | title  | no_links | data_conn_wait | device_profile |
       | idata-full-epg1             | https://www.ebay.co.uk   | google | 2        | 60             | OA             |
-      | payandgo-full-epg2          | https://www.ebay.co.uk   | google | 2        | 60             | PC             |
+      | payandgo-full-epg2          | https://www.bbc.co.uk   | google | 2        | 60             | PC             |
       | tesco-full-vepg-vpgw-2      | https://www.amazon.co.uk | amazon | 2        | 60             | NDS            |
