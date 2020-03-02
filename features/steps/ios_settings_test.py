@@ -13,6 +13,7 @@ def step_impl(context, model, apn, username, password, time_wait):
     settings_obj = iosSettings(iphone_obj)
     allure.attach(settings_obj.save_settings_page_screenshot(), name="configure APN",
                   attachment_type=AttachmentType.PNG)
+    settings_obj.click_back_btn_ios()
     settings_obj.switch_airplane_mode("off")
     settings_obj.set_apn(apn, username, password, time_wait)
     settings_obj.switch_airplane_mode("on")
