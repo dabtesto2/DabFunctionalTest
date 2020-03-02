@@ -40,8 +40,6 @@ class iosSettings(iOSDevice):
             self.find_element_by_accessibility_id_and_enter_text('APN', apn)
             self.find_element_by_accessibility_id_and_enter_text('Username', username)
             self.find_element_by_accessibility_id_and_enter_text('Password', password)
-            self.driver.back()
-            self.driver.back()
         except Exception as error:
             print("Selenium exception in set_apn " + str(error))
 
