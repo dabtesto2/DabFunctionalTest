@@ -5,4 +5,4 @@
       And Open safari browser get url "<url>" using "<model>"
     Examples:
       | apn           | username                     | password | time_wait | model   | url                          |
-      | dab.test.apn1 | dabfull@idata.dabfull.ref    | password | 1         | iphone8 | https://www-dev-1.full-cn-only.verity.ref.o2.co.uk |
+      | dab.test.apn1 | dabfull@idata.dabfull.ref    | password | 1         | iphone8 | https://www-dev-2.full.verity.ref.o2.co.uk |
