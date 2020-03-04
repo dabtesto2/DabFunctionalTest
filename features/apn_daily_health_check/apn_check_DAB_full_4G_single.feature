@@ -10,4 +10,6 @@
 
     Examples:
       | apn                         | url                      | title  | no_links | data_conn_wait | device_profile |
-      | idata-full-epg1             | https://www-dev-1.full-cn-only.verity.ref.o2.co.uk   | verity | 2        | 60             | OA             |
+      | idata-full-epg1             | https://www.ebay.co.uk   | google | 2        | 60             | OA             |
+      | payandgo-full-epg2          | https://www.bbc.co.uk    | google | 2        | 60             | PC             |
+      | tesco-full-vepg-vpgw-2      | https://www.amazon.co.uk | amazon | 2        | 60             | NDS            |
