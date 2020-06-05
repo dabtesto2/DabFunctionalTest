@@ -7,5 +7,5 @@
 
     Examples:
       | apn             | url                                                                                                                                                                                                                                                 | data_conn_wait | device_profile |
-      | idata-full-epg1 | https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-0/s130x130/78696679_116147300120882_6556723475237568512_n.jpg?_nc_cat=108&_nc_sid=110474&_nc_ohc=tMB4my74YbIAX-sVL7Y&_nc_ht=scontent-lht6-1.xx&_nc_tp=7&oh=7bebc903179682e2c893d87018247fa9&oe=5F01CEE5 | 15             | OA             |
+      | idata-full-epg1 | "https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-0/s130x130/78696679_116147300120882_6556723475237568512_n.jpg?_nc_cat=108&_nc_sid=110474&_nc_ohc=tMB4my74YbIAX-sVL7Y&_nc_ht=scontent-lht6-1.xx&_nc_tp=7&oh=7bebc903179682e2c893d87018247fa9&oe=5F01CEE5" | 10             | OA             |
 
