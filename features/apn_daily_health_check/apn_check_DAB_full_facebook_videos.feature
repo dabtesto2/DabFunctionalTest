@@ -3,7 +3,7 @@
 
   Scenario Outline: With Android Device profile setup the context for <apn> with device profile <device_profile>
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
-     Then Open "chrome" browser and get url "<url>"
+     Then Open "chrome" browser and get url "<url>" and wait "35"
 
     Examples:
       | apn             | url                                                                                                                                                                                                                                                                                                                      | data_conn_wait | device_profile |
