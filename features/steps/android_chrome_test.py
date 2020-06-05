@@ -16,7 +16,7 @@ def step_impl(context, browser, url, seconds):
         allure.attach(chrome_page_obj.save_chrome_web_page_screenshot(), name="Chrome_page",
                       attachment_type=AttachmentType.PNG)
         context.chrome_page_obj = chrome_page_obj
-        time.sleep(seconds)
+        time.sleep(int(seconds))
 # added on 05/06/2020
 
 @then(u'Open "{browser}" browser and get url "{url}"')
