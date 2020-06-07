@@ -5,8 +5,6 @@ from androidpages.chrome.ChromeDriverPage import ChromeDriverPage
 from hamcrest import *
 from androidpages.FacebookData import FacebookData
 import time
-import facebook
-import json
 
 
 
