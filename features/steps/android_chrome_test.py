@@ -11,25 +11,27 @@ import time
 # added on 05/06/2020
 @then(u'Open "{browser}" browser for facebook data using "{token}" and wait "{seconds}"')
 def step_impl(context, browser, token, seconds):
-    global chrome_page_obj_v, chrome_page_obj_p
+    chrome_page_obj_v = ChromeDriverPage(context.device_id)
+    chrome_page_obj_p = ChromeDriverPage(context.device_id)
+
     if ("chrome" or "Chrome" or "CHROME") in browser:
         facebook_data = FacebookData(token)
         video_entries = facebook_data.get_user_videos()
         photo_entries = facebook_data.get_user_photos()
-        chrome_page_obj_v = ChromeDriverPage(context.device_id)
         for url in video_entries:
             print("****** video url {}".format(url))
+            global chrome_page_obj_v
             chrome_page_obj_v.dismiss_message_box_if_any()
             chrome_page_obj_v.get_web_page_using_chrome_browser(url)
             time.sleep(int(seconds))
-            del chrome_page_obj_v
-        chrome_page_obj_p = ChromeDriverPage(context.device_id)
+        del chrome_page_obj_v
         for url in photo_entries:
             print("****** photo url {}".format(url))
+            global chrome_page_obj_p
             chrome_page_obj_p.dismiss_message_box_if_any()
             chrome_page_obj_p.get_web_page_using_chrome_browser(url)
             time.sleep(int(seconds))
-            del chrome_page_obj_p
+        del chrome_page_obj_p
 # added on 05/06/2020
 
 @then(u'Open "{browser}" browser and get url "{url}"')
