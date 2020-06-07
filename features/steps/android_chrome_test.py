@@ -3,20 +3,30 @@ from allure_commons.types import AttachmentType
 from behave import *
 from androidpages.chrome.ChromeDriverPage import ChromeDriverPage
 from hamcrest import *
+from androidpages.FacebookData import FacebookData
 import time
+import facebook
+import json
+
 
 
 # added on 05/06/2020
-@then(u'Open "{browser}" browser and get url "{url}" and wait "{seconds}"')
-def step_impl(context, browser, url, seconds):
+@then(u'Open "{browser}" browser for facebook data using "{token}" and wait "{seconds}"')
+def step_impl(context, browser, seconds):
     if ("chrome" or "Chrome" or "CHROME") in browser:
+        facebook_data = FacebookData(token)
+        video_entries = facebook_data.get_user_videos()
+        photo_entries = facebook_data.get_user_photos()
         chrome_page_obj = ChromeDriverPage(context.device_id)
         chrome_page_obj.dismiss_message_box_if_any()
-        chrome_page_obj.get_web_page_using_chrome_browser(url)
-        allure.attach(chrome_page_obj.save_chrome_web_page_screenshot(), name="Chrome_page",
-                      attachment_type=AttachmentType.PNG)
+        for url in video_entries:
+            chrome_page_obj.get_web_page_using_chrome_browser(url)
+            time.sleep(int(seconds))
+        for url in photo_entries:
+            chrome_page_obj.get_web_page_using_chrome_browser(url)
+            time.sleep(int(seconds))
         context.chrome_page_obj = chrome_page_obj
-        time.sleep(int(seconds))
+
 # added on 05/06/2020
 
 @then(u'Open "{browser}" browser and get url "{url}"')
@@ -62,3 +72,38 @@ def step_impl(context, list_item, content):
     allure.attach(context.chrome_page_obj.save_chrome_web_page_screenshot(), name=list_item + "_item",
                   attachment_type=AttachmentType.PNG)
     del context.chrome_page_obj
+
+
+def get_user_videos():
+    video_entries = []
+    graph = facebook.GraphAPI(token)
+    user_video_obj = graph.get_object('me/videos/uploaded/', fields='source')
+    user_videos = json.dumps(user_video_obj, indent=4)
+    video_data = json.loads(user_videos)
+    for video_data_in_list in video_data.values():  # this gives a list
+        for list_index in range(len(video_data_in_list)):  # iterate to length of list
+            try:
+                video_dict_item = video_data_in_list[list_index]  # dictionary get value = key source
+                # print(video_dict_item['source'])
+                video_entries.append(video_dict_item['source'])
+            except Exception as e:
+                pass
+
+    return video_entries
+
+
+def get_user_photos():
+    photo_entries = []
+    graph = facebook.GraphAPI(token)
+    user_photos_obj = graph.get_object('me/photos/uploaded/', fields='picture')
+    user_photos = json.dumps(user_photos_obj, indent=4)
+    photo_data = json.loads(user_photos)
+    for photo_data_in_list in photo_data.values():  # this gives a list
+        for list_index in range(len(photo_data_in_list)):  # iterate to length of list
+            try:
+                photo_dict_item = photo_data_in_list[list_index]  # dictionary get value = key source
+                # print(photo_dict_item['picture'])
+                photo_entries.append(photo_dict_item['picture'])
+            except Exception as e:
+                pass
+    return photo_entries
