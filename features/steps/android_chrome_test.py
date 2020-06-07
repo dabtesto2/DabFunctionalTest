@@ -11,6 +11,8 @@ import time
 # added on 05/06/2020
 @then(u'FB browsing using "{browser}" url "{url}" user "{user}" password "{password}" and "{token}" wait "{seconds}"')
 def step_impl(context, browser, url, user, password, token, seconds):
+    context.chrome_page_obj_v = None
+    context.chrome_page_obj_p = None
     if ("chrome" or "Chrome" or "CHROME") in browser:
         facebook_data = FacebookData(token)
         video_entries = facebook_data.get_user_videos()
