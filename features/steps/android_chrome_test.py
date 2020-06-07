@@ -15,17 +15,22 @@ def step_impl(context, browser, token, seconds):
         facebook_data = FacebookData(token)
         video_entries = facebook_data.get_user_videos()
         photo_entries = facebook_data.get_user_photos()
-        chrome_page_obj = ChromeDriverPage(context.device_id)
-        chrome_page_obj.dismiss_message_box_if_any()
+
         for url in video_entries:
-            print("video url {}".format(url))
+            print("****** video url {}".format(url))
+            chrome_page_obj = ChromeDriverPage(context.device_id)
+            chrome_page_obj.dismiss_message_box_if_any()
             chrome_page_obj.get_web_page_using_chrome_browser(url)
             time.sleep(int(seconds))
+            del chrome_page_obj
         for url in photo_entries:
-            print("photo url {}".format(url))
+            print("****** photo url {}".format(url))
+            chrome_page_obj = ChromeDriverPage(context.device_id)
+            chrome_page_obj.dismiss_message_box_if_any()
             chrome_page_obj.get_web_page_using_chrome_browser(url)
             time.sleep(int(seconds))
-        context.chrome_page_obj = chrome_page_obj
+            del chrome_page_obj
+
 
 # added on 05/06/2020
 
