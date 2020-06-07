@@ -227,8 +227,8 @@ class ChromeDriverPage:
     def chrome_fb_login(self, url, user, password, seconds):
         try:
             self.driver.get(url)
-            self.driver.find_element_by_name("email").send_keys(user)
-            self.driver.find_element_by_name("pass").send_keys(password)
+            self.driver.find_element_by_id("m_login_email").send_keys(user)
+            self.driver.find_element_by_id("m_login_password").send_keys(password)
             self.driver.find_element_by_name("login").click()
             time.sleep(int(seconds/3))
         except Exception as error:
