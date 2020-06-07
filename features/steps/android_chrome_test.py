@@ -9,26 +9,27 @@ import time
 
 
 # added on 05/06/2020
-@then(u'Open "{browser}" browser for facebook data using "{token}" and wait "{seconds}"')
-def step_impl(context, browser, token, seconds):
-
-
-
+@then(u'FB Browsing using "{browser}" with url "{url}" "{user}" "{password}" and "<token>" wait "{seconds}"')
+def step_impl(context, browser, url, user, password, token, seconds):
     if ("chrome" or "Chrome" or "CHROME") in browser:
         facebook_data = FacebookData(token)
         video_entries = facebook_data.get_user_videos()
         photo_entries = facebook_data.get_user_photos()
-        for url in video_entries:
-            print("****** video url {}".format(url))
+        for v_data_url in video_entries:
+            print("****** video url {}".format(v_data_url))
             chrome_page_obj_v = ChromeDriverPage(context.device_id)
             chrome_page_obj_v.dismiss_message_box_if_any()
+            if not context.chrome_page_obj_v:
+                chrome_page_obj_v.chrome_fb_login(url, user, password)
             chrome_page_obj_v.get_web_page_using_chrome_browser(url)
             time.sleep(int(seconds))
             context.chrome_page_obj_v = chrome_page_obj_v
-        for url in photo_entries:
-            print("****** photo url {}".format(url))
+        for p_data_url in photo_entries:
+            print("****** photo url {}".format(p_data_url))
             chrome_page_obj_p = ChromeDriverPage(context.device_id)
             chrome_page_obj_p.dismiss_message_box_if_any()
+            if not context.chrome_page_obj_p:
+                chrome_page_obj_p.chrome_fb_login(url,user,password)
             chrome_page_obj_p.get_web_page_using_chrome_browser(url)
             time.sleep(int(seconds))
             context.chrome_page_obj_p = chrome_page_obj_p
