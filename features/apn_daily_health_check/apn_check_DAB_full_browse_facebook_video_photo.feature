@@ -2,7 +2,7 @@
 
   Scenario Outline: With Android Device profile setup the context for <apn> with device profile <device_profile>
     Given Android device using "<device_profile>" select apn "<apn>" and wait for "<data_conn_wait>" sec
-     Then FB Browsing using "chrome" with url "m.facebook.com" "dabtesto2@gmail.com" "Testdab!" and "<token>" wait "45"
+     Then FB Browsing "chrome" "m.facebook.com" "dabtesto2@gmail.com" "Testdab!" "<token>" "45"
 
     Examples:
       | apn             | token                                                                                                                                                                                        | data_conn_wait | device_profile |
