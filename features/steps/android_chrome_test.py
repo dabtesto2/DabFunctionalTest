@@ -9,7 +9,7 @@ import time
 
 
 # added on 05/06/2020
-@then(u'"{browser}" "{url}" "{user}" "{password}" "<token>" "{seconds}"')
+@then(u'FB browsing using "{browser}" url "{url}" user "{user}" password "{password}" and "{token}" wait "{seconds}"')
 def step_impl(context, browser, url, user, password, token, seconds):
     if ("chrome" or "Chrome" or "CHROME") in browser:
         facebook_data = FacebookData(token)
