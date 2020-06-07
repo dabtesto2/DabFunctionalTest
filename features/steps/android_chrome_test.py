@@ -12,7 +12,7 @@ import json
 
 # added on 05/06/2020
 @then(u'Open "{browser}" browser for facebook data using "{token}" and wait "{seconds}"')
-def step_impl(context, browser, seconds):
+def step_impl(context, browser, token, seconds):
     if ("chrome" or "Chrome" or "CHROME") in browser:
         facebook_data = FacebookData(token)
         video_entries = facebook_data.get_user_videos()
