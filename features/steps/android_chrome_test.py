@@ -18,11 +18,11 @@ def step_impl(context, browser, token, seconds):
         chrome_page_obj = ChromeDriverPage(context.device_id)
         chrome_page_obj.dismiss_message_box_if_any()
         for url in video_entries:
-            print(url)
+            print("video url {}".format(url))
             chrome_page_obj.get_web_page_using_chrome_browser(url)
             time.sleep(int(seconds))
         for url in photo_entries:
-            print(url)
+            print("photo url {}".format(url))
             chrome_page_obj.get_web_page_using_chrome_browser(url)
             time.sleep(int(seconds))
         context.chrome_page_obj = chrome_page_obj
