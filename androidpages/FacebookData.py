@@ -12,7 +12,6 @@ class FacebookData:
 
     def get_user_videos(self):
         video_entries = []
-        print(" Token is {}".format(self.token))
         graph = facebook.GraphAPI(self.token)
         user_video_obj = graph.get_object('me/videos/uploaded/', fields='source')
         user_videos = json.dumps(user_video_obj, indent=4)
