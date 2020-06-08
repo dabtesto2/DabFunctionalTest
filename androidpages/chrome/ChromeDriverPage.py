@@ -243,6 +243,6 @@ class ChromeDriverPage:
 
     def chrome_click_play(self):
         try:
-            self.driver.find_element_by_xpath('//button[text()="play"]').click()
+            self.driver.find_element_by_xpath('//button[contains(text(),"play")]').click()
         except Exception as error:
             print("Selenium exception in chrome_fb_login " + str(error))
