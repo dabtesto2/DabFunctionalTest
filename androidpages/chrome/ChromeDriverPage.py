@@ -245,7 +245,7 @@ class ChromeDriverPage:
         try:
             play_button = self.driver.find_elements_by_xpath("//android.widget.Button[@text='play']")
             for elem in play_button:
-                elem.click()
+                print(" ***** Element is {}".format(elem.text))
 
         except Exception as error:
             print("Selenium exception in chrome_click_play_button " + str(error))
