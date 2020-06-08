@@ -243,8 +243,7 @@ class ChromeDriverPage:
 
     def chrome_click_play(self):
         try:
-            wait = WebDriverWait(self.driver, 60)
-            play_button = wait.until(ec.visibility_of_all_elements_located((By.XPATH, "//android.widget.Button[@text='play']")))
+            play_button = self.driver.find_elements_by_xpath("//android.widget.Button[@text='play']")
             for elem in play_button:
                 elem.click()
 
