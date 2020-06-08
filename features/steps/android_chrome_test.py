@@ -30,7 +30,7 @@ def step_impl(context, browser, url, user, password, token, seconds):
             chrome_page_obj_p = ChromeDriverPage(context.device_id)
             #chrome_page_obj_p.chrome_fb_login(url,user,password,seconds)
             chrome_page_obj_p.get_web_page_using_chrome_browser(p_data_url)
-            chrome_page_obj_v.chrome_click_play()
+            chrome_page_obj_p.chrome_click_play()
             time.sleep(int(seconds))
             context.chrome_page_obj_p = chrome_page_obj_p
         del context.chrome_page_obj_v

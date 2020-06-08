@@ -239,3 +239,13 @@ class ChromeDriverPage:
             time.sleep(int(seconds/3))
         except Exception as error:
             print("Selenium exception in chrome_fb_login " + str(error))
+
+
+    def chrome_click_play(self):
+        try:
+            time.sleep(2)
+            button = self.driver.find_elements_by_xpath("//android.widget.Button[@text='play']")
+            button.click()
+
+        except Exception as error:
+            print("Selenium exception in chrome_click_play_button " + str(error))
