@@ -244,9 +244,9 @@ class ChromeDriverPage:
     def chrome_click_play(self):
         try:
             wait = WebDriverWait(self.driver, 60)
-            play_button = wait.until(ec.visibility_of_element_located((By.XPATH, "//android.widget.Button[@text='play']")))
-            #self.driver.find_element_by_xpath("//android.widget.Button[@text='play']").click()
-            play_button.click()
+            play_button = wait.until(ec.visibility_of_all_elements_located((By.XPATH, "//android.widget.Button[@text='play']")))
+            for elem in play_button:
+                elem.click()
 
         except Exception as error:
             print("Selenium exception in chrome_click_play_button " + str(error))
