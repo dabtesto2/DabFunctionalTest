@@ -20,14 +20,14 @@ def step_impl(context, browser, url, user, password, token, seconds):
         for v_data_url in video_entries:
             print("****** video url {}".format(v_data_url))
             chrome_page_obj_v = ChromeDriverPage(context.device_id)
-            chrome_page_obj_v.chrome_fb_login(url,user,password,seconds)
+            #chrome_page_obj_v.chrome_fb_login(url,user,password,seconds)
             chrome_page_obj_v.get_web_page_using_chrome_browser(v_data_url)
             time.sleep(int(seconds))
             context.chrome_page_obj_v = chrome_page_obj_v
         for p_data_url in photo_entries:
             print("****** photo url {}".format(p_data_url))
             chrome_page_obj_p = ChromeDriverPage(context.device_id)
-            chrome_page_obj_p.chrome_fb_login(url,user,password,seconds)
+            #chrome_page_obj_p.chrome_fb_login(url,user,password,seconds)
             chrome_page_obj_p.get_web_page_using_chrome_browser(p_data_url)
             time.sleep(int(seconds))
             context.chrome_page_obj_p = chrome_page_obj_p
