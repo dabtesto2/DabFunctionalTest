@@ -227,9 +227,15 @@ class ChromeDriverPage:
     def chrome_fb_login(self, url, user, password, seconds):
         try:
             self.driver.get(url)
+            time.sleep(30)
+            username_box = self.driver.find_element_by_id('m_login_email')
+            username_box.send_keys(user)
+            password_box = self.driver.find_element_by_id('m_login_password')
+            password_box.send_keys(password)
             self.driver.find_element_by_id("m_login_email").send_keys(user)
             self.driver.find_element_by_id("m_login_password").send_keys(password)
-            self.driver.find_element_by_name("login").click()
+            login_box = self.driver.find_element_by_xpath('//button[@name="login"]')
+            login_box[0].click()
             time.sleep(int(seconds/3))
         except Exception as error:
             print("Selenium exception in chrome_fb_login " + str(error))
