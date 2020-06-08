@@ -1,10 +1,9 @@
-from appium.webdriver.common.touch_action import TouchAction
 import time
 from random import randint
 from selenium.webdriver import ChromeOptions
 from appium import webdriver
 from selenium.common.exceptions import InvalidSessionIdException, TimeoutException, StaleElementReferenceException
-from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 import re
 from androidpages.AppiumClientLocal import AppiumClientLocal
@@ -244,9 +243,10 @@ class ChromeDriverPage:
 
     def chrome_click_play(self):
         try:
-            self.driver.find_element_by_xpath("//android.widget.Button[@text='play']").click()
-
-
+            wait = WebDriverWait(self.driver, 60)
+            play_button = wait.until(ec.visibility_of_element_located((By.XPATH, "//android.widget.Button[@text='play']")))
+            #self.driver.find_element_by_xpath("//android.widget.Button[@text='play']").click()
+            play_button.click()
 
         except Exception as error:
             print("Selenium exception in chrome_click_play_button " + str(error))
