@@ -220,7 +220,9 @@ class ChromeDriverPage:
 
     def chrome_find_element_containing_text_and_play(self):
         try:
-            element = self.driver.find_elements_by_xpath("//*[contains(text(), 'play')]")
+
+            #element = self.driver.find_elements_by_xpath("//*[contains(text(), 'play')]")
+            element = self.driver.find_elements_by_xpath("//button[contains(text(),'play')]")
             for elem in element:
                 elem.click()
         except Exception as error:
