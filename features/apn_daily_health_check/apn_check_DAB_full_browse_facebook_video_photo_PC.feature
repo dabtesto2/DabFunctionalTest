@@ -6,4 +6,4 @@
 
     Examples:
       | apn             | token                                                                                                                                                                                        | data_conn_wait | device_profile |
-      | mobile-full-epg2| EAAEX49WxWTQBAFvxvxCHYW12llH5GG73qvPZCeHe9GRoaj3UqbSSW3swEJgXfE17JTJUNf3zRnAzo7z8X5KEUti6p9DborXXjScYT7eAFKFNaLQoXdiXdIXtbb0fSWc5oO0vZBmVmOAWCr5SDFpFOh5JK7Lz6cWey1mJtpjOZAtQyukuiXZC        | 15             | PC             |
+      | mobile-full-epg1| EAAEX49WxWTQBAFvxvxCHYW12llH5GG73qvPZCeHe9GRoaj3UqbSSW3swEJgXfE17JTJUNf3zRnAzo7z8X5KEUti6p9DborXXjScYT7eAFKFNaLQoXdiXdIXtbb0fSWc5oO0vZBmVmOAWCr5SDFpFOh5JK7Lz6cWey1mJtpjOZAtQyukuiXZC        | 15             | PC             |

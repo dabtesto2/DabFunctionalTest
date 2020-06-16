@@ -6,4 +6,4 @@
 
     Examples:
       | apn             | token                                                                                                                                                                                        | data_conn_wait | device_profile |
-      | idata-full-epg2 | EAACf85KzVCwBANcxoVxNX0ZAoTMDRDJk0eF4vK8CqJoc3N2ZCuQkFAeiJ3jFLkQ2CF60fLLUrLUUqZA6JdFPRZCbaDJoo0qNyb0nZAXgV4NCp9m3dAMASekcE4vChIfkguSaVqnazPZCMZBvPg7w0ydhJxZCZCkB0tuq1tRnHcBxx1QDZBAhUYigKb  | 15             | NDS            |
+      | mobile-full-epg1| EAACf85KzVCwBANcxoVxNX0ZAoTMDRDJk0eF4vK8CqJoc3N2ZCuQkFAeiJ3jFLkQ2CF60fLLUrLUUqZA6JdFPRZCbaDJoo0qNyb0nZAXgV4NCp9m3dAMASekcE4vChIfkguSaVqnazPZCMZBvPg7w0ydhJxZCZCkB0tuq1tRnHcBxx1QDZBAhUYigKb  | 15             | NDS            |
