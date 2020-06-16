@@ -218,6 +218,14 @@ class ChromeDriverPage:
         except Exception as error:
             print("Selenium exception in chrome_find_element_containing_text_and_click " + str(error))
 
+    def chrome_find_element_containing_text_and_play(self):
+        try:
+            element = self.driver.find_elements_by_xpath("//*[contains(text(), 'play')]")
+            for elem in element:
+                elem.click()
+        except Exception as error:
+            print("Selenium exception in chrome_find_element_containing_text_and_play " + str(error))
+
     def chrome_scroll_to_page(self, x_position, y_position):
         try:
             self.driver.execute_script("window.scrollTo({},{});".format(x_position, y_position))
