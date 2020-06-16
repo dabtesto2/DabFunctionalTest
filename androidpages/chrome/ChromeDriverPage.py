@@ -220,12 +220,12 @@ class ChromeDriverPage:
 
     def chrome_find_element_containing_text_and_play(self):
         try:
-            xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView/android.view.View/android.view.View/android.view.View[2]/android.widget.Button"
+            #xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView/android.view.View/android.view.View/android.view.View[2]/android.widget.Button"
             #element = self.driver.find_elements_by_xpath("//*[contains(text(), 'play')]")
-            #element = self.driver.find_elements_by_xpath("//button[contains(text(),'play')]")
-            self.driver.find_element_by_xpath(xpath).click()
-            #for elem in element:
-              #  elem.click()
+            element = self.driver.find_elements_by_xpath("//button[contains(text(),'play')]")
+            #self.driver.find_element_by_xpath(xpath).click()
+            for elem in element:
+                elem.click()
         except Exception as error:
             print("Selenium exception in chrome_find_element_containing_text_and_play " + str(error))
 
