@@ -14,4 +14,3 @@
       | idata-full-epg1 | http://www.o2-blacklist.incompass.netstar-inc.com/  | Access denied        | 5              | OA             |
       | mobile-full-epg2| https://www.o2-blacklist.incompass.netstar-inc.com/ | ERR_CONNECTION_RESET | 5              | OA             |
       | use-same-apn    | https://www.dip.cc/                                 | ERR_TIMED_OUT        | 5              | PC             |
-      | tesco-full-epg2 | https://www.mobile-spy.com/                         | ERR_CONNECTION_RESET | 5              | NDS            |
