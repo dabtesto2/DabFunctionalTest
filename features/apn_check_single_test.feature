@@ -11,4 +11,4 @@
 
     Examples:
       | apn             | url                                                 | content              | data_conn_wait | device_profile |
-      | idata-full-epg1 | http://www.o2-blacklist.incompass.netstar-inc.com/  | Access denied        | 25             | OA             |
+      | idata-full-epg1 | http://www.o2-blacklist.incompass.netstar-inc.com/  | Access denied        | 10             | OA             |
