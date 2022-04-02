@@ -3,9 +3,9 @@ class AndroidDevicePool():
     def __init__(self, device_profile):
         self.device_profile = device_profile
         self._device = {
-            "dev1": {"udid": "ce0417145b24bca70d", "profile": "NDS", "msisdn": "447516903691", "imsi":"234106663078773","model":"androids8"},
-            "dev2": {"udid": "2adbc704fc0d7ece", "profile": "PC", "msisdn":"447725629466", "imsi":"234106663078775","model":"Galaxy"},
-            "dev3": {"udid": "ce071717ab7bd73901", "profile": "OA",  "msisdn": "447517999432", "imsi":"234101333546803","model":"s8"}
+            "dev1": {"udid": "RFCR50LP8QL", "profile": "NDS", "msisdn": "447563032351", "imsi":"355008371191036","model":"Galaxy S20"},
+            "dev2": {"udid": "RFCR50LP8QL", "profile": "PC", "msisdn":"447563032351", "imsi":"355008371191036","model":"Galaxy S20"},
+            "dev3": {"udid": "RFCR50LP8QL", "profile": "OA",  "msisdn": "447563032351", "imsi":"355008371191036","model":"Galaxy S20"}
         }
         self.platform = "Android"
         self.fastReset = True
