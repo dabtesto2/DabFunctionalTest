@@ -17,7 +17,7 @@ def step_impl(context, device_profile, apn_name, seconds):
         allure.attach(android_device_obj.get_android_device_screen_shot(), name="apn_select_" + apn_name,
                       attachment_type=AttachmentType.PNG)
         android_device_obj.start_android_plugin_app()
-        # print("Data Connection State  " + android_device_obj.get_data_state(int(seconds)))
+        print("Data Connection State  " + android_device_obj.get_data_state(int(seconds)))
         android_device_obj.click_android_home()
         # added 5 june 2020
         context.device_id = android_device_obj.get_android_device_id()  # added 5 june 2020
