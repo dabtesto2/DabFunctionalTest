@@ -11,6 +11,6 @@
 
     Examples:
       | apn             | url                                                 | content              | data_conn_wait | device_profile |
-      | idata-full-epg1 | http://www.o2-blacklist.incompass.netstar-inc.com/  | Access denied        | 5              | OA             |
-      | mobile-full-epg2| https://www.o2-blacklist.incompass.netstar-inc.com/ | ERR_CONNECTION_RESET | 5              | OA             |
-      | use-same-apn    | https://www.dip.cc/                                 | ERR_TIMED_OUT        | 5              | PC             |
+      | idata-full-epg1 | http://www.o2-blacklist.incompass.netstar-inc.com/  | Access denied        | 15             | OA             |
+      | mobile-full-epg2| https://www.o2-blacklist.incompass.netstar-inc.com/ | ERR_CONNECTION_RESET | 15             | OA             |
+      | use-same-apn    | https://www.dip.cc/                                 | ERR_TIMED_OUT        | 15             | PC             |
